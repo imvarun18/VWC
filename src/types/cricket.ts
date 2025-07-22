@@ -29,6 +29,62 @@ export interface Match {
   winner?: Team;
   matchType: 'group' | 'quarter-final' | 'semi-final' | 'final';
   overs: number;
+  summary?: MatchSummary;
+}
+
+export interface MatchSummary {
+  id: string;
+  matchId: string;
+  title: string;
+  description: string;
+  highlights: string[];
+  manOfTheMatch?: {
+    player: Player;
+    reason: string;
+  };
+  scorecard: {
+    team1Innings: InningsSummary;
+    team2Innings: InningsSummary;
+  };
+  tossDetails: {
+    winner: Team;
+    decision: 'bat' | 'bowl';
+  };
+  umpires: string[];
+}
+
+export interface InningsSummary {
+  teamId: string;
+  totalRuns: number;
+  totalWickets: number;
+  totalOvers: number;
+  totalBalls: number;
+  extras: number;
+  runRate: number;
+  topScorers: {
+    player: Player;
+    runs: number;
+    balls: number;
+    fours: number;
+    sixes: number;
+    strikeRate: number;
+    howOut?: string;
+  }[];
+  topBowlers: {
+    player: Player;
+    overs: number;
+    maidens: number;
+    runs: number;
+    wickets: number;
+    economy: number;
+  }[];
+  partnerships: {
+    batsman1: Player;
+    batsman2: Player;
+    runs: number;
+    balls: number;
+    forWicket: number;
+  }[];
 }
 
 export interface Innings {

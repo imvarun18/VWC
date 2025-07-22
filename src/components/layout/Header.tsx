@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and Title */}
-          <Link to="/" className="flex items-center space-x-3 group transform transition-all duration-300 hover:scale-105">
+          <Link to="/" className="flex items-center space-x-3 group transform-gpu will-change-transform transition-all duration-300 ease-out active:scale-[0.96] hover:scale-[1.02] md:hover:scale-[1.01] mobile-touch">
             <div className="relative">
               {/* Header Logo - PNG Image */}
               <div className="h-12 w-12 flex items-center justify-center rounded-full overflow-hidden">
@@ -91,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`group relative flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-medium font-body transition-all duration-300 transform hover:scale-105 ${
+                  className={`group relative flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-medium font-body transition-all duration-300 ease-out transform-gpu will-change-transform active:scale-[0.96] hover:scale-[1.02] md:hover:scale-[1.01] mobile-touch ${
                     isActive(item.path)
                       ? 'bg-gradient-to-r from-white/30 to-white/20 text-white shadow-lg backdrop-blur-sm border border-white/30'
                       : 'text-white/90 hover:text-white hover:bg-gradient-to-r hover:from-white/20 hover:to-white/10 hover:backdrop-blur-sm hover:shadow-lg hover:border hover:border-white/20'
@@ -152,7 +152,7 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="group relative p-3 rounded-xl bg-gradient-to-r from-white/20 to-white/10 text-white hover:from-white/30 hover:to-white/20 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm border border-white/20 hover:border-white/30 shadow-lg hover:shadow-xl"
+              className="group relative p-3 rounded-xl bg-gradient-to-r from-white/20 to-white/10 text-white hover:from-white/30 hover:to-white/20 transition-all duration-300 ease-out transform-gpu will-change-transform active:scale-[0.96] hover:scale-[1.05] md:hover:scale-[1.03] backdrop-blur-sm border border-white/20 hover:border-white/30 shadow-lg hover:shadow-xl mobile-touch"
               aria-label="Toggle theme"
             >
               {/* Button glow effect */}
@@ -176,7 +176,7 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="group md:hidden relative p-3 rounded-xl bg-gradient-to-r from-white/20 to-white/10 text-white hover:from-white/30 hover:to-white/20 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm border border-white/20 hover:border-white/30 shadow-lg hover:shadow-xl"
+              className="group md:hidden relative p-3 rounded-xl bg-gradient-to-r from-white/20 to-white/10 text-white hover:from-white/30 hover:to-white/20 transition-all duration-300 ease-out transform-gpu will-change-transform active:scale-[0.96] hover:scale-[1.05] md:hover:scale-[1.03] backdrop-blur-sm border border-white/20 hover:border-white/30 shadow-lg hover:shadow-xl mobile-touch"
               aria-label="Toggle mobile menu"
             >
               {/* Button glow effect */}

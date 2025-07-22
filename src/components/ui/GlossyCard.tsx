@@ -22,7 +22,8 @@ const GlossyCard: React.FC<GlossyCardProps> = ({
       rounded-2xl 
       shadow-xl 
       overflow-hidden
-      ${hover ? 'transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1' : ''}
+      will-change-transform
+      ${hover ? 'transition-all duration-300 ease-out hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.98] md:hover:scale-[1.01] md:hover:-translate-y-0.5' : ''}
       ${glow ? 'hover:shadow-emerald-500/20 dark:hover:shadow-emerald-400/20' : ''}
       ${className}
     `}>
@@ -44,6 +45,11 @@ const GlossyCard: React.FC<GlossyCardProps> = ({
       {/* Enhanced border glow effect */}
       {glow && (
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary-500/40 via-secondary-500/40 to-accent-500/40 dark:from-primary-600/30 dark:via-secondary-600/30 dark:to-accent-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div>
+      )}
+      
+      {/* Interactive feedback border */}
+      {hover && (
+        <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-white/20 dark:group-hover:border-gray-400/20 transition-colors duration-300 pointer-events-none"></div>
       )}
     </div>
   );

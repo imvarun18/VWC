@@ -64,6 +64,12 @@ export const players: Player[] = [
   { id: '1', name: 'Varunsai', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
   { id: '2', name: 'Glenn Maxwell', teamId: '1', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
   { id: '3', name: 'Faf du Plessis', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '1a', name: 'A.Patel', teamId: '1', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: '1b', name: 'S.Samson', teamId: '1', role: 'wicket-keeper', battingStyle: 'right-handed' },
+  { id: '1c', name: 'R.Sharma', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '1d', name: 'R.Bishnoi', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: '1e', name: 'H.PANDYA', teamId: '1', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: '1f', name: 'Y.CHAHAL', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
   
   // Chennai Super Kings
   { id: '4', name: 'Lokesh', teamId: '2', role: 'wicket-keeper', battingStyle: 'right-handed' },
@@ -79,16 +85,39 @@ export const players: Player[] = [
   { id: '10', name: 'Sharan', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
   { id: '11', name: 'Bhuvneshwar Kumar', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
   { id: '12', name: 'Abdul Samad', teamId: '4', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
+  { id: '10a', name: 'A.Finch', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '10b', name: 'T.Head', teamId: '4', role: 'batsman', battingStyle: 'left-handed' },
+  { id: '10c', name: 'S.Smith', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '10d', name: 'T.David', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '10e', name: 'J.HAZLEWOOD', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: '10f', name: 'M.STARC', teamId: '4', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'left-arm-fast' },
+  { id: '10g', name: 'P.CUMMINS', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: '10h', name: 'N.LYON', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
   
   // Deccan Chargers
   { id: '13', name: 'Hemanth', teamId: '5', role: 'batsman', battingStyle: 'left-handed' },
   { id: '14', name: 'Rashid Khan', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
   { id: '15', name: 'Kane Williamson', teamId: '5', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '13a', name: 'N.Reddy', teamId: '5', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '13b', name: 'T.Varma', teamId: '5', role: 'batsman', battingStyle: 'left-handed' },
+  { id: '13c', name: 'R.Pant', teamId: '5', role: 'wicket-keeper', battingStyle: 'left-handed' },
+  { id: '13d', name: 'Y.Jaiswal', teamId: '5', role: 'batsman', battingStyle: 'left-handed' },
+  { id: '13e', name: 'A.PATEL', teamId: '5', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: '13f', name: 'A.SINGH', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: '13g', name: 'J.BUMRAH', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: '13h', name: 'R.BISHNOI', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
   
   // Rising Stars
   { id: '16', name: 'Saketh', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
   { id: '17', name: 'Axar Patel', teamId: '6', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
   { id: '18', name: 'Prithvi Shaw', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '16a', name: 'V.Kohli', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '16b', name: 'N.Reddy', teamId: '6', role: 'all-rounder', battingStyle: 'right-handed' },
+  { id: '16c', name: 'R.Sharma', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
+  { id: '16d', name: 'K.Yadav', teamId: '6', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'leg-break' },
+  { id: '16e', name: 'A.SINGH', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: '16f', name: 'J.BUMRAH', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: '16g', name: 'R.BISHNOI', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
   
   // SM Champions
   { id: '19', name: 'Shivamani', teamId: '7', role: 'wicket-keeper', battingStyle: 'right-handed' },
@@ -113,9 +142,9 @@ export const matches: Match[] = [
     result: 'Sunrisers Hyderabad won by 6 wickets',
     winner: teams[3],
     matchType: 'group',
-    overs: 20
+    overs: 5
   },
-  // Match 2 - July 21 (LIVE - Current Match)
+  // Match 2 - July 21 (COMPLETED)
   {
     id: '2',
     date: '2025-07-21',
@@ -123,11 +152,13 @@ export const matches: Match[] = [
     venue: 'Eden Gardens, Kolkata',
     team1: teams[5], // Rising Stars
     team2: teams[0], // Royal Challengers Bengaluru
-    status: 'live',
+    status: 'completed',
+    result: 'Rising Stars won by 51 runs',
+    winner: teams[5],
     matchType: 'group',
-    overs: 20
+    overs: 5
   },
-  // Match 3 - July 22 (UPCOMING)
+  // Match 3 - July 22 (LIVE - Current Match)
   {
     id: '3',
     date: '2025-07-22',
@@ -135,7 +166,7 @@ export const matches: Match[] = [
     venue: 'Wankhede Stadium, Mumbai',
     team1: teams[2], // Mumbai Indians
     team2: teams[1], // Chennai Super Kings
-    status: 'upcoming',
+    status: 'live',
     matchType: 'group',
     overs: 20
   },
@@ -370,26 +401,26 @@ export const tournamentUpdates: TournamentUpdate[] = [
   {
     id: '2',
     title: 'Sunrisers Hyderabad Win Tournament Opener',
-    content: 'Sunrisers Hyderabad defeated Deccan Chargers by 7 wickets in the opening match at Rajiv Gandhi International Stadium.',
+    content: 'Sunrisers Hyderabad defeated Deccan Chargers by 6 wickets in the thrilling T5 format opening match at Rajiv Gandhi International Stadium. SRH chased down DC\'s 30/6 with ease, reaching 34/4 in just 3.4 overs.',
     date: '2025-07-20',
     type: 'result',
     priority: 'high'
   },
   {
     id: '3',
-    title: 'Live Now: Rising Stars vs Royal Challengers Bengaluru',
-    content: 'Catch the live action as Varunsai and team take on Rising Stars at Eden Gardens. Varunsai playing a magnificent innings!',
+    title: 'Rising Stars Dominate Royal Challengers Bengaluru',
+    content: 'Rising Stars delivered a commanding performance, defeating Royal Challengers Bengaluru by 51 runs in a T5 format match at Eden Gardens. V.Kohli\'s unbeaten 31 led Rising Stars to 71/8 in 5 overs, while RCB could only manage 20/9 in reply.',
     date: '2025-07-21',
-    type: 'announcement',
+    type: 'result',
     priority: 'high'
   },
   {
     id: '4',
-    title: 'Tomorrow: Mumbai Indians vs Chennai Super Kings',
-    content: 'Two powerhouse teams clash tomorrow at Wankhede Stadium. Anjaneyulu vs Lokesh - a battle of the titans!',
-    date: '2025-07-21',
-    type: 'news',
-    priority: 'medium'
+    title: 'Live Now: Mumbai Indians vs Chennai Super Kings',
+    content: 'The action continues today at Wankhede Stadium as Mumbai Indians take on Chennai Super Kings. Anjaneyulu vs Lokesh - a battle of the titans!',
+    date: '2025-07-22',
+    type: 'announcement',
+    priority: 'high'
   },
   {
     id: '5',
@@ -401,14 +432,14 @@ export const tournamentUpdates: TournamentUpdate[] = [
   }
 ];
 
-// Mock live score data - Match 2: Rising Stars vs Royal Challengers Bengaluru
+// Mock live score data - Match 3: Mumbai Indians vs Chennai Super Kings (Today's Live Match)
 export const currentLiveScore: LiveScore = {
-  matchId: '2',
+  matchId: '3',
   currentInnings: {
     id: 'inn1',
-    matchId: '2',
-    battingTeam: teams[0], // Royal Challengers Bengaluru
-    bowlingTeam: teams[5], // Rising Stars
+    matchId: '3',
+    battingTeam: teams[2], // Mumbai Indians
+    bowlingTeam: teams[1], // Chennai Super Kings
     innings: 1,
     score: 0,
     wickets: 0,
@@ -426,7 +457,7 @@ export const currentLiveScore: LiveScore = {
   recentBalls: [],
   currentBatsmen: {
     striker: {
-      player: players[0], // Varunsai
+      player: players[6], // Anjaneyulu
       stats: {
         runs: 0,
         balls: 0,

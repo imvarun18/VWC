@@ -5,10 +5,10 @@ import { teams } from '../data/mockData';
 // Base tournament schedule template
 const TOURNAMENT_SCHEDULE_TEMPLATE = [
   // Week 1
-  { team1Id: '5', team2Id: '4', time: '15:30', venue: 'Rajiv Gandhi International Stadium, Hyderabad', dayOffset: -1 }, // Yesterday
-  { team1Id: '6', team2Id: '1', time: '19:30', venue: 'Eden Gardens, Kolkata', dayOffset: 0 }, // Today - Upcoming at 7:30 PM
-  { team1Id: '3', team2Id: '2', time: '19:30', venue: 'Wankhede Stadium, Mumbai', dayOffset: 1 }, // Tomorrow
-  { team1Id: '5', team2Id: '7', time: '19:30', venue: 'Rajiv Gandhi International Stadium, Hyderabad', dayOffset: 2 },
+  { team1Id: '5', team2Id: '4', time: '15:30', venue: 'Rajiv Gandhi International Stadium, Hyderabad', dayOffset: -2 }, // July 20 (2 days ago)
+  { team1Id: '6', team2Id: '1', time: '19:30', venue: 'Eden Gardens, Kolkata', dayOffset: -1 }, // July 21 (Yesterday - Completed)
+  { team1Id: '3', team2Id: '2', time: '19:30', venue: 'Wankhede Stadium, Mumbai', dayOffset: 0 }, // July 22 (Today - Live)
+  { team1Id: '5', team2Id: '7', time: '19:30', venue: 'Rajiv Gandhi International Stadium, Hyderabad', dayOffset: 1 },
   { team1Id: '4', team2Id: '6', time: '19:30', venue: 'Rajiv Gandhi International Stadium, Hyderabad', dayOffset: 3 },
   { team1Id: '1', team2Id: '2', time: '19:30', venue: 'M.Chinnaswamy Stadium, Bangalore', dayOffset: 4 },
   // Week 2
@@ -43,9 +43,12 @@ export const generateDynamicMatches = (): Match[] => {
     if (isBefore(matchDate, today) && !isToday(matchDate)) {
       status = 'completed';
       // Specific results for known matches
-      if (index === 0) { // First match: DC vs SRH
+      if (index === 0) { // First match: DC vs SRH (July 20)
         winner = team2; // SRH (team2 in this match)
         result = `${team2.name} won by 6 wickets`;
+      } else if (index === 1) { // Second match: RS vs RCB (July 21)
+        winner = team1; // Rising Stars (team1 in this match)
+        result = `${team1.name} won by 51 runs`;
       } else {
         // Random result for other completed matches
         const winnerTeam = Math.random() > 0.5 ? team1 : team2;
@@ -72,7 +75,7 @@ export const generateDynamicMatches = (): Match[] => {
       result,
       winner,
       matchType: 'group' as const,
-      overs: 20
+      overs: (index === 0 || index === 1) ? 5 : 20 // T5 format for first two matches
     };
   });
 };

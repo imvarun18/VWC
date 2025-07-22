@@ -1,23 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Clock, 
   Activity,
   CheckCircle,
   Calendar,
   Trophy,
-  Award,
   Play,
-  TrendingUp
+  TrendingUp,
+  Upload,
+  Eye,
+  FileText
 } from 'lucide-react';
 import { getLiveMatch, getTodaysMatches, getCompletedMatches } from '../utils/dynamicSchedule';
 import { currentLiveScore } from '../data/mockData';
+import { getSummary, hasSummary } from '../utils/matchSummaryStorage';
+import '../data/sampleMatchSummary'; // Load sample data
 import TeamLogo from '../components/TeamLogo';
 import GlossyCard from '../components/ui/GlossyCard';
+import MatchSummary from '../components/MatchSummary';
+import MatchSummaryUpload from '../components/MatchSummaryUpload';
+import type { Match, MatchSummary as MatchSummaryType } from '../types/cricket';
 
 const Scorecard: React.FC = () => {
+  const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
+  const [selectedSummary, setSelectedSummary] = useState<MatchSummaryType | null>(null);
+  const [showUploadModal, setShowUploadModal] = useState<Match | null>(null);
+  
   const liveMatch = getLiveMatch();
   const todaysMatches = getTodaysMatches();
   const completedMatches = getCompletedMatches().slice(0, 3); // Show last 3 completed matches
+
+  const handleMatchClick = (match: Match) => {
+    const summary = getSummary(match.id);
+    if (summary) {
+      setSelectedMatch(match);
+      setSelectedSummary(summary);
+    } else {
+      setShowUploadModal(match);
+    }
+  };
+
+  const handleSummaryUploaded = (summary: MatchSummaryType) => {
+    // The storage is handled in the upload component
+    setShowUploadModal(null);
+    // Optionally show the uploaded summary
+    const match = completedMatches.find(m => m.id === summary.matchId);
+    if (match) {
+      setSelectedMatch(match);
+      setSelectedSummary(summary);
+    }
+  };
   
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -40,7 +72,7 @@ const Scorecard: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                  <span className="text-red-500 font-bold text-lg">LIVE</span>
+                  <span className="px-2 py-0.5 rounded-full text-xs font-medium border-2 border-red-500 text-red-600 dark:text-red-400 bg-transparent">LIVE</span>
                 </div>
                 <div className="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
                 <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
@@ -71,7 +103,7 @@ const Scorecard: React.FC = () => {
                 </div>
                 
                 {/* Current Score */}
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg p-4 border border-green-200 dark:border-green-700">
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl p-4 border border-green-200 dark:border-green-700">
                   <div className="flex items-baseline space-x-2">
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
                       {currentLiveScore.currentInnings.score}/{currentLiveScore.currentInnings.wickets}
@@ -99,7 +131,7 @@ const Scorecard: React.FC = () => {
                 </div>
 
                 {/* Match Status */}
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-700">
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-700">
                   <div className="flex items-center space-x-2 mb-2">
                     <TrendingUp className="w-5 h-5 text-blue-500" />
                     <span className="font-semibold text-gray-900 dark:text-white">Match Status</span>
@@ -116,7 +148,7 @@ const Scorecard: React.FC = () => {
 
             {/* Match Details */}
             <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <div className="text-center">
                   <p className="text-gray-600 dark:text-gray-400">Format</p>
                   <p className="font-semibold text-gray-900 dark:text-white">T5</p>
@@ -124,10 +156,6 @@ const Scorecard: React.FC = () => {
                 <div className="text-center">
                   <p className="text-gray-600 dark:text-gray-400">Overs</p>
                   <p className="font-semibold text-gray-900 dark:text-white">5 overs per side</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-gray-600 dark:text-gray-400">Toss</p>
-                  <p className="font-semibold text-gray-900 dark:text-white">Yet to happen</p>
                 </div>
               </div>
             </div>
@@ -200,106 +228,123 @@ const Scorecard: React.FC = () => {
       {/* Recent Completed Matches */}
       {completedMatches.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-6 flex items-center tracking-tight">
-            <CheckCircle className="w-6 h-6 mr-2 text-green-500" />
-            Recent Match Results
-          </h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-display font-bold text-gray-900 dark:text-white flex items-center tracking-tight">
+              <CheckCircle className="w-6 h-6 mr-2 text-green-500" />
+              Recent Match Results
+            </h2>
+            <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center space-x-2">
+              <FileText className="w-4 h-4" />
+              <span>Click cards to view summaries or upload new ones</span>
+            </div>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {completedMatches.map((match) => (
-              <div key={match.id} className="relative group">
-                {/* Modern Match Result Card */}
-                <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
-                  
-                  {/* Background Texture/Pattern */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-primary-100/20 dark:from-primary-900/10 dark:via-transparent dark:to-primary-800/10"></div>
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary-100/20 to-transparent dark:from-primary-800/20 rounded-full blur-xl"></div>
-                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-primary-200/20 to-transparent dark:from-primary-700/20 rounded-full blur-lg"></div>
-                  
-                  <div className="relative z-10">
-                    {/* Header with Time and Status */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {completedMatches.map((match) => {
+              const hasMatchSummary = hasSummary(match.id);
+              
+              return (
+                <div key={match.id} className="relative group">
+                  {/* Modern Rectangular Match Result Card */}
+                  <div 
+                    className="relative bg-gradient-to-br from-white/90 via-white/95 to-white/90 dark:from-gray-800/90 dark:via-gray-800/95 dark:to-gray-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-white/20 dark:border-gray-700/30 overflow-hidden transition-all duration-300 ease-out transform-gpu will-change-transform hover:shadow-2xl active:scale-[0.98] hover:scale-[1.01] cursor-pointer mobile-touch"
+                    onClick={() => handleMatchClick(match)}
+                  >
+                    {/* Header with Match Number and Status */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-2">
-                        <Clock className="w-3 h-3 text-gray-500 dark:text-gray-400" />
-                        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
-                          {match.time}
-                        </span>
+                      <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-2 py-1 rounded-lg text-xs font-bold shadow-lg">
+                        Match {match.id}
                       </div>
-                      <span className="text-xs px-2 py-1 bg-green-500 text-white rounded-full font-semibold tracking-wide shadow-md">
+                      <span className="text-xs px-2 py-1 border-2 border-green-500 text-green-600 dark:text-green-400 bg-transparent rounded-lg font-semibold tracking-wide">
                         COMPLETED
                       </span>
                     </div>
-                    
-                    {/* Teams Section */}
-                    <div className="flex items-center justify-center mb-4">
+
+                    {/* Teams Section - Horizontal Layout */}
+                    <div className="flex items-center justify-between mb-4">
                       {/* Team 1 */}
-                      <div className="flex flex-col items-center space-y-1">
-                        <div className="relative">
-                          <TeamLogo team={match.team1} size="large" className="drop-shadow-lg" />
+                      <div className="flex flex-col items-center space-y-2 flex-1">
+                        <div className="relative group">
+                          <div className="w-16 h-16 flex items-center justify-center">
+                            <TeamLogo team={match.team1} size="large" className="drop-shadow-lg transition-transform duration-300 ease-out group-hover:scale-110" />
+                          </div>
                           {match.winner?.id === match.team1.id && (
-                            <div className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
-                              <Trophy className="w-2.5 h-2.5 text-yellow-800" />
+                            <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg">
+                              <Trophy className="w-2.5 h-2.5 text-yellow-900" />
                             </div>
                           )}
                         </div>
+                        <h3 className="text-sm font-bold text-gray-900 dark:text-white text-center leading-tight">
+                          {match.team1.shortName}
+                        </h3>
                       </div>
                       
                       {/* VS Divider */}
-                      <div className="mx-4 flex flex-col items-center">
-                        <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
-                        <span className="text-gray-400 dark:text-gray-500 text-xs font-light tracking-wider py-1">
+                      <div className="flex flex-col items-center mx-3">
+                        <div className="text-lg font-bold text-gray-400 dark:text-gray-500 tracking-wider">
                           vs
-                        </span>
-                        <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+                        </div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                          {match.time}
+                        </div>
                       </div>
                       
                       {/* Team 2 */}
-                      <div className="flex flex-col items-center space-y-1">
-                        <div className="relative">
-                          <TeamLogo team={match.team2} size="large" className="drop-shadow-lg" />
+                      <div className="flex flex-col items-center space-y-2 flex-1">
+                        <div className="relative group">
+                          <div className="w-16 h-16 flex items-center justify-center">
+                            <TeamLogo team={match.team2} size="large" className="drop-shadow-lg transition-transform duration-300 ease-out group-hover:scale-110" />
+                          </div>
                           {match.winner?.id === match.team2.id && (
-                            <div className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
-                              <Trophy className="w-2.5 h-2.5 text-yellow-800" />
+                            <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg">
+                              <Trophy className="w-2.5 h-2.5 text-yellow-900" />
                             </div>
                           )}
                         </div>
+                        <h3 className="text-sm font-bold text-gray-900 dark:text-white text-center leading-tight">
+                          {match.team2.shortName}
+                        </h3>
                       </div>
                     </div>
                     
-                    {/* Match Result - The Key Feature */}
-                    {match.result && (
+                    {/* Match Result - Single Line Winner Announcement */}
+                    {match.result && match.winner && (
                       <div className="mb-4">
-                        <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 dark:from-orange-600 dark:via-orange-500 dark:to-yellow-500 rounded-lg p-3 shadow-lg">
-                          <div className="flex items-center justify-center space-x-2">
-                            <Award className="w-4 h-4 text-white drop-shadow-lg" />
-                            <p className="text-sm font-bold text-white text-center drop-shadow-md tracking-wide">
-                              {match.result}
-                            </p>
-                            <Award className="w-4 h-4 text-white drop-shadow-lg" />
+                        <div className="bg-gradient-to-r from-green-500 via-green-400 to-emerald-400 dark:from-green-600 dark:via-green-500 dark:to-emerald-500 rounded-xl p-3 shadow-lg border border-green-200 dark:border-green-700">
+                          <div className="text-center">
+                            <div className="text-sm font-bold text-white drop-shadow-md">
+                              {match.result.replace(match.winner.name, match.winner.shortName)}
+                            </div>
                           </div>
                         </div>
                       </div>
                     )}
                     
-                    {/* Divider */}
-                    <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent mb-3"></div>
-                    
-                    {/* Stadium and Date */}
-                    <div className="text-center space-y-0.5">
-                      <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                    {/* Venue */}
+                    <div className="text-center mb-3">
+                      <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">
                         {match.venue}
                       </p>
-                      <p className="text-xs text-gray-400 dark:text-gray-500">
-                        {new Date(match.date).toLocaleDateString('en-US', { 
-                          month: 'short', 
-                          day: 'numeric' 
-                        })}
-                      </p>
+                    </div>
+
+                    {/* Summary Status Indicator */}
+                    <div className="flex justify-center">
+                      {hasMatchSummary ? (
+                        <div className="flex items-center space-x-1 border-2 border-green-500 text-green-600 dark:text-green-400 bg-transparent rounded-lg px-3 py-1.5 text-xs font-semibold shadow-md">
+                          <Eye className="w-3 h-3" />
+                          <span>View Summary</span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center space-x-1 border-2 border-orange-500 text-orange-600 dark:text-orange-400 bg-transparent rounded-lg px-3 py-1.5 text-xs font-semibold shadow-md">
+                          <Upload className="w-3 h-3" />
+                          <span>Upload Summary</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
@@ -315,6 +360,27 @@ const Scorecard: React.FC = () => {
             There are no matches to display at the moment. Check back later for updates.
           </p>
         </GlossyCard>
+      )}
+
+      {/* Match Summary Modal */}
+      {selectedMatch && selectedSummary && (
+        <MatchSummary
+          match={selectedMatch}
+          summary={selectedSummary}
+          onClose={() => {
+            setSelectedMatch(null);
+            setSelectedSummary(null);
+          }}
+        />
+      )}
+
+      {/* Upload Summary Modal */}
+      {showUploadModal && (
+        <MatchSummaryUpload
+          match={showUploadModal}
+          onSummaryUploaded={handleSummaryUploaded}
+          onClose={() => setShowUploadModal(null)}
+        />
       )}
     </div>
   );

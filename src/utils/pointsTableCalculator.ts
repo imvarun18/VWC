@@ -53,13 +53,14 @@ export const calculateDynamicPointsTable = (): PointsTableEntry[] => {
     team1Stats.played++;
     team2Stats.played++;
 
-    // Specific stats for first match (DC vs SRH - SRH won by 6 wickets)
+    // Specific stats for match results
     if (matchIndex === 0 && match.team1.id === '5' && match.team2.id === '4') {
-      // DC (team1) batted first and scored around 120, SRH (team2) chased and won by 6 wickets
-      const dcScore = 120;
-      const srhScore = 121; // Won by 6 wickets, so they had wickets in hand
-      const dcOvers = 20;
-      const srhOvers = 18.3; // Finished early with 6 wickets in hand
+      // Match 1: DC vs SRH - SRH won by 6 wickets (T5 format)
+      // DC (team1) batted first and scored 30/6 in 5.0 overs, SRH (team2) chased 34/4 in 3.4 overs
+      const dcScore = 30;
+      const srhScore = 34;
+      const dcOvers = 5.0;
+      const srhOvers = 3.4;
       
       team1Stats.runsScored += dcScore;
       team1Stats.oversFaced += dcOvers;
@@ -70,6 +71,23 @@ export const calculateDynamicPointsTable = (): PointsTableEntry[] => {
       team2Stats.oversFaced += srhOvers;
       team2Stats.runsConceded += dcScore;
       team2Stats.oversBowled += dcOvers;
+    } else if (matchIndex === 1 && match.team1.id === '6' && match.team2.id === '1') {
+      // Match 2: RS vs RCB - RS won by 51 runs (T5 format)
+      // RS (team1) batted first and scored 71/8 in 5.0 overs, RCB (team2) scored 20/9 in 5.0 overs
+      const rsScore = 71;
+      const rcbScore = 20;
+      const rsOvers = 5.0;
+      const rcbOvers = 5.0;
+      
+      team1Stats.runsScored += rsScore;
+      team1Stats.oversFaced += rsOvers;
+      team1Stats.runsConceded += rcbScore;
+      team1Stats.oversBowled += rcbOvers;
+
+      team2Stats.runsScored += rcbScore;
+      team2Stats.oversFaced += rcbOvers;
+      team2Stats.runsConceded += rsScore;
+      team2Stats.oversBowled += rsOvers;
     } else {
       // Generate realistic match stats for other matches
       const team1Score = Math.floor(Math.random() * 80) + 120; // 120-200 runs
