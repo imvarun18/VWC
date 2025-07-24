@@ -70,6 +70,13 @@ const PointsTable: React.FC = () => {
           { team: 'SM Champions', runs: 32, wickets: 6, overs: 5.0 },
           { team: 'Deccan Chargers', runs: 33, wickets: 2, overs: 3.4 }
         ]
+      },
+      { // Match 5: SRH vs RS (RS won)
+        teams: ['Sunrisers Hyderabad', 'Rising Stars'],
+        scores: [
+          { team: 'Sunrisers Hyderabad', runs: 14, wickets: 5, overs: 5.0 },
+          { team: 'Rising Stars', runs: 18, wickets: 3, overs: 1.2 }
+        ]
       }
     ];
     
@@ -398,7 +405,9 @@ const PointsTable: React.FC = () => {
               Net Run Rate (NRR) acts as a tiebreaker when teams are level on points.
             </p>
             <div className="text-xs text-gray-500 dark:text-gray-500">
-              NRR = (Runs scored per over) - (Runs conceded per over)
+              <strong>NRR Calculation:</strong> (Runs scored per over) - (Runs conceded per over)
+              <br />
+              <em>Note: Overs like 3.4 means 3 complete overs + 4 balls (22 balls total)</em>
             </div>
           </div>
         </div>

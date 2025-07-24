@@ -24,6 +24,10 @@ const Stats: React.FC = () => {
       // Match 4: DC vs SMC (DC's second match)
       { team: 'SM Champions', runs: 32, overs: 5.0, matches: 1 },
       { team: 'Deccan Chargers', runs: 33, overs: 3.4, matches: 1 }, // DC's second innings
+      
+      // Match 5: SRH vs RS
+      { team: 'Sunrisers Hyderabad', runs: 14, overs: 5.0, matches: 1 }, // SRH's second match
+      { team: 'Rising Stars', runs: 18, overs: 1.2, matches: 1 }, // RS's second match
     ];
 
     // Aggregate runs by team
@@ -77,6 +81,10 @@ const Stats: React.FC = () => {
       // Match 4: DC vs SMC
       { team: 'Deccan Chargers', wickets: 6, runs: 32, overs: 5.0, matches: 1 }, // DC took 6 SMC wickets (DC's second match)
       { team: 'SM Champions', wickets: 2, runs: 33, overs: 3.4, matches: 1 }, // SMC took 2 DC wickets
+      
+      // Match 5: SRH vs RS
+      { team: 'Rising Stars', wickets: 5, runs: 14, overs: 5.0, matches: 1 }, // RS took 5 SRH wickets (RS's second match)
+      { team: 'Sunrisers Hyderabad', wickets: 3, runs: 18, overs: 1.2, matches: 1 }, // SRH took 3 RS wickets (SRH's second match)
     ];
 
     // Aggregate wickets by team

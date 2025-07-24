@@ -104,7 +104,7 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
       team2Stats.runsConceded += cskScore;
       team2Stats.oversBowled += cskOvers;
     } else if (matchIndex === 3 && match.team1.id === '5' && match.team2.id === '7') {
-      // Match 4: DC vs SMC - DC won by 8 wickets (T5 format)
+      // Match 4: DC vs SMC - DC won by 1 run (T5 format)
       // SMC (team2) batted first and scored 32/6 in 5.0 overs, DC (team1) chased 33/2 in 3.4 overs
       const smcScore = 32;
       const dcScore = 33;
@@ -120,6 +120,23 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
       team2Stats.oversFaced += smcOvers;
       team2Stats.runsConceded += dcScore;
       team2Stats.oversBowled += dcOvers;
+    } else if (matchIndex === 4 && match.team1.id === '4' && match.team2.id === '6') {
+      // Match 5: SRH vs RS - RS won by 7 wickets (T5 format)
+      // SRH (team1) batted first and scored 14/5 in 5.0 overs, RS (team2) chased 18/3 in 1.2 overs
+      const srhScore = 14;
+      const rsScore = 18;
+      const srhOvers = 5.0;
+      const rsOvers = 1.2;
+      
+      team1Stats.runsScored += srhScore;
+      team1Stats.oversFaced += srhOvers;
+      team1Stats.runsConceded += rsScore;
+      team1Stats.oversBowled += rsOvers;
+
+      team2Stats.runsScored += rsScore;
+      team2Stats.oversFaced += rsOvers;
+      team2Stats.runsConceded += srhScore;
+      team2Stats.oversBowled += srhOvers;
     } else {
       // Generate realistic match stats for other matches
       const team1Score = Math.floor(Math.random() * 80) + 120; // 120-200 runs
@@ -170,16 +187,16 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
     // Assign exact NRR values for each team based on provided data
     switch (stats.team.id) {
       case '6': // Rising Stars (RS)
-        nrr = 10.200;
+        nrr = 10.653;
         break;
       case '2': // Chennai Super Kings (CSK)
         nrr = 6.800;
         break;
-      case '4': // Sunrisers Hyderabad (SRH)
-        nrr = 3.273;
-        break;
       case '5': // Deccan Chargers (DC)
         nrr = -0.346;
+        break;
+      case '4': // Sunrisers Hyderabad (SRH)
+        nrr = -2.040;
         break;
       case '7': // SM Champions (SMC)
         nrr = -2.600;

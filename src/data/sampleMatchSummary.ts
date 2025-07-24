@@ -703,9 +703,153 @@ export const fourthMatchSummary: MatchSummary = {
   umpires: ['Ravi Kumar', 'Suresh Patel']
 };
 
+// Sample match summary for Match 5 (SRH vs RS)
+export const fifthMatchSummary: MatchSummary = {
+  id: 'summary-5',
+  matchId: '5', // This corresponds to the completed SRH vs RS match
+  title: 'Sunrisers Hyderabad vs Rising Stars - Low Scoring Thriller',
+  description: 'An incredible low-scoring match where SRH was bowled out for just 14 runs in 5 overs, and Rising Stars chased it down in just 1.2 overs with 7 wickets in hand.',
+  highlights: [
+    'SRH all out for 14 runs in 5 overs - one of the lowest scores in tournament history',
+    'Rising Stars chased down the target in just 1.2 overs',
+    'Excellent bowling performance by Rising Stars bowlers',
+    'Quick-fire finish by Rising Stars batsmen'
+  ],
+  scorecard: {
+    team1Innings: {
+      teamId: '3', // Sunrisers Hyderabad
+      totalRuns: 14,
+      totalWickets: 5,
+      totalOvers: 5,
+      totalBalls: 0,
+      extras: 2,
+      runRate: 2.80,
+      topScorers: [
+        {
+          player: findPlayerByNameAndTeam('K.Williamson', '3'),
+          runs: 5,
+          balls: 12,
+          fours: 0,
+          sixes: 0,
+          strikeRate: 41.67,
+          howOut: 'caught'
+        },
+        {
+          player: findPlayerByNameAndTeam('A.Sharma', '3'),
+          runs: 3,
+          balls: 8,
+          fours: 0,
+          sixes: 0,
+          strikeRate: 37.50,
+          howOut: 'bowled'
+        },
+        {
+          player: findPlayerByNameAndTeam('V.Shankar', '3'),
+          runs: 2,
+          balls: 6,
+          fours: 0,
+          sixes: 0,
+          strikeRate: 33.33,
+          howOut: 'lbw'
+        }
+      ],
+      topBowlers: [
+        {
+          player: players.find(p => p.name === 'A.SINGH') || players.find(p => p.teamId === '6') || players[0],
+          overs: 2,
+          maidens: 1,
+          runs: 4,
+          wickets: 2,
+          economy: 2.00
+        },
+        {
+          player: players.find(p => p.name === 'J.BUMRAH') || players.find(p => p.teamId === '6') || players[1],
+          overs: 2,
+          maidens: 0,
+          runs: 6,
+          wickets: 2,
+          economy: 3.00
+        },
+        {
+          player: players.find(p => p.name === 'K.Yadav') || players.find(p => p.teamId === '6') || players[2],
+          overs: 1,
+          maidens: 0,
+          runs: 4,
+          wickets: 1,
+          economy: 4.00
+        }
+      ],
+      partnerships: []
+    },
+    team2Innings: {
+      teamId: '6', // Rising Stars
+      totalRuns: 18,
+      totalWickets: 3,
+      totalOvers: 1,
+      totalBalls: 2,
+      extras: 1,
+      runRate: 13.50,
+      topScorers: [
+        {
+          player: findPlayerByNameAndTeam('V.Kohli', '6'),
+          runs: 8,
+          balls: 4,
+          fours: 1,
+          sixes: 0,
+          strikeRate: 200.00,
+          howOut: 'not out'
+        },
+        {
+          player: findPlayerByNameAndTeam('N.Reddy', '6'),
+          runs: 6,
+          balls: 2,
+          fours: 0,
+          sixes: 1,
+          strikeRate: 300.00,
+          howOut: 'not out'
+        },
+        {
+          player: findPlayerByNameAndTeam('R.Sharma', '6'),
+          runs: 3,
+          balls: 2,
+          fours: 0,
+          sixes: 0,
+          strikeRate: 150.00,
+          howOut: 'caught'
+        }
+      ],
+      topBowlers: [
+        {
+          player: players.find(p => p.name === 'T.Natarajan') || players.find(p => p.teamId === '3') || players[0],
+          overs: 0.4,
+          maidens: 0,
+          runs: 10,
+          wickets: 2,
+          economy: 15.00
+        },
+        {
+          player: players.find(p => p.name === 'B.Kumar') || players.find(p => p.teamId === '3') || players[1],
+          overs: 0.4,
+          maidens: 0,
+          runs: 8,
+          wickets: 1,
+          economy: 12.00
+        }
+      ],
+      partnerships: []
+    }
+  },
+  tossDetails: {
+    winner: teams.find(t => t.id === '3') || teams[0], // Sunrisers Hyderabad
+    decision: 'bat'
+  },
+  umpires: ['Ravi Kumar', 'Suresh Patel']
+};
+
 // Store the sample summaries automatically when the module loads
 import { storeSummary } from '../utils/matchSummaryStorage';
 storeSummary(sampleMatchSummary);
 storeSummary(firstMatchSummary);
 storeSummary(thirdMatchSummary);
 storeSummary(fourthMatchSummary);
+storeSummary(fifthMatchSummary);
