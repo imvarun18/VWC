@@ -2,8 +2,6 @@ import React from 'react';
 import { TrendingUp } from 'lucide-react';
 import { teams } from '../data/mockData';
 import TeamLogo from '../components/TeamLogo';
-import OrangeCapIcon from '../components/OrangeCapIcon';
-import PurpleCapIcon from '../components/PurpleCapIcon';
 
 const Stats: React.FC = () => {
 
@@ -148,7 +146,13 @@ const Stats: React.FC = () => {
               <div className="flex items-center justify-between mb-4 sm:mb-6">
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-white/30 to-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg">
-                    <OrangeCapIcon size={40} className="drop-shadow-lg" />
+                    <img 
+                      src="/orange_cap.png" 
+                      alt="Orange Cap" 
+                      width={40} 
+                      height={40} 
+                      className="object-contain drop-shadow-lg" 
+                    />
                   </div>
                   <div>
                     <h2 className="text-xl sm:text-2xl font-bold drop-shadow-lg">Orange Cap</h2>
@@ -247,7 +251,13 @@ const Stats: React.FC = () => {
               <div className="flex items-center justify-between mb-4 sm:mb-6">
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-white/30 to-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg">
-                    <PurpleCapIcon size={40} className="drop-shadow-lg" />
+                    <img 
+                      src="/purple_cap.png" 
+                      alt="Purple Cap" 
+                      width={40} 
+                      height={40} 
+                      className="object-contain drop-shadow-lg" 
+                    />
                   </div>
                   <div>
                     <h2 className="text-xl sm:text-2xl font-bold drop-shadow-lg">Purple Cap</h2>
