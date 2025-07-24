@@ -282,7 +282,7 @@ const PointsTable: React.FC = () => {
                           </span>
                           <button
                             onClick={() => setSelectedTeamNRR(selectedTeamNRR === entry.team.id ? null : entry.team.id)}
-                            className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                            className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors nrr-info-button"
                             title="View NRR calculation"
                           >
                             <Info className="w-3 h-3 text-gray-500 dark:text-gray-400" />
@@ -291,9 +291,9 @@ const PointsTable: React.FC = () => {
                         
                         {/* NRR Calculation Card */}
                         {selectedTeamNRR === entry.team.id && (
-                          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-20">
-                            <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs rounded-lg p-4 shadow-xl border border-gray-300 dark:border-gray-600 min-w-72">
-                              <div className="text-center font-semibold mb-3 text-primary-600 dark:text-primary-400">
+                          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 nrr-popup-backdrop sm:absolute sm:bottom-full sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:mb-2 sm:bg-transparent sm:backdrop-blur-none sm:inset-auto sm:flex-none sm:items-start sm:justify-start sm:p-0">
+                            <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs rounded-lg p-4 shadow-xl border border-gray-300 dark:border-gray-600 w-full max-w-sm sm:min-w-72 sm:max-w-none sm:w-auto max-h-[80vh] overflow-y-auto nrr-popup-mobile sm:nrr-popup-desktop">
+                              <div className="text-center font-semibold mb-3 text-primary-600 dark:text-primary-400 text-sm sm:text-xs">
                                 {entry.team.name} - NRR Calculation
                               </div>
                               {(() => {
@@ -301,14 +301,14 @@ const PointsTable: React.FC = () => {
                                 return (
                                   <div className="space-y-2">
                                     <div className="border-b border-gray-200 dark:border-gray-600 pb-2 mb-2">
-                                      <div className="text-green-600 dark:text-green-400 font-medium mb-1">Batting:</div>
+                                      <div className="text-green-600 dark:text-green-400 font-medium mb-1 text-sm sm:text-xs">Batting:</div>
                                       <div className="text-xs space-y-1">
                                         <div>Runs Scored: {details.runsScored} in {details.oversFaced.toFixed(1)} overs</div>
                                         <div>Batting Rate: {details.runRate.toFixed(3)} runs/over</div>
                                       </div>
                                     </div>
                                     <div className="border-b border-gray-200 dark:border-gray-600 pb-2 mb-2">
-                                      <div className="text-red-600 dark:text-red-400 font-medium mb-1">Bowling:</div>
+                                      <div className="text-red-600 dark:text-red-400 font-medium mb-1 text-sm sm:text-xs">Bowling:</div>
                                       <div className="text-xs space-y-1">
                                         <div>Runs Conceded: {details.runsConceded} in {details.oversBowled.toFixed(1)} overs</div>
                                         <div>Conceding Rate: {details.concededRate.toFixed(3)} runs/over</div>
@@ -331,12 +331,12 @@ const PointsTable: React.FC = () => {
                               {/* Close button */}
                               <button
                                 onClick={() => setSelectedTeamNRR(null)}
-                                className="absolute top-2 right-2 w-4 h-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                                className="absolute top-2 right-2 w-6 h-6 sm:w-4 sm:h-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                               >
                                 ✕
                               </button>
-                              {/* Arrow */}
-                              <div className="absolute top-full left-1/2 transform -translate-x-1/2">
+                              {/* Arrow - only visible on larger screens */}
+                              <div className="hidden sm:block absolute top-full left-1/2 transform -translate-x-1/2">
                                 <div className="border-l-4 border-r-4 border-t-4 border-transparent border-t-white dark:border-t-gray-800"></div>
                               </div>
                             </div>

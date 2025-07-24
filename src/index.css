@@ -156,3 +156,100 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/* Match Summary Modal Optimizations */
+.match-summary-modal {
+  backdrop-filter: blur(4px);
+}
+
+/* Mobile-specific optimizations for match summary */
+@media (max-width: 640px) {
+  .match-summary-modal .modal-content {
+    height: 100vh;
+    border-radius: 0;
+  }
+  
+  .match-summary-header {
+    border-radius: 0;
+  }
+  
+  /* Optimize performance stats display */
+  .performance-stat {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .performance-stat .stat-value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .match-summary-modal .modal-content {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1025px) {
+  .match-summary-modal .modal-content {
+    max-height: 90vh;
+  }
+}
+
+/* NRR Popup Optimizations */
+.nrr-popup-mobile {
+  animation: fadeInScale 0.2s ease-out;
+}
+
+.nrr-popup-desktop {
+  animation: slideInFromBottom 0.2s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile-specific NRR popup styles */
+@media (max-width: 640px) {
+  .nrr-card-container {
+    position: static !important;
+  }
+  
+  .nrr-popup-backdrop {
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Ensure NRR info button is touch-friendly */
+@media (max-width: 768px) {
+  .nrr-info-button {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 8px;
+  }
+}
