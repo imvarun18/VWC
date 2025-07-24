@@ -10,7 +10,7 @@ import {
   Sun, 
   Menu,
   X,
-  ExternalLink
+  TrendingUp
 } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 
@@ -28,11 +28,8 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }
     { path: '/scorecard', icon: Trophy, label: 'Scorecard' },
     { path: '/schedule', icon: Calendar, label: 'Schedule' },
     { path: '/points-table', icon: BarChart3, label: 'Points Table' },
+    { path: '/stats', icon: TrendingUp, label: 'Stats' },
     { path: '/updates', icon: Bell, label: 'Updates' },
-  ];
-
-  const externalLinks = [
-    { url: 'https://triseries.netlify.app/', icon: ExternalLink, label: 'Season 1' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -116,34 +113,6 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"></div>
                   </div>
                 </Link>
-              );
-            })}
-            
-            {/* External Links */}
-            {externalLinks.map((item) => {
-              const Icon = item.icon;
-              return (
-                <a
-                  key={item.url}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-medium font-body transition-all duration-300 transform hover:scale-105 text-white/90 hover:text-white hover:bg-gradient-to-r hover:from-white/20 hover:to-white/10 hover:backdrop-blur-sm hover:shadow-lg hover:border hover:border-white/20"
-                >
-                  {/* Icon with glow effect */}
-                  <div className="relative">
-                    <Icon className="w-4 h-4 relative z-10 transition-all duration-300 group-hover:drop-shadow-lg" />
-                    {/* Icon glow */}
-                    <div className="absolute inset-0 bg-white/30 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  
-                  <span className="relative z-10 transition-all duration-300 group-hover:drop-shadow-sm">{item.label}</span>
-                  
-                  {/* Hover shimmer effect - FIXED */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"></div>
-                  </div>
-                </a>
               );
             })}
           </nav>
@@ -236,36 +205,6 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"></div>
                     </div>
                   </Link>
-                );
-              })}
-              
-              {/* External Links for Mobile */}
-              {externalLinks.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <a
-                    key={item.url}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="group relative flex items-center space-x-3 px-4 py-3 mx-2 rounded-xl text-base font-medium font-body transition-all duration-300 transform hover:scale-105 animate-slideInLeft text-white/90 hover:text-white hover:bg-gradient-to-r hover:from-white/20 hover:to-white/10 hover:backdrop-blur-sm hover:shadow-lg hover:border hover:border-white/20"
-                    style={{ animationDelay: `${(navItems.length + index) * 100}ms` }}
-                  >
-                    {/* Icon with glow effect */}
-                    <div className="relative">
-                      <Icon className="w-5 h-5 relative z-10 transition-all duration-300 group-hover:drop-shadow-lg" />
-                      {/* Icon glow */}
-                      <div className="absolute inset-0 bg-white/30 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    
-                    <span className="relative z-10 transition-all duration-300 group-hover:drop-shadow-sm">{item.label}</span>
-                    
-                    {/* Hover shimmer effect - FIXED */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"></div>
-                    </div>
-                  </a>
                 );
               })}
             </nav>

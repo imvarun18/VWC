@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Scorecard from './pages/Scorecard';
 import Schedule from './pages/Schedule';
 import PointsTable from './pages/PointsTable';
+import Stats from './pages/Stats';
 import Updates from './pages/Updates';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="scorecard" element={<Scorecard />} />
             <Route path="schedule" element={<Schedule />} />
             <Route path="points-table" element={<PointsTable />} />
+            <Route path="stats" element={<Stats />} />
             <Route path="updates" element={<Updates />} />
           </Route>
         </Routes>

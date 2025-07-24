@@ -90,20 +90,6 @@ const Home: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"></div>
               </div>
             </Link>
-            <a
-              href="https://triseries.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative px-4 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-yellow-500/30 to-orange-500/30 border border-yellow-300/50 text-white hover:from-yellow-400/40 hover:to-orange-400/40 rounded-xl transition-all duration-300 ease-out transform-gpu will-change-transform active:scale-[0.96] hover:scale-[1.02] md:hover:scale-[1.01] backdrop-blur-sm overflow-hidden shadow-xl hover:shadow-2xl mobile-touch"
-            >
-              <div className="relative z-10 flex items-center justify-center drop-shadow-lg">
-                <TrendingUp className="w-4 h-4 mr-2" />
-                Season 1 ↗
-              </div>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"></div>
-              </div>
-            </a>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Github, Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -24,19 +25,6 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a 
-                  href="https://triseries.netlify.app/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors font-medium flex items-center space-x-1"
-                >
-                  <span>Season 1 Tournament</span>
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </li>
-              <li>
                 <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                   Tournament Rules
                 </a>
@@ -47,9 +35,9 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                  Player Statistics
-                </a>
+                <Link to="/stats" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                  Orange & Purple Cap Stats
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
@@ -86,7 +74,7 @@ const Footer: React.FC = () => {
               © 2025 RC24 Virtual Willow Championship. All rights reserved.
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-500 mt-2 sm:mt-0">
-              Tournament powered by modern web technology
+              Tournament powered by Real Cricket 24
             </p>
           </div>
         </div>
