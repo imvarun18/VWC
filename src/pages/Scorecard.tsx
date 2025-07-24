@@ -9,7 +9,8 @@ import {
   TrendingUp,
   Upload,
   Eye,
-  FileText
+  FileText,
+  List
 } from 'lucide-react';
 import { useTournamentSchedule } from '../hooks/useTournamentSchedule';
 import { teams } from '../data/mockData';
@@ -27,6 +28,7 @@ const Scorecard: React.FC = () => {
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [selectedSummary, setSelectedSummary] = useState<MatchSummaryType | null>(null);
   const [showUploadModal, setShowUploadModal] = useState<Match | null>(null);
+  const [showAllSummaries, setShowAllSummaries] = useState(false);
   
   const { matches } = useTournamentSchedule(teams);
   
@@ -36,7 +38,7 @@ const Scorecard: React.FC = () => {
   const completedMatches = matches
     .filter((match: Match) => match.status === 'completed')
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort by date descending (most recent first)
-    .slice(0, 3); // Show last 3 completed matches
+    .slice(0, showAllSummaries ? undefined : 3); // Show all if showAllSummaries is true, otherwise only 3
 
   const handleMatchClick = (match: Match) => {
     const summary = getSummary(match.id);
@@ -241,9 +243,20 @@ const Scorecard: React.FC = () => {
               <CheckCircle className="w-6 h-6 mr-2 text-green-500" />
               Recent Match Results
             </h2>
-            <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center space-x-2">
-              <FileText className="w-4 h-4" />
-              <span>Click cards to view summaries or upload new ones</span>
+            <div className="flex items-center space-x-4">
+              <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center space-x-2">
+                <FileText className="w-4 h-4" />
+                <span>Click cards to view summaries or upload new ones</span>
+              </div>
+              
+              {/* View All Match Summaries Button */}
+              <button
+                onClick={() => setShowAllSummaries(!showAllSummaries)}
+                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white rounded-xl font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ease-out transform hover:scale-105 active:scale-95"
+              >
+                <List className="w-4 h-4" />
+                <span>{showAllSummaries ? 'Show Recent Only' : 'View All Match Summaries'}</span>
+              </button>
             </div>
           </div>
           
