@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import { currentLiveScore, teams } from '../data/mockData';
 import { useTournamentSchedule } from '../hooks/useTournamentSchedule';
-import { getTopTeams } from '../utils/pointsTableCalculator';
+import { calculatePointsTable } from '../utils/pointsTableCalculator';
 import { parseISO, isToday } from 'date-fns';
 import TeamLogo from '../components/TeamLogo';
 import TournamentLogo from '../components/TournamentLogo';
@@ -27,7 +27,8 @@ const Home: React.FC = () => {
   const upcomingMatches = matches
     .filter((match: Match) => match.status === 'upcoming')
     .slice(0, 2); // Show next 2 upcoming matches
-  const topTeams = getTopTeams(4);
+  const pointsTable = calculatePointsTable(matches);
+  const topTeams = pointsTable.slice(0, 4);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

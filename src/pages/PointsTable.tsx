@@ -1,11 +1,15 @@
 import React from 'react';
 import { Trophy, TrendingUp, TrendingDown, Medal } from 'lucide-react';
-import { calculateDynamicPointsTable } from '../utils/pointsTableCalculator';
+import { calculatePointsTable } from '../utils/pointsTableCalculator';
+import { useTournamentSchedule } from '../hooks/useTournamentSchedule';
+import { teams } from '../data/mockData';
 import TeamLogo from '../components/TeamLogo';
 
 const PointsTable: React.FC = () => {
-  // Calculate dynamic points table based on completed matches
-  const pointsTable = calculateDynamicPointsTable();
+  const { matches } = useTournamentSchedule(teams);
+  
+  // Calculate points table based on CSV tournament data
+  const pointsTable = calculatePointsTable(matches);
   
   const getPositionIcon = (position: number) => {
     switch (position) {

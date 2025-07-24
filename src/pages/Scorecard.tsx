@@ -11,9 +11,11 @@ import {
   Eye,
   FileText
 } from 'lucide-react';
-import { getLiveMatch, getTodaysMatches, getCompletedMatches } from '../utils/dynamicSchedule';
+import { useTournamentSchedule } from '../hooks/useTournamentSchedule';
+import { teams } from '../data/mockData';
 import { currentLiveScore } from '../data/mockData';
 import { getSummary, hasSummary } from '../utils/matchSummaryStorage';
+import { parseISO, isToday } from 'date-fns';
 import '../data/sampleMatchSummary'; // Load sample data
 import TeamLogo from '../components/TeamLogo';
 import GlossyCard from '../components/ui/GlossyCard';
@@ -26,9 +28,15 @@ const Scorecard: React.FC = () => {
   const [selectedSummary, setSelectedSummary] = useState<MatchSummaryType | null>(null);
   const [showUploadModal, setShowUploadModal] = useState<Match | null>(null);
   
-  const liveMatch = getLiveMatch();
-  const todaysMatches = getTodaysMatches();
-  const completedMatches = getCompletedMatches().slice(0, 3); // Show last 3 completed matches
+  const { matches } = useTournamentSchedule(teams);
+  
+  // Get matches from CSV data
+  const liveMatch = matches.find((match: Match) => match.status === 'live');
+  const todaysMatches = matches.filter((match: Match) => isToday(parseISO(match.date)));
+  const completedMatches = matches
+    .filter((match: Match) => match.status === 'completed')
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort by date descending (most recent first)
+    .slice(0, 3); // Show last 3 completed matches
 
   const handleMatchClick = (match: Match) => {
     const summary = getSummary(match.id);
@@ -44,7 +52,7 @@ const Scorecard: React.FC = () => {
     // The storage is handled in the upload component
     setShowUploadModal(null);
     // Optionally show the uploaded summary
-    const match = completedMatches.find(m => m.id === summary.matchId);
+    const match = completedMatches.find((m: Match) => m.id === summary.matchId);
     if (match) {
       setSelectedMatch(match);
       setSelectedSummary(summary);
@@ -183,7 +191,7 @@ const Scorecard: React.FC = () => {
                   Today's Matches
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {todaysMatches.map((match) => (
+                  {todaysMatches.map((match: Match) => (
                     <GlossyCard key={match.id} className="p-4">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center space-x-2">
@@ -240,7 +248,7 @@ const Scorecard: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {completedMatches.map((match) => {
+            {completedMatches.map((match: Match) => {
               const hasMatchSummary = hasSummary(match.id);
               
               return (
