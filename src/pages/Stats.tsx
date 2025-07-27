@@ -28,6 +28,10 @@ const Stats: React.FC = () => {
       // Match 5: SRH vs RS
       { team: 'Sunrisers Hyderabad', runs: 14, overs: 5.0, matches: 1 }, // SRH's second match
       { team: 'Rising Stars', runs: 18, overs: 1.2, matches: 1 }, // RS's second match
+      
+      // Match 6: RCB vs CSK
+      { team: 'Chennai Super Kings', runs: 50, overs: 5.0, matches: 1 }, // CSK's second match
+      { team: 'Royal Challengers Bengaluru', runs: 52, overs: 4.3, matches: 1 }, // RCB's second match
     ];
 
     // Aggregate runs by team
@@ -85,6 +89,10 @@ const Stats: React.FC = () => {
       // Match 5: SRH vs RS
       { team: 'Rising Stars', wickets: 5, runs: 14, overs: 5.0, matches: 1 }, // RS took 5 SRH wickets (RS's second match)
       { team: 'Sunrisers Hyderabad', wickets: 3, runs: 18, overs: 1.2, matches: 1 }, // SRH took 3 RS wickets (SRH's second match)
+      
+      // Match 6: RCB vs CSK
+      { team: 'Royal Challengers Bengaluru', wickets: 9, runs: 50, overs: 5.0, matches: 1 }, // RCB took 9 CSK wickets (RCB's second match)
+      { team: 'Chennai Super Kings', wickets: 1, runs: 52, overs: 4.3, matches: 1 }, // CSK took 1 RCB wicket (CSK's second match)
     ];
 
     // Aggregate wickets by team

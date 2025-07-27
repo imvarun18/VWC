@@ -846,6 +846,195 @@ export const fifthMatchSummary: MatchSummary = {
   umpires: ['Ravi Kumar', 'Suresh Patel']
 };
 
+export const sixthMatchSummary: MatchSummary = {
+  id: 'summary-6',
+  matchId: '6',
+  title: 'Royal Challengers Bengaluru vs Chennai Super Kings - Match 6',
+  description: 'RCB won the toss and chose to bowl first in this T5 format match. CSK posted 50/9 in 5.0 overs with R.Pant top-scoring with 20 runs from 7 balls. RCB chased down the target comfortably, reaching 52/1 in just 4.3 overs with S.Gill remaining unbeaten on 22 from 11 balls. RCB secured a convincing 9-wicket victory.',
+  highlights: [
+    'RCB won the toss and elected to bowl first',
+    'R.Pant\'s explosive 20 from 7 balls was the highlight of CSK\'s innings',
+    'RCB bowlers restricted CSK to 50/9 with excellent bowling figures',
+    'S.Gill led the chase with an unbeaten 22 from 11 balls',
+    'RCB chased down the target with 9 balls to spare, winning by 9 wickets'
+  ],
+  manOfTheMatch: {
+    player: findPlayerByNameAndTeam('S.Gill', '1'),
+    reason: 'Match-winning unbeaten 22 from 11 balls to guide RCB to a 9-wicket victory'
+  },
+  scorecard: {
+    team1Innings: {
+      teamId: '1', // RCB
+      totalRuns: 52,
+      totalWickets: 1,
+      totalOvers: 4,
+      totalBalls: 3,
+      extras: 4,
+      runRate: 12.09,
+      topScorers: [
+        {
+          player: findPlayerByNameAndTeam('S.Gill', '1'),
+          runs: 22,
+          balls: 11,
+          fours: 3,
+          sixes: 0,
+          strikeRate: 200.00,
+          howOut: 'not out'
+        },
+        {
+          player: findPlayerByNameAndTeam('S.Samson', '1'),
+          runs: 15,
+          balls: 9,
+          fours: 2,
+          sixes: 0,
+          strikeRate: 166.67,
+          howOut: 'not out'
+        },
+        {
+          player: findPlayerByNameAndTeam('R.Sharma', '1'),
+          runs: 9,
+          balls: 7,
+          fours: 1,
+          sixes: 0,
+          strikeRate: 128.57,
+          howOut: 'caught'
+        },
+        {
+          player: findPlayerByNameAndTeam('V.Kohli', '1'),
+          runs: 0,
+          balls: 0,
+          fours: 0,
+          sixes: 0,
+          strikeRate: 0,
+          howOut: 'did not bat'
+        }
+      ],
+      topBowlers: [
+        {
+          player: findPlayerByNameAndTeam('R.Jadeja', '2'),
+          overs: 1,
+          maidens: 0,
+          runs: 12,
+          wickets: 1,
+          economy: 12.00
+        },
+        {
+          player: findPlayerByNameAndTeam('J.Bumrah', '2'),
+          overs: 1,
+          maidens: 0,
+          runs: 11,
+          wickets: 0,
+          economy: 11.00
+        },
+        {
+          player: findPlayerByNameAndTeam('M.Shami', '2'),
+          overs: 1,
+          maidens: 0,
+          runs: 13,
+          wickets: 0,
+          economy: 13.00
+        },
+        {
+          player: findPlayerByNameAndTeam('R.Bishnoi', '2'),
+          overs: 1,
+          maidens: 0,
+          runs: 5,
+          wickets: 0,
+          economy: 5.00
+        }
+      ],
+      partnerships: []
+    },
+    team2Innings: {
+      teamId: '2', // CSK
+      totalRuns: 50,
+      totalWickets: 9,
+      totalOvers: 5,
+      totalBalls: 0,
+      extras: 9,
+      runRate: 10.00,
+      topScorers: [
+        {
+          player: findPlayerByNameAndTeam('R.Pant', '2'),
+          runs: 20,
+          balls: 7,
+          fours: 3,
+          sixes: 0,
+          strikeRate: 285.71,
+          howOut: 'caught'
+        },
+        {
+          player: findPlayerByNameAndTeam('R.Bishnoi', '2'),
+          runs: 10,
+          balls: 3,
+          fours: 1,
+          sixes: 1,
+          strikeRate: 333.33,
+          howOut: 'not out'
+        },
+        {
+          player: findPlayerByNameAndTeam('V.Kohli', '2'),
+          runs: 7,
+          balls: 6,
+          fours: 1,
+          sixes: 0,
+          strikeRate: 116.67,
+          howOut: 'bowled'
+        },
+        {
+          player: findPlayerByNameAndTeam('T.Varma', '2'),
+          runs: 4,
+          balls: 2,
+          fours: 1,
+          sixes: 0,
+          strikeRate: 200.00,
+          howOut: 'lbw'
+        }
+      ],
+      topBowlers: [
+        {
+          player: findPlayerByNameAndTeam('R.Bishnoi', '1'),
+          overs: 1,
+          maidens: 0,
+          runs: 11,
+          wickets: 3,
+          economy: 11.00
+        },
+        {
+          player: findPlayerByNameAndTeam('B.Kumar', '1'),
+          overs: 1,
+          maidens: 0,
+          runs: 3,
+          wickets: 2,
+          economy: 3.00
+        },
+        {
+          player: findPlayerByNameAndTeam('A.Singh', '1'),
+          overs: 1,
+          maidens: 0,
+          runs: 4,
+          wickets: 2,
+          economy: 4.00
+        },
+        {
+          player: findPlayerByNameAndTeam('J.Bumrah', '1'),
+          overs: 1,
+          maidens: 0,
+          runs: 12,
+          wickets: 2,
+          economy: 12.00
+        }
+      ],
+      partnerships: []
+    }
+  },
+  tossDetails: {
+    winner: teams.find(t => t.id === '1') || teams[0], // RCB
+    decision: 'bowl'
+  },
+  umpires: ['Ravi Kumar', 'Suresh Patel']
+};
+
 // Store the sample summaries automatically when the module loads
 import { storeSummary } from '../utils/matchSummaryStorage';
 storeSummary(sampleMatchSummary);
@@ -853,3 +1042,4 @@ storeSummary(firstMatchSummary);
 storeSummary(thirdMatchSummary);
 storeSummary(fourthMatchSummary);
 storeSummary(fifthMatchSummary);
+storeSummary(sixthMatchSummary);

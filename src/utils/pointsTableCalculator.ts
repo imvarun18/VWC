@@ -54,11 +54,11 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
     // Specific stats for match results based on actual completed matches
     if (matchIndex === 0 && match.team1.id === '5' && match.team2.id === '4') {
       // Match 1: DC vs SRH - SRH won by 6 wickets (T5 format)
-      // DC (team1) batted first and scored 30/6 in 5.0 overs, SRH (team2) chased 34/4 in 3.4 overs
+      // DC (team1) batted first and scored 30/6 in 5.0 overs, SRH (team2) chased 34/4 in 3.4 overs (3.667 overs)
       const dcScore = 30;
       const srhScore = 34;
       const dcOvers = 5.0;
-      const srhOvers = 3.4;
+      const srhOvers = 3.667; // 3.4 overs = 3 + 4/6 balls
       
       team1Stats.runsScored += dcScore;
       team1Stats.oversFaced += dcOvers;
@@ -105,11 +105,11 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
       team2Stats.oversBowled += cskOvers;
     } else if (matchIndex === 3 && match.team1.id === '5' && match.team2.id === '7') {
       // Match 4: DC vs SMC - DC won by 1 run (T5 format)
-      // SMC (team2) batted first and scored 32/6 in 5.0 overs, DC (team1) chased 33/2 in 3.4 overs
+      // SMC (team2) batted first and scored 32/6 in 5.0 overs, DC (team1) chased 33/2 in 3.4 overs (3.667 overs)
       const smcScore = 32;
       const dcScore = 33;
       const smcOvers = 5.0;
-      const dcOvers = 3.4;
+      const dcOvers = 3.667; // 3.4 overs = 3 + 4/6 balls
       
       team1Stats.runsScored += dcScore;
       team1Stats.oversFaced += dcOvers;
@@ -122,11 +122,11 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
       team2Stats.oversBowled += dcOvers;
     } else if (matchIndex === 4 && match.team1.id === '4' && match.team2.id === '6') {
       // Match 5: SRH vs RS - RS won by 7 wickets (T5 format)
-      // SRH (team1) batted first and scored 14/5 in 5.0 overs, RS (team2) chased 18/3 in 1.2 overs
+      // SRH (team1) batted first and scored 14/5 in 5.0 overs, RS (team2) chased 18/3 in 1.2 overs (1.333 overs)
       const srhScore = 14;
       const rsScore = 18;
       const srhOvers = 5.0;
-      const rsOvers = 1.2;
+      const rsOvers = 1.333; // 1.2 overs = 1 + 2/6 balls
       
       team1Stats.runsScored += srhScore;
       team1Stats.oversFaced += srhOvers;
@@ -135,6 +135,56 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
 
       team2Stats.runsScored += rsScore;
       team2Stats.oversFaced += rsOvers;
+      team2Stats.runsConceded += srhScore;
+      team2Stats.oversBowled += srhOvers;
+    } else if (matchIndex === 5 && match.team1.id === '1' && match.team2.id === '3') {
+      // Match 6: RCB vs CSK - RCB won by 9 wickets (T5 format)
+      // RCB won the toss and chose to bowl first
+      // CSK (team2) batted first and scored 50/9 in 5.0 overs, RCB (team1) chased 52/1 in 4.3 overs (4.5 overs)
+      const cskScore = 50;
+      const rcbScore = 52;
+      const cskOvers = 5.0;
+      const rcbOvers = 4.5; // 4.3 overs = 4 + 3/6 balls
+      
+      team1Stats.runsScored += rcbScore;
+      team1Stats.oversFaced += rcbOvers;
+      team1Stats.runsConceded += cskScore;
+      team1Stats.oversBowled += cskOvers;
+
+      team2Stats.runsScored += cskScore;
+      team2Stats.oversFaced += cskOvers;
+      team2Stats.runsConceded += rcbScore;
+      team2Stats.oversBowled += rcbOvers;
+    } else if (matchIndex === 6 && match.team1.id === '5' && match.team2.id === '2') {
+      // Match 7: DC vs MI - DC won by 3 wickets (T5 format)
+      const dcScore = 40;
+      const miScore = 36;
+      const dcOvers = 4.333; // 4.2 overs = 4 + 2/6 balls
+      const miOvers = 5.0;
+      
+      team1Stats.runsScored += dcScore;
+      team1Stats.oversFaced += dcOvers;
+      team1Stats.runsConceded += miScore;
+      team1Stats.oversBowled += miOvers;
+
+      team2Stats.runsScored += miScore;
+      team2Stats.oversFaced += miOvers;
+      team2Stats.runsConceded += dcScore;
+      team2Stats.oversBowled += dcOvers;
+    } else if (matchIndex === 7 && match.team1.id === '4' && match.team2.id === '7') {
+      // Match 8: SRH vs SMC - SRH won by 5 wickets (T5 format)
+      const srhScore = 45;
+      const smcScore = 41;
+      const srhOvers = 4.167; // 4.1 overs = 4 + 1/6 balls
+      const smcOvers = 5.0;
+      
+      team1Stats.runsScored += srhScore;
+      team1Stats.oversFaced += srhOvers;
+      team1Stats.runsConceded += smcScore;
+      team1Stats.oversBowled += smcOvers;
+
+      team2Stats.runsScored += smcScore;
+      team2Stats.oversFaced += smcOvers;
       team2Stats.runsConceded += srhScore;
       team2Stats.oversBowled += srhOvers;
     } else {
@@ -190,13 +240,13 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
         nrr = 10.653;
         break;
       case '2': // Chennai Super Kings (CSK)
-        nrr = 6.800;
+        nrr = 2.816;
         break;
       case '5': // Deccan Chargers (DC)
-        nrr = -0.346;
+        nrr = 0.460;
         break;
       case '4': // Sunrisers Hyderabad (SRH)
-        nrr = -2.040;
+        nrr = -0.605;
         break;
       case '7': // SM Champions (SMC)
         nrr = -2.600;
@@ -205,7 +255,7 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
         nrr = -6.800;
         break;
       case '1': // Royal Challengers Bengaluru (RCB)
-        nrr = -10.200;
+        nrr = -4.521;
         break;
       default:
         // Calculate NRR for any other teams
