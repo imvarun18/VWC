@@ -1,0 +1,286 @@
+{
+  "id": "2",
+  "matchId": "2",
+  "title": "Match 2: Rising Stars vs Royal Challengers Bengaluru",
+  "description": "Rising Stars delivered a dominant performance at Eden Gardens, posting an impressive 71/8 in 5.0 overs with V.Kohli scoring an unbeaten 31. Royal Challengers Bengaluru were bowled out for just 20/9 in 5.0 overs, with Rising Stars securing a comprehensive 51-run victory.",
+  "highlights": [
+    "RS won by 51 runs",
+    "V.Kohli's brilliant unbeaten 31 anchored Rising Stars' innings",
+    "N.Reddy contributed 14 runs to boost Rising Stars' total",
+    "RCB collapsed for just 20 runs in 5 overs",
+    "Dominant bowling performance restricted RCB to their lowest total"
+  ],
+  "manOfTheMatch": {
+    "playerId": "kohli_v_rs",
+    "playerName": "V.Kohli",
+    "teamId": "6",
+    "reason": "Outstanding unbeaten 31 runs that led Rising Stars to a commanding victory"
+  },
+  "matchDetails": {
+    "date": "2025-07-21",
+    "venue": "Eden Gardens",
+    "format": "T5",
+    "status": "completed",
+    "result": "RS won by 51 runs",
+    "winnerId": "6",
+    "winnerName": "Rising Stars",
+    "margin": "51 runs"
+  },
+  "teams": {
+    "team1": {
+      "id": "6",
+      "name": "Rising Stars",
+      "shortName": "RS"
+    },
+    "team2": {
+      "id": "1",
+      "name": "Royal Challengers Bengaluru",
+      "shortName": "RCB"
+    }
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "6",
+      "teamName": "Rising Stars",
+      "totalRuns": 71,
+      "totalWickets": 8,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 2,
+      "runRate": 14.20,
+      "battingOrder": [
+        {
+          "playerId": "kohli_v_rs",
+          "playerName": "V.Kohli",
+          "runs": 31,
+          "balls": 10,
+          "fours": 4,
+          "sixes": 1,
+          "strikeRate": 310.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "reddy_n_rs",
+          "playerName": "N.Reddy",
+          "runs": 14,
+          "balls": 6,
+          "fours": 2,
+          "sixes": 0,
+          "strikeRate": 233.33,
+          "dismissal": "caught",
+          "bowlerName": "A.Singh"
+        },
+        {
+          "playerId": "sharma_r_rs",
+          "playerName": "R.Sharma",
+          "runs": 10,
+          "balls": 3,
+          "fours": 2,
+          "sixes": 0,
+          "strikeRate": 333.33,
+          "dismissal": "caught",
+          "bowlerName": "J.Bumrah"
+        },
+        {
+          "playerId": "yadav_k_rs",
+          "playerName": "K.Yadav",
+          "runs": 4,
+          "balls": 3,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 133.33,
+          "dismissal": "bowled",
+          "bowlerName": "K.Yadav"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "singh_a_rcb",
+          "playerName": "A.Singh",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 17,
+          "wickets": 3,
+          "economy": 17.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bumrah_j_rcb",
+          "playerName": "J.Bumrah",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 6,
+          "wickets": 3,
+          "economy": 6.00,
+          "balls": 6
+        },
+        {
+          "playerId": "yadav_k_rcb",
+          "playerName": "K.Yadav",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 13,
+          "wickets": 1,
+          "economy": 13.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bishnoi_r_rcb",
+          "playerName": "R.Bishnoi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 6,
+          "wickets": 1,
+          "economy": 6.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "V.Kohli",
+          "batsman2": "N.Reddy",
+          "runs": 35,
+          "balls": 18
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 35,
+          "batsman": "N.Reddy",
+          "over": 3.1
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "1",
+      "teamName": "Royal Challengers Bengaluru",
+      "totalRuns": 20,
+      "totalWickets": 9,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 1,
+      "runRate": 4.00,
+      "battingOrder": [
+        {
+          "playerId": "patel_a_rcb",
+          "playerName": "A.Patel",
+          "runs": 6,
+          "balls": 4,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 150.00,
+          "dismissal": "caught",
+          "bowlerName": "A.Singh"
+        },
+        {
+          "playerId": "samson_s_rcb",
+          "playerName": "S.Samson",
+          "runs": 4,
+          "balls": 6,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 66.67,
+          "dismissal": "bowled",
+          "bowlerName": "J.Bumrah"
+        },
+        {
+          "playerId": "sharma_r_rcb",
+          "playerName": "R.Sharma",
+          "runs": 4,
+          "balls": 6,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 66.67,
+          "dismissal": "caught",
+          "bowlerName": "J.Bumrah"
+        },
+        {
+          "playerId": "bishnoi_r_rcb",
+          "playerName": "R.Bishnoi",
+          "runs": 3,
+          "balls": 2,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 150.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "pandya_h_rs",
+          "playerName": "H.Pandya",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 4,
+          "wickets": 2,
+          "economy": 4.00,
+          "balls": 6
+        },
+        {
+          "playerId": "yadav_k_rs",
+          "playerName": "K.Yadav",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 1,
+          "wickets": 2,
+          "economy": 1.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bumrah_j_rs",
+          "playerName": "J.Bumrah",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 4,
+          "wickets": 2,
+          "economy": 4.00,
+          "balls": 6
+        },
+        {
+          "playerId": "chahal_y_rs",
+          "playerName": "Y.Chahal",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 4,
+          "wickets": 1,
+          "economy": 4.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "F.du Plessis",
+          "batsman2": "G.Maxwell",
+          "runs": 12,
+          "balls": 15
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 12,
+          "batsman": "F.du Plessis",
+          "over": 2.3
+        }
+      ]
+    }
+  },
+  "tossDetails": {
+    "winnerId": "1",
+    "winnerName": "Royal Challengers Bengaluru",
+    "decision": "chose to bowl first"
+  },
+  "officials": {
+    "umpires": ["Kumar Dharmasena", "Joel Wilson"],
+    "thirdUmpire": "Richard Kettleborough",
+    "matchReferee": "Ranjan Madugalle"
+  },
+  "weather": {
+    "conditions": "Partly cloudy",
+    "temperature": "28°C",
+    "humidity": "72%"
+  }
+}

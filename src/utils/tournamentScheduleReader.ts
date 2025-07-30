@@ -6,6 +6,7 @@ export interface ScheduleCSVRow {
   day: string;
   matchup: string;
   winner: string;
+  result: string;
 }
 
 export class TournamentScheduleReader {
@@ -68,6 +69,7 @@ export class TournamentScheduleReader {
     const matchup = row.matchup || '';
     const dateStr = row['date (2025)'] || row.date || '';
     const winner = row.winner || '';
+    const result = row.result || '';
 
     // Parse team names from matchup
     const { team1, team2 } = this.parseMatchup(matchup);
@@ -100,7 +102,7 @@ export class TournamentScheduleReader {
       status: status,
       matchType: this.getMatchType(matchNumber),
       overs: 5, // T5 format
-      result: status === 'completed' && winner ? this.generateDetailedResult(matchNumber, winner) : undefined,
+      result: result && result.trim() !== '' ? result : (status === 'completed' && winner ? this.generateDetailedResult(matchNumber, winner) : undefined),
       winner: winnerTeam || undefined
     };
   }

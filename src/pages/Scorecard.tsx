@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Clock, 
   Activity,
@@ -10,38 +10,158 @@ import {
   Upload,
   Eye,
   FileText,
-  List
+  List,
+  ChevronUp
 } from 'lucide-react';
 import { useTournamentSchedule } from '../hooks/useTournamentSchedule';
 import { teams } from '../data/mockData';
-import { currentLiveScore } from '../data/mockData';
-import { getSummary, hasSummary } from '../utils/matchSummaryStorage';
+import { getSummary } from '../utils/matchSummaryStorage';
 import { parseISO, isToday } from 'date-fns';
-import '../data/sampleMatchSummary'; // Load sample data
 import TeamLogo from '../components/TeamLogo';
 import GlossyCard from '../components/ui/GlossyCard';
 import MatchSummary from '../components/MatchSummary';
 import MatchSummaryUpload from '../components/MatchSummaryUpload';
 import type { Match, MatchSummary as MatchSummaryType } from '../types/cricket';
 
+// Helper component to handle async summary check and result display
+const MatchSummaryIndicator: React.FC<{ matchId: string }> = ({ matchId }) => {
+  const [hasMatchSummary, setHasMatchSummary] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkSummary = async () => {
+      try {
+        // Check if we can actually get the summary, not just if file exists
+        const summary = await getSummary(matchId);
+        setHasMatchSummary(summary !== null);
+      } catch (error) {
+        console.warn(`Error checking summary for match ${matchId}:`, error);
+        setHasMatchSummary(false);
+      }
+      setIsLoading(false);
+    };
+    checkSummary();
+  }, [matchId]);
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center space-x-1 border-2 border-gray-300 text-gray-500 bg-transparent rounded-lg px-3 py-1.5 text-xs font-semibold shadow-md">
+        <span>Loading...</span>
+      </div>
+    );
+  }
+
+  return hasMatchSummary ? (
+    <div className="flex items-center space-x-1 border-2 border-green-500 text-green-600 dark:text-green-400 bg-transparent rounded-lg px-3 py-1.5 text-xs font-semibold shadow-md">
+      <Eye className="w-3 h-3" />
+      <span>View Summary</span>
+    </div>
+  ) : (
+    <div className="flex items-center space-x-1 border-2 border-orange-500 text-orange-600 dark:text-orange-400 bg-transparent rounded-lg px-3 py-1.5 text-xs font-semibold shadow-md">
+      <Upload className="w-3 h-3" />
+      <span>Upload Summary</span>
+    </div>
+  );
+};
+
+// Helper component to display trophy for winning team using CSV data
+const WinnerTrophy: React.FC<{ match: Match; teamId: string }> = ({ match, teamId }) => {
+  // Use winner data directly from the CSV (via match object)
+  const isWinner = match.winner?.id === teamId;
+
+  if (!isWinner) {
+    return null;
+  }
+
+  return (
+    <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg">
+      <Trophy className="w-2.5 h-2.5 text-yellow-900" />
+    </div>
+  );
+};
+
+// Helper component to handle match result display using CSV data
+const MatchResultDisplay: React.FC<{ match: Match }> = ({ match }) => {
+  // Use the result directly from the CSV data (via match object)
+  const result = match.result;
+  
+  if (!result) {
+    return null;
+  }
+
+  return (
+    <div className="mb-4">
+      <div className="bg-gradient-to-r from-green-500 via-green-400 to-emerald-400 dark:from-green-600 dark:via-green-500 dark:to-emerald-500 rounded-xl p-3 shadow-lg border border-green-200 dark:border-green-700">
+        <div className="text-center">
+          <div className="text-sm font-bold text-white drop-shadow-md">
+            {result}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Scorecard: React.FC = () => {
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [selectedSummary, setSelectedSummary] = useState<MatchSummaryType | null>(null);
   const [showUploadModal, setShowUploadModal] = useState<Match | null>(null);
   const [showAllSummaries, setShowAllSummaries] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   
   const { matches } = useTournamentSchedule(teams);
+
+  // Handle scroll to top visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   
-  // Get matches from CSV data
+  // Clean up any invalid match 8 data on component mount
+  useEffect(() => {
+    const cleanupMatch8 = () => {
+      try {
+        const stored = JSON.parse(localStorage.getItem('matchSummaries') || '{}');
+        if (stored['8']) {
+          delete stored['8'];
+          localStorage.setItem('matchSummaries', JSON.stringify(stored));
+          console.log('Cleaned up match 8 from localStorage');
+        }
+      } catch (error) {
+        console.warn('Could not clean localStorage:', error);
+      }
+    };
+    cleanupMatch8();
+  }, []);
+  
+  // Get matches from CSV data - using same logic as Home page
   const liveMatch = matches.find((match: Match) => match.status === 'live');
   const todaysMatches = matches.filter((match: Match) => isToday(parseISO(match.date)));
+  
+  // If no live match found by status, use the first today's match
+  const currentLiveMatch = liveMatch || todaysMatches[0];
+  
   const completedMatches = matches
     .filter((match: Match) => match.status === 'completed')
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort by date descending (most recent first)
     .slice(0, showAllSummaries ? undefined : 3); // Show all if showAllSummaries is true, otherwise only 3
 
-  const handleMatchClick = (match: Match) => {
-    const summary = getSummary(match.id);
+  const handleMatchClick = async (match: Match) => {
+    const summary = await getSummary(match.id);
     if (summary) {
       setSelectedMatch(match);
       setSelectedSummary(summary);
@@ -74,7 +194,7 @@ const Scorecard: React.FC = () => {
       </div>
 
       {/* Live Match Display */}
-      {liveMatch && (
+      {currentLiveMatch && (
         <div className="mb-8">
           <GlossyCard className="p-6">
             {/* Live Match Header */}
@@ -87,13 +207,13 @@ const Scorecard: React.FC = () => {
                 <div className="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
                 <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
                   <Clock className="w-4 h-4" />
-                  <span className="text-sm">{liveMatch.time}</span>
+                  <span className="text-sm">{currentLiveMatch.time}</span>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
                 <Play className="w-5 h-5 text-green-500" />
                 <span className="text-sm font-medium text-gray-900 dark:text-white">
-                  {liveMatch.venue}
+                  {currentLiveMatch.venue}
                 </span>
               </div>
             </div>
@@ -103,10 +223,10 @@ const Scorecard: React.FC = () => {
               {/* Batting Team */}
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <TeamLogo team={currentLiveScore.currentInnings.battingTeam} size="medium" />
+                  <TeamLogo team={currentLiveMatch.team1} size="medium" />
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                      {currentLiveScore.currentInnings.battingTeam.name}
+                      {currentLiveMatch.team1.name}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Batting</p>
                   </div>
@@ -116,10 +236,10 @@ const Scorecard: React.FC = () => {
                 <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl p-4 border border-green-200 dark:border-green-700">
                   <div className="flex items-baseline space-x-2">
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                      {currentLiveScore.currentInnings.score}/{currentLiveScore.currentInnings.wickets}
+                      0/0
                     </span>
                     <span className="text-lg text-gray-600 dark:text-gray-400">
-                      ({currentLiveScore.currentInnings.overs}.{currentLiveScore.currentInnings.balls} overs)
+                      (0.0 overs)
                     </span>
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -131,10 +251,10 @@ const Scorecard: React.FC = () => {
               {/* Bowling Team */}
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <TeamLogo team={currentLiveScore.currentInnings.bowlingTeam} size="medium" />
+                  <TeamLogo team={currentLiveMatch.team2} size="medium" />
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                      {currentLiveScore.currentInnings.bowlingTeam.name}
+                      {currentLiveMatch.team2.name}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Bowling</p>
                   </div>
@@ -174,7 +294,7 @@ const Scorecard: React.FC = () => {
       )}
 
       {/* No Live Match - Show Today's Matches */}
-      {!liveMatch && (
+      {!currentLiveMatch && (
         <div className="mb-8">
           <GlossyCard className="p-8 text-center">
             <Activity className="w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4" />
@@ -262,8 +382,6 @@ const Scorecard: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {completedMatches.map((match: Match) => {
-              const hasMatchSummary = hasSummary(match.id);
-              
               return (
                 <div key={match.id} className="relative group">
                   {/* Modern Rectangular Match Result Card */}
@@ -289,11 +407,7 @@ const Scorecard: React.FC = () => {
                           <div className="w-16 h-16 flex items-center justify-center">
                             <TeamLogo team={match.team1} size="large" className="drop-shadow-lg transition-transform duration-300 ease-out group-hover:scale-110" />
                           </div>
-                          {match.winner?.id === match.team1.id && (
-                            <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg">
-                              <Trophy className="w-2.5 h-2.5 text-yellow-900" />
-                            </div>
-                          )}
+                          <WinnerTrophy match={match} teamId={match.team1.id} />
                         </div>
                         <h3 className="text-sm font-bold text-gray-900 dark:text-white text-center leading-tight">
                           {match.team1.shortName}
@@ -316,11 +430,7 @@ const Scorecard: React.FC = () => {
                           <div className="w-16 h-16 flex items-center justify-center">
                             <TeamLogo team={match.team2} size="large" className="drop-shadow-lg transition-transform duration-300 ease-out group-hover:scale-110" />
                           </div>
-                          {match.winner?.id === match.team2.id && (
-                            <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg">
-                              <Trophy className="w-2.5 h-2.5 text-yellow-900" />
-                            </div>
-                          )}
+                          <WinnerTrophy match={match} teamId={match.team2.id} />
                         </div>
                         <h3 className="text-sm font-bold text-gray-900 dark:text-white text-center leading-tight">
                           {match.team2.shortName}
@@ -328,18 +438,8 @@ const Scorecard: React.FC = () => {
                       </div>
                     </div>
                     
-                    {/* Match Result - Single Line Winner Announcement */}
-                    {match.result && match.winner && (
-                      <div className="mb-4">
-                        <div className="bg-gradient-to-r from-green-500 via-green-400 to-emerald-400 dark:from-green-600 dark:via-green-500 dark:to-emerald-500 rounded-xl p-3 shadow-lg border border-green-200 dark:border-green-700">
-                          <div className="text-center">
-                            <div className="text-sm font-bold text-white drop-shadow-md">
-                              {match.result.replace(match.winner.name, match.winner.shortName)}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                    {/* Match Result - Only show if summary exists */}
+                    <MatchResultDisplay match={match} />
                     
                     {/* Venue */}
                     <div className="text-center mb-3">
@@ -350,17 +450,7 @@ const Scorecard: React.FC = () => {
 
                     {/* Summary Status Indicator */}
                     <div className="flex justify-center">
-                      {hasMatchSummary ? (
-                        <div className="flex items-center space-x-1 border-2 border-green-500 text-green-600 dark:text-green-400 bg-transparent rounded-lg px-3 py-1.5 text-xs font-semibold shadow-md">
-                          <Eye className="w-3 h-3" />
-                          <span>View Summary</span>
-                        </div>
-                      ) : (
-                        <div className="flex items-center space-x-1 border-2 border-orange-500 text-orange-600 dark:text-orange-400 bg-transparent rounded-lg px-3 py-1.5 text-xs font-semibold shadow-md">
-                          <Upload className="w-3 h-3" />
-                          <span>Upload Summary</span>
-                        </div>
-                      )}
+                      <MatchSummaryIndicator matchId={match.id} />
                     </div>
                   </div>
                 </div>
@@ -371,7 +461,7 @@ const Scorecard: React.FC = () => {
       )}
 
       {/* No Matches Message */}
-      {!liveMatch && todaysMatches.length === 0 && completedMatches.length === 0 && (
+      {!currentLiveMatch && todaysMatches.length === 0 && completedMatches.length === 0 && (
         <GlossyCard className="p-8 text-center">
           <Activity className="w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -402,6 +492,18 @@ const Scorecard: React.FC = () => {
           onSummaryUploaded={handleSummaryUploaded}
           onClose={() => setShowUploadModal(null)}
         />
+      )}
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 ease-out hover:scale-110 active:scale-95 flex items-center justify-center group"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400/20 to-accent-400/20 animate-pulse"></div>
+        </button>
       )}
     </div>
   );

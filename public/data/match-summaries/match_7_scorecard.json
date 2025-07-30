@@ -1,0 +1,298 @@
+{
+  "id": "7",
+  "matchId": "7",
+  "title": "Match 7: Deccan Chargers vs Mumbai Indians",
+  "description": "A low-scoring thriller at Rajiv Gandhi International Stadium where DC successfully defended their modest total of 22 runs. T.Varma top-scored with 12 for DC while disciplined bowling restricted MI to just 17 runs, giving DC a narrow 5-run victory.",
+  "highlights": [
+    "DC won by 5 runs",
+    "T.Varma top-scored with 12 for DC",
+    "DC posted 22/4 in 5.0 overs",
+    "MI restricted to 17/6 in 5.0 overs",
+    "H.Pandya took 2 wickets for DC"
+  ],
+  "manOfTheMatch": {
+    "playerId": "varma_t_dc",
+    "playerName": "T.Varma",
+    "teamId": "5",
+    "reason": "Top-scored with 12 runs in a low-scoring thriller to help DC defend their total"
+  },
+  "matchDetails": {
+    "date": "2025-07-26",
+    "venue": "Rajiv Gandhi International Stadium",
+    "format": "T5",
+    "status": "completed",
+    "result": "DC won by 5 runs",
+    "winnerId": "5",
+    "winnerName": "Deccan Chargers",
+    "margin": "5 runs"
+  },
+  "teams": {
+    "team1": {
+      "id": "5",
+      "name": "Deccan Chargers",
+      "shortName": "DC"
+    },
+    "team2": {
+      "id": "3",
+      "name": "Mumbai Indians",
+      "shortName": "MI"
+    }
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "5",
+      "teamName": "Deccan Chargers",
+      "totalRuns": 22,
+      "totalWickets": 4,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 2,
+      "runRate": 4.40,
+      "battingOrder": [
+        {
+          "playerId": "varma_t_dc",
+          "playerName": "T.Varma",
+          "runs": 12,
+          "balls": 11,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 109.09,
+          "dismissal": "caught",
+          "bowlerName": "H.Pandya"
+        },
+        {
+          "playerId": "jaiswal_y_dc",
+          "playerName": "Y.Jaiswal",
+          "runs": 5,
+          "balls": 4,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 125.00,
+          "dismissal": "caught",
+          "bowlerName": "A.Singh"
+        },
+        {
+          "playerId": "kohli_v_dc",
+          "playerName": "V.Kohli",
+          "runs": 2,
+          "balls": 3,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 66.67,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "pant_r_dc",
+          "playerName": "R.Pant",
+          "runs": 1,
+          "balls": 4,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 25.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "reddy_n_mi",
+          "playerName": "N.Reddy",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 4,
+          "wickets": 1,
+          "economy": 4.00,
+          "balls": 6
+        },
+        {
+          "playerId": "pandya_h_mi",
+          "playerName": "H.Pandya",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 6,
+          "wickets": 1,
+          "economy": 6.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bishnoi_r_mi",
+          "playerName": "R.Bishnoi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 1,
+          "wickets": 1,
+          "economy": 1.00,
+          "balls": 6
+        },
+        {
+          "playerId": "singh_a_mi",
+          "playerName": "A.Singh",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 8,
+          "wickets": 1,
+          "economy": 8.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "T.Varma",
+          "batsman2": "Y.Jaiswal",
+          "runs": 15,
+          "balls": 12
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 15,
+          "batsman": "Y.Jaiswal",
+          "over": 2.4
+        },
+        {
+          "wicket": 2,
+          "runs": 20,
+          "batsman": "T.Varma",
+          "over": 4.2
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "3",
+      "teamName": "Mumbai Indians",
+      "totalRuns": 17,
+      "totalWickets": 6,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 2,
+      "runRate": 3.40,
+      "battingOrder": [
+        {
+          "playerId": "jaiswal_y_mi",
+          "playerName": "Y.Jaiswal",
+          "runs": 6,
+          "balls": 10,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 60.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "varma_t_mi",
+          "playerName": "T.Varma",
+          "runs": 5,
+          "balls": 5,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 100.00,
+          "dismissal": "caught",
+          "bowlerName": "H.Pandya"
+        },
+        {
+          "playerId": "pant_r_mi",
+          "playerName": "R.Pant",
+          "runs": 3,
+          "balls": 7,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 42.86,
+          "dismissal": "bowled",
+          "bowlerName": "A.Singh"
+        },
+        {
+          "playerId": "bishnoi_r_mi",
+          "playerName": "R.Bishnoi",
+          "runs": 0,
+          "balls": 2,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "pandya_h_dc",
+          "playerName": "H.Pandya",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 5,
+          "wickets": 2,
+          "economy": 5.00,
+          "balls": 6
+        },
+        {
+          "playerId": "singh_a_dc",
+          "playerName": "A.Singh",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 2,
+          "economy": 2.00,
+          "balls": 6
+        },
+        {
+          "playerId": "patel_a_dc",
+          "playerName": "A.Patel",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 1,
+          "economy": 2.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bishnoi_r_dc",
+          "playerName": "R.Bishnoi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 1,
+          "economy": 2.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "Y.Jaiswal",
+          "batsman2": "T.Varma",
+          "runs": 8,
+          "balls": 10
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 8,
+          "batsman": "T.Varma",
+          "over": 1.5
+        },
+        {
+          "wicket": 2,
+          "runs": 12,
+          "batsman": "R.Pant",
+          "over": 3.2
+        }
+      ]
+    }
+  },
+  "tossDetails": {
+    "winnerId": "1",
+    "winnerName": "Royal Challengers",
+    "decision": "chose to bowl first"
+  },
+  "officials": {
+    "umpires": ["Kumar Dharmasena", "Marais Erasmus"],
+    "thirdUmpire": "Joel Wilson",
+    "matchReferee": "Andy Pycroft"
+  },
+  "weather": {
+    "conditions": "Clear skies",
+    "temperature": "33°C",
+    "humidity": "60%"
+  }
+}

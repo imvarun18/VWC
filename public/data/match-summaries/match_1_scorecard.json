@@ -1,0 +1,286 @@
+{
+  "id": "1",
+  "matchId": "1",
+  "title": "Match 1: Deccan Chargers vs Sunrisers Hyderabad",
+  "description": "SRH secured a convincing 6-wicket victory over DC, chasing down the target of 31 runs with ease. DC could only manage 30/6 in their 5 overs, while SRH reached 34/4 in just 3.4 overs to claim victory in the tournament opener.",
+  "highlights": [
+    "SRH won by 6 wickets",
+    "A.Finch top scored with 10 off 6 balls for SRH",
+    "DC restricted to 30/6 in 5.0 overs",
+    "SRH chased down target in 3.4 overs (34/4)",
+    "J.Hazlewood and M.Starc took 2 wickets each for DC"
+  ],
+  "manOfTheMatch": {
+    "playerId": "finch_a_srh",
+    "playerName": "A.Finch",
+    "teamId": "4",
+    "reason": "Top scored with 10 off 6 balls to guide SRH to victory"
+  },
+  "matchDetails": {
+    "date": "2025-07-20",
+    "venue": "Rajiv Gandhi International Stadium",
+    "format": "T5",
+    "status": "completed",
+    "result": "SRH won by 6 wickets",
+    "winnerId": "4",
+    "winnerName": "Sunrisers Hyderabad",
+    "margin": "6 wickets"
+  },
+  "teams": {
+    "team1": {
+      "id": "5",
+      "name": "Deccan Chargers",
+      "shortName": "DC"
+    },
+    "team2": {
+      "id": "4",
+      "name": "Sunrisers Hyderabad",
+      "shortName": "SRH"
+    }
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "5",
+      "teamName": "Deccan Chargers",
+      "totalRuns": 30,
+      "totalWickets": 6,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 2,
+      "runRate": 6.00,
+      "battingOrder": [
+        {
+          "playerId": "reddy_n_dc",
+          "playerName": "N.Reddy",
+          "runs": 10,
+          "balls": 11,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 90.91,
+          "dismissal": "caught",
+          "bowlerName": "A.Patel"
+        },
+        {
+          "playerId": "varma_t_dc",
+          "playerName": "T.Varma",
+          "runs": 8,
+          "balls": 5,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 160.00,
+          "dismissal": "bowled",
+          "bowlerName": "A.Singh"
+        },
+        {
+          "playerId": "pant_r_dc",
+          "playerName": "R.Pant",
+          "runs": 6,
+          "balls": 5,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 120.00,
+          "dismissal": "caught",
+          "bowlerName": "A.Patel"
+        },
+        {
+          "playerId": "jaiswal_y_dc",
+          "playerName": "Y.Jaiswal",
+          "runs": 4,
+          "balls": 4,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 100.00,
+          "dismissal": "bowled",
+          "bowlerName": "J.Bumrah"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "patel_a_srh",
+          "playerName": "A.Patel",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 10,
+          "wickets": 2,
+          "economy": 10.00,
+          "balls": 6
+        },
+        {
+          "playerId": "singh_a_srh",
+          "playerName": "A.Singh",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 8,
+          "wickets": 1,
+          "economy": 8.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bumrah_j_srh",
+          "playerName": "J.Bumrah",
+          "overs": 0,
+          "maidens": 0,
+          "runs": 6,
+          "wickets": 1,
+          "economy": 9.00,
+          "balls": 4
+        },
+        {
+          "playerId": "bishnoi_r_srh",
+          "playerName": "R.Bishnoi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 9,
+          "wickets": 0,
+          "economy": 9.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "N.Reddy",
+          "batsman2": "T.Varma",
+          "runs": 15,
+          "balls": 12
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 15,
+          "batsman": "T.Varma",
+          "over": 2.0
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "4",
+      "teamName": "Sunrisers Hyderabad",
+      "totalRuns": 34,
+      "totalWickets": 4,
+      "totalOvers": 3,
+      "totalBalls": 22,
+      "extras": 2,
+      "runRate": 9.27,
+      "battingOrder": [
+        {
+          "playerId": "finch_a_srh",
+          "playerName": "A.Finch",
+          "runs": 10,
+          "balls": 6,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 166.67,
+          "dismissal": "caught",
+          "bowlerName": "J.Hazlewood"
+        },
+        {
+          "playerId": "head_t_srh",
+          "playerName": "T.Head",
+          "runs": 9,
+          "balls": 7,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 128.57,
+          "dismissal": "bowled",
+          "bowlerName": "M.Starc"
+        },
+        {
+          "playerId": "smith_s_srh",
+          "playerName": "S.Smith",
+          "runs": 8,
+          "balls": 6,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 133.33,
+          "dismissal": "caught",
+          "bowlerName": "M.Starc"
+        },
+        {
+          "playerId": "david_t_srh",
+          "playerName": "T.David",
+          "runs": 6,
+          "balls": 1,
+          "fours": 0,
+          "sixes": 1,
+          "strikeRate": 600.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "hazlewood_j_dc",
+          "playerName": "J.Hazlewood",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 5,
+          "wickets": 2,
+          "economy": 5.00,
+          "balls": 6
+        },
+        {
+          "playerId": "starc_m_dc",
+          "playerName": "M.Starc",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 6,
+          "wickets": 2,
+          "economy": 6.00,
+          "balls": 6
+        },
+        {
+          "playerId": "cummins_p_dc",
+          "playerName": "P.Cummins",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 1,
+          "economy": 2.00,
+          "balls": 6
+        },
+        {
+          "playerId": "lyon_n_dc",
+          "playerName": "N.Lyon",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 6,
+          "wickets": 1,
+          "economy": 6.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "A.Finch",
+          "batsman2": "T.Head",
+          "runs": 18,
+          "balls": 12
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 18,
+          "batsman": "A.Finch",
+          "over": 2.0
+        }
+      ]
+    }
+  },
+  "tossDetails": {
+    "winnerId": "7",
+    "winnerName": "Sunrisers Hyderabad",
+    "decision": "chose to bowl first"
+  },
+  "officials": {
+    "umpires": ["Kumar Dharmasena", "Marais Erasmus"],
+    "thirdUmpire": "Richard Kettleborough",
+    "matchReferee": "Ranjan Madugalle"
+  },
+  "weather": {
+    "conditions": "Clear skies",
+    "temperature": "32°C",
+    "humidity": "58%"
+  }
+}

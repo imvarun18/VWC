@@ -38,6 +38,16 @@ export interface MatchSummary {
   title: string;
   description: string;
   highlights: string[];
+  matchDetails?: {
+    date: string;
+    venue: string;
+    format: string;
+    status: string;
+    result: string;
+    winnerId: string;
+    winnerName: string;
+    margin: string;
+  };
   manOfTheMatch?: {
     player: Player;
     reason: string;
@@ -47,6 +57,10 @@ export interface MatchSummary {
     team2Innings: InningsSummary;
   };
   tossDetails: {
+    winnerId: string;
+    winnerName: string;
+    decision: string;
+  } | {
     winner: Team;
     decision: 'bat' | 'bowl';
   };

@@ -1,0 +1,286 @@
+{
+  "id": "6",
+  "matchId": "6",
+  "title": "Match 6: Chennai Super Kings vs Royal Challengers Bengaluru",
+  "description": "RCB dominated CSK in a one-sided encounter at M.Chinnaswamy Stadium. After CSK was restricted to 50/9 in 5 overs batting first, RCB comfortably chased down the target of 51 in 4.3 overs with S.Gill's unbeaten 22 leading the way.",
+  "highlights": [
+    "RCB won by 9 wickets",
+    "S.Gill's unbeaten 22* off 11 balls",
+    "CSK restricted to 50/9 in 5.0 overs batting first", 
+    "RCB chased down 51 runs in 4.3 overs",
+    "Dominant performance by RCB at home"
+  ],
+  "manOfTheMatch": {
+    "playerId": "gill_s_rcb",
+    "playerName": "S.Gill",
+    "teamId": "1",
+    "reason": "Match-winning knock: 22* off 11 balls to guide RCB to a comprehensive victory"
+  },
+  "matchDetails": {
+    "date": "2025-07-25",
+    "venue": "M.Chinnaswamy Stadium",
+    "format": "T5",
+    "status": "completed",
+    "result": "RCB won by 9 wickets",
+    "winnerId": "1",
+    "winnerName": "Royal Challengers Bengaluru",
+    "margin": "9 wickets"
+  },
+  "teams": {
+    "team1": {
+      "id": "2",
+      "name": "Chennai Super Kings",
+      "shortName": "CSK"
+    },
+    "team2": {
+      "id": "1",
+      "name": "Royal Challengers Bengaluru",
+      "shortName": "RCB"
+    }
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "2",
+      "teamName": "Chennai Super Kings",
+      "totalRuns": 50,
+      "totalWickets": 9,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 9,
+      "runRate": 10.00,
+      "battingOrder": [
+        {
+          "playerId": "pant_r_csk",
+          "playerName": "R.Pant",
+          "runs": 20,
+          "balls": 7,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 285.71,
+          "dismissal": "caught",
+          "bowlerName": "R.Bishnoi"
+        },
+        {
+          "playerId": "bishnoi_r_csk",
+          "playerName": "R.Bishnoi",
+          "runs": 10,
+          "balls": 3,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 333.33,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "kohli_v_csk",
+          "playerName": "V.Kohli",
+          "runs": 7,
+          "balls": 6,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 116.67,
+          "dismissal": "bowled",
+          "bowlerName": "B.Kumar"
+        },
+        {
+          "playerId": "varma_t_csk",
+          "playerName": "T.Varma",
+          "runs": 4,
+          "balls": 2,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 200.00,
+          "dismissal": "caught",
+          "bowlerName": "A.Singh"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "bishnoi_r_rcb",
+          "playerName": "R.Bishnoi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 3,
+          "wickets": 11,
+          "economy": 3.00,
+          "balls": 6
+        },
+        {
+          "playerId": "kumar_b_rcb",
+          "playerName": "B.Kumar",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 3,
+          "economy": 2.00,
+          "balls": 6
+        },
+        {
+          "playerId": "singh_a_rcb",
+          "playerName": "A.Singh",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 4,
+          "economy": 2.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bumrah_j_rcb",
+          "playerName": "J.Bumrah",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 12,
+          "economy": 2.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "R.Pant",
+          "batsman2": "R.Bishnoi",
+          "runs": 30,
+          "balls": 10
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 20,
+          "batsman": "R.Pant",
+          "over": 2.0
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "1",
+      "teamName": "Royal Challengers Bengaluru",
+      "totalRuns": 52,
+      "totalWickets": 1,
+      "totalOvers": 4.3,
+      "totalBalls": 26,
+      "extras": 1,
+      "runRate": 12.00,
+      "battingOrder": [
+        {
+          "playerId": "gill_s_rcb",
+          "playerName": "S.Gill",
+          "runs": 22,
+          "balls": 11,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 200.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "samson_s_rcb",
+          "playerName": "S.Samson",
+          "runs": 15,
+          "balls": 9,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 166.67,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "sharma_r_rcb",
+          "playerName": "R.Sharma",
+          "runs": 9,
+          "balls": 7,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 128.57,
+          "dismissal": "caught",
+          "bowlerName": "R.Jadeja"
+        },
+        {
+          "playerId": "kohli_v_rcb",
+          "playerName": "V.Kohli",
+          "runs": 0,
+          "balls": 0,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "jadeja_r_csk",
+          "playerName": "R.Jadeja",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 1,
+          "wickets": 12,
+          "economy": 1.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bumrah_j_csk",
+          "playerName": "J.Bumrah",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 11,
+          "economy": 0.00,
+          "balls": 6
+        },
+        {
+          "playerId": "shami_m_csk",
+          "playerName": "M.Shami",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 13,
+          "economy": 0.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bishnoi_r_csk",
+          "playerName": "R.Bishnoi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 5,
+          "economy": 0.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "S.Gill",
+          "batsman2": "S.Samson",
+          "runs": 37,
+          "balls": 20
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 9,
+          "batsman": "R.Sharma",
+          "over": 1.5
+        }
+      ]
+    }
+  },
+  "tossDetails": {
+    "winnerId": "6",
+    "winnerName": "Super Marine Club",
+    "decision": "chose to bowl first"
+  },
+  "officials": {
+    "umpires": ["Joel Wilson", "Richard Kettleborough"],
+    "thirdUmpire": "Marais Erasmus",
+    "matchReferee": "Ranjan Madugalle"
+  },
+  "weather": {
+    "conditions": "Clear skies",
+    "temperature": "29°C",
+    "humidity": "65%"
+  }
+}

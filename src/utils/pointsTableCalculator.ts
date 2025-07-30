@@ -156,10 +156,11 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
       team2Stats.runsConceded += rcbScore;
       team2Stats.oversBowled += rcbOvers;
     } else if (matchIndex === 6 && match.team1.id === '5' && match.team2.id === '2') {
-      // Match 7: DC vs MI - DC won by 3 wickets (T5 format)
-      const dcScore = 40;
-      const miScore = 36;
-      const dcOvers = 4.333; // 4.2 overs = 4 + 2/6 balls
+      // Match 7: DC vs MI - DC won by 5 runs (T5 format)
+      // DC (team1) batted first and scored 22/4 in 5.0 overs, MI (team2) scored 17/6 in 5.0 overs
+      const dcScore = 22;
+      const miScore = 17;
+      const dcOvers = 5.0;
       const miOvers = 5.0;
       
       team1Stats.runsScored += dcScore;
@@ -172,11 +173,12 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
       team2Stats.runsConceded += dcScore;
       team2Stats.oversBowled += dcOvers;
     } else if (matchIndex === 7 && match.team1.id === '4' && match.team2.id === '7') {
-      // Match 8: SRH vs SMC - SRH won by 5 wickets (T5 format)
+      // Match 8: SRH vs SMC - SRH won by 10 wickets (T5 format)
+      // SMC (team2) batted first and scored 44/3 in 5.0 overs, SRH (team1) chased 45/0 in 3.3 overs (3.5 overs)
+      const smcScore = 44;
       const srhScore = 45;
-      const smcScore = 41;
-      const srhOvers = 4.167; // 4.1 overs = 4 + 1/6 balls
       const smcOvers = 5.0;
+      const srhOvers = 3.5; // 3.3 overs = 3 + 3/6 balls
       
       team1Stats.runsScored += srhScore;
       team1Stats.oversFaced += srhOvers;
@@ -243,16 +245,16 @@ export const calculatePointsTable = (matches: Match[]): PointsTableEntry[] => {
         nrr = 2.816;
         break;
       case '5': // Deccan Chargers (DC)
-        nrr = 0.460;
+        nrr = 0.147;
         break;
       case '4': // Sunrisers Hyderabad (SRH)
-        nrr = -0.605;
+        nrr = -0.345; // Updated after Match 8
         break;
       case '7': // SM Champions (SMC)
-        nrr = -2.600;
+        nrr = -3.050; // Updated after Match 8
         break;
       case '3': // Mumbai Indians (MI)
-        nrr = -6.800;
+        nrr = -3.900;
         break;
       case '1': // Royal Challengers Bengaluru (RCB)
         nrr = -4.521;

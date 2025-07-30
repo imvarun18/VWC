@@ -1,0 +1,253 @@
+{
+  "id": "8",
+  "matchId": "8",
+  "title": "Match 8: SM Champions vs Sunrisers Hyderabad",
+  "description": "SRH delivered a dominant performance, chasing down SMC's total of 44 with 10 wickets in hand and 10 balls to spare. G.Maxwell's explosive 24* and T.Head's steady 21* provided an unbeaten opening partnership to secure a comprehensive victory.",
+  "highlights": [
+    "SRH won by 10 wickets",
+    "G.Maxwell scored explosive 24* off 8 balls",
+    "T.Head contributed 21* off 13 balls",
+    "SMC managed only 44/3 in 5 overs",
+    "SRH chased the target in just 3.3 overs"
+  ],
+  "manOfTheMatch": {
+    "playerId": "maxwell_g_srh",
+    "playerName": "G.Maxwell",
+    "teamId": "4",
+    "reason": "Unbeaten 24* off 8 balls to lead SRH to a 10-wicket victory"
+  },
+  "matchDetails": {
+    "date": "2025-07-26",
+    "venue": "Narendra Modi Stadium",
+    "format": "T5",
+    "status": "completed",
+    "result": "SRH won by 10 wickets",
+    "winnerId": "4",
+    "winnerName": "Sunrisers Hyderabad",
+    "margin": "10 wickets"
+  },
+  "teams": {
+    "team1": {
+      "id": "7",
+      "name": "SM Champions",
+      "shortName": "SMC"
+    },
+    "team2": {
+      "id": "4",
+      "name": "Sunrisers Hyderabad",
+      "shortName": "SRH"
+    }
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "7",
+      "teamName": "SM Champions",
+      "totalRuns": 44,
+      "totalWickets": 3,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 0,
+      "runRate": 8.80,
+      "battingOrder": [
+        {
+          "playerId": "sharma_r_smc",
+          "playerName": "R.Sharma",
+          "runs": 16,
+          "balls": 7,
+          "fours": 2,
+          "sixes": 1,
+          "strikeRate": 228.57,
+          "dismissal": "bowled",
+          "bowlerName": "H.Pandya"
+        },
+        {
+          "playerId": "pant_r_smc",
+          "playerName": "R.Pant",
+          "runs": 8,
+          "balls": 3,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 266.67,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "kohli_v_smc",
+          "playerName": "V.Kohli",
+          "runs": 7,
+          "balls": 8,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 87.50,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "yadav_s_smc",
+          "playerName": "S.Yadav",
+          "runs": 6,
+          "balls": 6,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 100.00,
+          "dismissal": "caught",
+          "bowlerName": "R.Jadeja"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "maxwell_g_srh",
+          "playerName": "G.Maxwell",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 1,
+          "wickets": 1,
+          "economy": 1.00,
+          "balls": 6
+        },
+        {
+          "playerId": "starc_m_srh",
+          "playerName": "M.Starc",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 8,
+          "wickets": 1,
+          "economy": 8.00,
+          "balls": 6
+        },
+        {
+          "playerId": "lyon_n_srh",
+          "playerName": "N.Lyon",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 6,
+          "wickets": 1,
+          "economy": 6.00,
+          "balls": 6
+        },
+        {
+          "playerId": "hazlewood_j_srh",
+          "playerName": "J.Hazlewood",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 16,
+          "wickets": 0,
+          "economy": 16.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "R.Sharma",
+          "batsman2": "R.Pant",
+          "runs": 20,
+          "balls": 8
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 16,
+          "batsman": "R.Sharma",
+          "over": 1.6
+        },
+        {
+          "wicket": 2,
+          "runs": 28,
+          "batsman": "S.Yadav",
+          "over": 3.6
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "4",
+      "teamName": "Sunrisers Hyderabad",
+      "totalRuns": 45,
+      "totalWickets": 0,
+      "totalOvers": 3,
+      "totalBalls": 20,
+      "extras": 0,
+      "runRate": 13.64,
+      "battingOrder": [
+        {
+          "playerId": "maxwell_g_srh",
+          "playerName": "G.Maxwell",
+          "runs": 24,
+          "balls": 8,
+          "fours": 3,
+          "sixes": 1,
+          "strikeRate": 300.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "head_t_srh",
+          "playerName": "T.Head",
+          "runs": 21,
+          "balls": 13,
+          "fours": 3,
+          "sixes": 0,
+          "strikeRate": 161.54,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "pandya_h_smc",
+          "playerName": "H.Pandya",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 18,
+          "wickets": 0,
+          "economy": 18.00,
+          "balls": 6
+        },
+        {
+          "playerId": "jadeja_r_smc",
+          "playerName": "R.Jadeja",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 16,
+          "wickets": 0,
+          "economy": 16.00,
+          "balls": 6
+        },
+        {
+          "playerId": "shami_m_smc",
+          "playerName": "M.Shami",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 11,
+          "wickets": 0,
+          "economy": 11.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "G.Maxwell",
+          "batsman2": "T.Head",
+          "runs": 45,
+          "balls": 20
+        }
+      ],
+      "fallOfWickets": []
+    }
+  },
+  "tossDetails": {
+    "winnerId": "2",
+    "winnerName": "Chennai Super Kings",
+    "decision": "chose to bowl first"
+  },
+  "officials": {
+    "umpires": ["Kumar Dharmasena", "Marais Erasmus"],
+    "thirdUmpire": "Richard Kettleborough",
+    "matchReferee": "Ranjan Madugalle"
+  },
+  "weather": {
+    "conditions": "Clear skies",
+    "temperature": "28°C",
+    "humidity": "65%"
+  }
+}

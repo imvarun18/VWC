@@ -8,7 +8,7 @@ import {
   TrendingUp,
   Play
 } from 'lucide-react';
-import { currentLiveScore, teams } from '../data/mockData';
+import { teams } from '../data/mockData';
 import { useTournamentSchedule } from '../hooks/useTournamentSchedule';
 import { calculatePointsTable } from '../utils/pointsTableCalculator';
 import { parseISO, isToday } from 'date-fns';
@@ -23,7 +23,11 @@ const Home: React.FC = () => {
   
   // Get today's matches, live match, and upcoming matches from CSV data
   const todaysMatches = matches.filter((match: Match) => isToday(parseISO(match.date)));
-  const liveMatch = matches.find((match: Match) => match.status === 'live');
+  const liveMatchByStatus = matches.find((match: Match) => match.status === 'live');
+  
+  // If no live match found by status, use the first today's match
+  const liveMatch = liveMatchByStatus || todaysMatches[0];
+  
   const upcomingMatches = matches
     .filter((match: Match) => match.status === 'upcoming')
     .slice(0, 2); // Show next 2 upcoming matches
@@ -139,16 +143,13 @@ const Home: React.FC = () => {
               
               <div className="text-right">
                 <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                  {currentLiveScore.currentInnings.score}/{currentLiveScore.currentInnings.wickets}
+                  0/0
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  ({currentLiveScore.currentInnings.overs}.{currentLiveScore.currentInnings.balls} overs)
+                  (0.0 overs)
                 </div>
                 <div className="text-sm text-primary-600 dark:text-primary-400 font-medium">
-                  {currentLiveScore.target && currentLiveScore.target > 0 
-                    ? `Need ${currentLiveScore.target - currentLiveScore.currentInnings.score} runs`
-                    : 'Yet to be played'
-                  }
+                  Yet to be played
                 </div>
               </div>
             </div>

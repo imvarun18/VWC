@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Calendar, MapPin, Filter, ChevronDown } from 'lucide-react';
 import { useTournamentSchedule } from '../hooks/useTournamentSchedule';
 import { teams } from '../data/mockData';
@@ -10,6 +11,38 @@ const Schedule: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'today' | 'upcoming' | 'completed'>('today');
   const [selectedTeam, setSelectedTeam] = useState<string>('all');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
+  const filterRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // Update dropdown position when opening
+  useEffect(() => {
+    if (isFilterOpen && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setDropdownPosition({
+        top: rect.bottom + window.scrollY + 8,
+        left: rect.left + window.scrollX,
+        width: Math.max(288, rect.width)
+      });
+    }
+  }, [isFilterOpen]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(event.target as Node) && 
+          buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+        setIsFilterOpen(false);
+      }
+    };
+
+    if (isFilterOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isFilterOpen]);
 
   // Load tournament schedule from CSV
   const { matches: currentMatches, loading, error } = useTournamentSchedule(teams);
@@ -105,11 +138,11 @@ const Schedule: React.FC = () => {
       </div>
 
       {/* Filters */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-white/95 to-gray-50/50 dark:from-gray-800/90 dark:via-gray-800/95 dark:to-gray-900/50 backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-lg p-6 mb-8">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-transparent to-accent-500/5"></div>
+      <div className="relative rounded-2xl bg-gradient-to-br from-white via-white/95 to-gray-50/50 dark:from-gray-800/90 dark:via-gray-800/95 dark:to-gray-900/50 backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-lg p-6 mb-8 overflow-visible">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-transparent to-accent-500/5 rounded-2xl"></div>
         <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
           {/* Status Filter */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             {[
               { key: 'all', label: 'All Matches', icon: '📋' },
               { key: 'today', label: 'Today', icon: '🎯' },
@@ -119,14 +152,15 @@ const Schedule: React.FC = () => {
               <button
                 key={filter.key}
                 onClick={() => setSelectedFilter(filter.key as any)}
-                className={`group relative px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ease-out transform-gpu will-change-transform active:scale-[0.96] hover:scale-[1.02] md:hover:scale-[1.01] mobile-touch ${
+                className={`group relative px-3 sm:px-6 py-2 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ease-out transform-gpu will-change-transform active:scale-[0.96] hover:scale-[1.02] md:hover:scale-[1.01] mobile-touch ${
                   selectedFilter === filter.key
                     ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg shadow-primary-500/25'
                     : 'bg-gray-100/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 hover:bg-gray-200/80 dark:hover:bg-gray-600/80 backdrop-blur-sm'
                 }`}
               >
-                <span className="mr-2">{filter.icon}</span>
-                {filter.label}
+                <span className="mr-1 sm:mr-2">{filter.icon}</span>
+                <span className="hidden sm:inline">{filter.label}</span>
+                <span className="sm:hidden">{filter.key === 'all' ? 'All' : filter.key === 'today' ? 'Today' : filter.key === 'upcoming' ? 'Soon' : 'Done'}</span>
                 {selectedFilter === filter.key && (
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary-400/20 to-accent-400/20 animate-pulse"></div>
                 )}
@@ -137,55 +171,86 @@ const Schedule: React.FC = () => {
           {/* Team Filter */}
           <div className="relative">
             <button
+              ref={buttonRef}
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="group flex items-center space-x-3 px-6 py-3 bg-gray-100/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200/80 dark:hover:bg-gray-600/80 transition-all duration-300 ease-out transform-gpu will-change-transform active:scale-[0.96] hover:scale-[1.02] md:hover:scale-[1.01] backdrop-blur-sm mobile-touch"
+              className="group flex items-center space-x-2 sm:space-x-3 px-3 sm:px-6 py-2 sm:py-3 bg-gray-100/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200/80 dark:hover:bg-gray-600/80 transition-all duration-300 ease-out transform-gpu will-change-transform active:scale-[0.96] hover:scale-[1.02] md:hover:scale-[1.01] backdrop-blur-sm mobile-touch w-full sm:w-auto"
             >
-              <Filter className="w-5 h-5 text-primary-600 dark:text-primary-400" />
-              <span className="text-sm font-semibold">
-                {selectedTeam === 'all' ? '🏏 All Teams' : `🏏 ${selectedTeam}`}
-              </span>
-              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isFilterOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {isFilterOpen && (
-              <div className="absolute right-0 mt-3 w-72 bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 z-20 overflow-hidden">
-                <div className="p-3">
-                  <button
-                    onClick={() => {
-                      setSelectedTeam('all');
-                      setIsFilterOpen(false);
-                    }}
-                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 ${
-                      selectedTeam === 'all'
-                        ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80'
-                    }`}
-                  >
-                    🏏 All Teams
-                  </button>
-                  <div className="my-2 h-px bg-gray-200 dark:bg-gray-700"></div>
-                  {teamNames.map(teamName => (
-                    <button
-                      key={teamName}
-                      onClick={() => {
-                        setSelectedTeam(teamName);
-                        setIsFilterOpen(false);
-                      }}
-                      className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 ${
-                        selectedTeam === teamName
-                          ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg'
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80'
-                      }`}
-                    >
-                      🏏 {teamName}
-                    </button>
-                  ))}
+              <Filter className="w-4 sm:w-5 h-4 sm:h-5 text-primary-600 dark:text-primary-400" />
+              {selectedTeam === 'all' ? (
+                <span className="text-xs sm:text-sm font-semibold truncate">
+                  🏏 All Teams
+                </span>
+              ) : (
+                <div className="flex items-center space-x-2">
+                  {(() => {
+                    const team = teams.find(t => t.name === selectedTeam);
+                    return team ? <TeamLogo team={team} size="small" /> : null;
+                  })()}
+                  <span className="text-xs sm:text-sm font-semibold truncate">
+                    {selectedTeam}
+                  </span>
                 </div>
-              </div>
-            )}
+              )}
+              <ChevronDown className={`w-3 sm:w-4 h-3 sm:h-4 transition-transform duration-300 flex-shrink-0 ${isFilterOpen ? 'rotate-180' : ''}`} />
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Portal Dropdown */}
+      {isFilterOpen && createPortal(
+        <div 
+          ref={filterRef}
+          className="fixed z-[9999] bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden"
+          style={{
+            top: `${dropdownPosition.top}px`,
+            left: `${dropdownPosition.left}px`,
+            width: `${Math.min(dropdownPosition.width, window.innerWidth - 32)}px`,
+            maxWidth: '320px'
+          }}
+        >
+          <div className="p-3 max-h-80 overflow-y-auto">
+            <button
+              onClick={() => {
+                setSelectedTeam('all');
+                setIsFilterOpen(false);
+              }}
+              className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 flex items-center space-x-3 ${
+                selectedTeam === 'all'
+                  ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80'
+              }`}
+            >
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white text-xs font-bold">
+                🏏
+              </div>
+              <span>All Teams</span>
+            </button>
+            <div className="my-2 h-px bg-gray-200 dark:bg-gray-700"></div>
+            {teamNames.map(teamName => {
+              const team = teams.find(t => t.name === teamName);
+              return (
+                <button
+                  key={teamName}
+                  onClick={() => {
+                    setSelectedTeam(teamName);
+                    setIsFilterOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 flex items-center space-x-3 ${
+                    selectedTeam === teamName
+                      ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80'
+                  }`}
+                >
+                  {team && <TeamLogo team={team} size="small" />}
+                  <span>{teamName}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>,
+        document.body
+      )}
 
       {/* Matches */}
       {Object.keys(groupedMatches).length === 0 ? (

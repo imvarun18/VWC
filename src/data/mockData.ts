@@ -60,82 +60,131 @@ export const teams: Team[] = [
 ];
 
 export const players: Player[] = [
-  // Royal Challengers Bengaluru
+  // Royal Challengers Bengaluru - Captain
   { id: '1', name: 'Varunsai', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '2', name: 'Glenn Maxwell', teamId: '1', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
-  { id: '3', name: 'Faf du Plessis', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '1a', name: 'A.Patel', teamId: '1', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
-  { id: '1b', name: 'S.Samson', teamId: '1', role: 'wicket-keeper', battingStyle: 'right-handed' },
-  { id: '1c', name: 'R.Sharma', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '1d', name: 'R.Bishnoi', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
-  { id: '1e', name: 'H.PANDYA', teamId: '1', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
-  { id: '1f', name: 'Y.CHAHAL', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
   
-  // Chennai Super Kings
+  // Royal Challengers Bengaluru - Regular players with unique IDs
+  { id: 'patel_a_rcb', name: 'A.Patel', teamId: '1', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: 'samson_s_rcb', name: 'S.Samson', teamId: '1', role: 'wicket-keeper', battingStyle: 'right-handed' },
+  { id: 'sharma_r_rcb', name: 'R.Sharma', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'bishnoi_r_rcb', name: 'R.Bishnoi', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'pandya_h_rcb', name: 'H.Pandya', teamId: '1', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'chahal_y_rcb', name: 'Y.Chahal', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'singh_a_rcb', name: 'A.Singh', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'bumrah_j_rcb', name: 'J.Bumrah', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'yadav_k_rcb', name: 'K.Yadav', teamId: '1', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'leg-break' },
+  { id: 'gill_s_rcb', name: 'S.Gill', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'kumar_b_rcb', name: 'B.Kumar', teamId: '1', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'kohli_v_rcb', name: 'V.Kohli', teamId: '1', role: 'batsman', battingStyle: 'right-handed' },
+  
+  // Chennai Super Kings - Captain
   { id: '4', name: 'Lokesh', teamId: '2', role: 'wicket-keeper', battingStyle: 'right-handed' },
-  { id: '5', name: 'Ravindra Jadeja', teamId: '2', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
-  { id: '6', name: 'Deepak Chahar', teamId: '2', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
-  { id: '2a', name: 'R.Pant', teamId: '2', role: 'wicket-keeper', battingStyle: 'left-handed' },
-  { id: '2b', name: 'T.Varma', teamId: '2', role: 'batsman', battingStyle: 'left-handed' },
-  { id: '2c', name: 'H.Pandya', teamId: '2', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
-  { id: '2d', name: 'S.Yadav', teamId: '2', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '2e', name: 'A.Singh', teamId: '2', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '2f', name: 'V.Kohli', teamId: '2', role: 'batsman', battingStyle: 'right-handed' },
   
-  // Mumbai Indians
+  // Chennai Super Kings - Regular players with unique IDs
+  { id: 'pandya_h_csk', name: 'H.Pandya', teamId: '2', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'shami_m_csk', name: 'M.Shami', teamId: '2', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'bishnoi_r_csk', name: 'R.Bishnoi', teamId: '2', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'jadeja_r_csk', name: 'R.Jadeja', teamId: '2', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: 'bumrah_j_csk', name: 'J.Bumrah', teamId: '2', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'yadav_s_csk', name: 'S.Yadav', teamId: '2', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'sharma_r_csk', name: 'R.Sharma', teamId: '2', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'kohli_v_csk', name: 'V.Kohli', teamId: '2', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'varma_t_csk', name: 'T.Varma', teamId: '2', role: 'batsman', battingStyle: 'left-handed' },
+  
+  // Mumbai Indians - Captain
   { id: '7', name: 'Anjaneyulu', teamId: '3', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '8', name: 'Jasprit Bumrah', teamId: '3', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '9', name: 'Hardik Pandya', teamId: '3', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
-  { id: '3a', name: 'A.Patel', teamId: '3', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
-  { id: '3b', name: 'T.Varma', teamId: '3', role: 'batsman', battingStyle: 'left-handed' },
-  { id: '3c', name: 'R.Jadeja', teamId: '3', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
-  { id: '3d', name: 'M.Shami', teamId: '3', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '3e', name: 'J.Bumrah', teamId: '3', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '3f', name: 'H.Pandya', teamId: '3', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
-  { id: '3g', name: 'R.Bishnoi', teamId: '3', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
   
-  // Sunrisers Hyderabad
+  // Mumbai Indians - Regular players with unique IDs
+  { id: 'sharma_r_mi', name: 'R.Sharma', teamId: '3', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'kishan_i_mi', name: 'I.Kishan', teamId: '3', role: 'wicket-keeper', battingStyle: 'left-handed' },
+  { id: 'pandya_h_mi', name: 'H.Pandya', teamId: '3', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'patel_a_mi', name: 'A.Patel', teamId: '3', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: 'varma_t_mi', name: 'T.Varma', teamId: '3', role: 'batsman', battingStyle: 'left-handed' },
+  { id: 'bumrah_j_mi', name: 'J.Bumrah', teamId: '3', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'shami_m_mi', name: 'M.Shami', teamId: '3', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'jadeja_r_mi', name: 'R.Jadeja', teamId: '3', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: 'reddy_n_mi', name: 'N.Reddy', teamId: '3', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'jaiswal_y_mi', name: 'Y.Jaiswal', teamId: '3', role: 'batsman', battingStyle: 'left-handed' },
+  { id: 'bishnoi_r_mi', name: 'R.Bishnoi', teamId: '3', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'pant_r_mi', name: 'R.Pant', teamId: '3', role: 'wicket-keeper', battingStyle: 'left-handed' },
+  
+  // Sunrisers Hyderabad - Captain
   { id: '10', name: 'Sharan', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '11', name: 'Bhuvneshwar Kumar', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
-  { id: '12', name: 'Abdul Samad', teamId: '4', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
-  { id: '10a', name: 'A.Finch', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '10b', name: 'T.Head', teamId: '4', role: 'batsman', battingStyle: 'left-handed' },
-  { id: '10c', name: 'S.Smith', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '10d', name: 'T.David', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '10e', name: 'J.HAZLEWOOD', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '10f', name: 'M.STARC', teamId: '4', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'left-arm-fast' },
-  { id: '10g', name: 'P.CUMMINS', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '10h', name: 'N.LYON', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
   
-  // Deccan Chargers
+  // Sunrisers Hyderabad - Regular players with unique IDs
+  { id: 'maxwell_g_srh', name: 'G.Maxwell', teamId: '4', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
+  { id: 'head_t_srh', name: 'T.Head', teamId: '4', role: 'batsman', battingStyle: 'left-handed' },
+  { id: 'pandya_h_srh', name: 'H.Pandya', teamId: '4', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'jadeja_r_srh', name: 'R.Jadeja', teamId: '4', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: 'starc_m_srh', name: 'M.Starc', teamId: '4', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'left-arm-fast' },
+  { id: 'finch_a_srh', name: 'A.Finch', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'smith_s_srh', name: 'S.Smith', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'david_t_srh', name: 'T.David', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'patel_a_srh', name: 'A.Patel', teamId: '4', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: 'singh_a_srh', name: 'A.Singh', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'bumrah_j_srh', name: 'J.Bumrah', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'bishnoi_r_srh', name: 'R.Bishnoi', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'markram_a_srh', name: 'A.Markram', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'klaasen_h_srh', name: 'H.Klaasen', teamId: '4', role: 'wicket-keeper', battingStyle: 'right-handed' },
+  { id: 'hendricks_r_srh', name: 'R.Hendricks', teamId: '4', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'miller_d_srh', name: 'D.Miller', teamId: '4', role: 'batsman', battingStyle: 'left-handed' },
+  { id: 'yadav_k_srh', name: 'K.Yadav', teamId: '4', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'leg-break' },
+  { id: 'chahal_y_srh', name: 'Y.Chahal', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'lyon_n_srh', name: 'N.Lyon', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
+  { id: 'hazlewood_j_srh', name: 'J.Hazlewood', teamId: '4', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  
+  // Deccan Chargers - Captain
   { id: '13', name: 'Hemanth', teamId: '5', role: 'batsman', battingStyle: 'left-handed' },
-  { id: '14', name: 'Rashid Khan', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
-  { id: '15', name: 'Kane Williamson', teamId: '5', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '13a', name: 'N.Reddy', teamId: '5', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '13b', name: 'T.Varma', teamId: '5', role: 'batsman', battingStyle: 'left-handed' },
-  { id: '13c', name: 'R.Pant', teamId: '5', role: 'wicket-keeper', battingStyle: 'left-handed' },
-  { id: '13d', name: 'Y.Jaiswal', teamId: '5', role: 'batsman', battingStyle: 'left-handed' },
-  { id: '13e', name: 'A.PATEL', teamId: '5', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
-  { id: '13f', name: 'A.SINGH', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '13g', name: 'J.BUMRAH', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '13h', name: 'R.BISHNOI', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
   
-  // Rising Stars
+  // Deccan Chargers - Regular players with unique IDs
+  { id: 'reddy_n_dc', name: 'N.Reddy', teamId: '5', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'varma_t_dc', name: 'T.Varma', teamId: '5', role: 'batsman', battingStyle: 'left-handed' },
+  { id: 'pant_r_dc', name: 'R.Pant', teamId: '5', role: 'wicket-keeper', battingStyle: 'left-handed' },
+  { id: 'jaiswal_y_dc', name: 'Y.Jaiswal', teamId: '5', role: 'batsman', battingStyle: 'left-handed' },
+  { id: 'hazlewood_j_dc', name: 'J.Hazlewood', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'starc_m_dc', name: 'M.Starc', teamId: '5', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'left-arm-fast' },
+  { id: 'lyon_n_dc', name: 'N.Lyon', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'off-break' },
+  { id: 'kohli_v_dc', name: 'V.Kohli', teamId: '5', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'pandya_h_dc', name: 'H.Pandya', teamId: '5', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'bishnoi_r_dc', name: 'R.Bishnoi', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'gill_s_dc', name: 'S.Gill', teamId: '5', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'cummins_p_dc', name: 'P.Cummins', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'williamson_k_dc', name: 'K.Williamson', teamId: '5', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'patel_a_dc', name: 'A.Patel', teamId: '5', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: 'khan_r_dc', name: 'R.Khan', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'singh_a_dc', name: 'A.Singh', teamId: '5', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  
+  // Rising Stars - Captain
   { id: '16', name: 'Saketh', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '17', name: 'Axar Patel', teamId: '6', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
-  { id: '18', name: 'Prithvi Shaw', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '16a', name: 'V.Kohli', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '16b', name: 'N.Reddy', teamId: '6', role: 'all-rounder', battingStyle: 'right-handed' },
-  { id: '16c', name: 'R.Sharma', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
-  { id: '16d', name: 'K.Yadav', teamId: '6', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'leg-break' },
-  { id: '16e', name: 'A.SINGH', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '16f', name: 'J.BUMRAH', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '16g', name: 'R.BISHNOI', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
   
-  // SM Champions
+  // Rising Stars - Regular players with unique IDs
+  { id: 'kohli_v_rs', name: 'V.Kohli', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'reddy_n_rs', name: 'N.Reddy', teamId: '6', role: 'all-rounder', battingStyle: 'right-handed' },
+  { id: 'sharma_r_rs', name: 'R.Sharma', teamId: '6', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'yadav_k_rs', name: 'K.Yadav', teamId: '6', role: 'bowler', battingStyle: 'left-handed', bowlingStyle: 'leg-break' },
+  { id: 'singh_a_rs', name: 'A.Singh', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'bumrah_j_rs', name: 'J.Bumrah', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'bishnoi_r_rs', name: 'R.Bishnoi', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  { id: 'pandya_h_rs', name: 'H.Pandya', teamId: '6', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'ngidi_l_rs', name: 'L.Ngidi', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'rabada_k_rs', name: 'K.Rabada', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
+  { id: 'de_kock_q_rs', name: 'Q.de Kock', teamId: '6', role: 'wicket-keeper', battingStyle: 'left-handed' },
+  { id: 'pant_r_rs', name: 'R.Pant', teamId: '6', role: 'wicket-keeper', battingStyle: 'left-handed' },
+  { id: 'dube_s_rs', name: 'S.Dube', teamId: '6', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'kishan_i_rs', name: 'I.Kishan', teamId: '6', role: 'wicket-keeper', battingStyle: 'left-handed' },
+  { id: 'chahal_y_rs', name: 'Y.Chahal', teamId: '6', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'leg-break' },
+  
+  // SM Champions - Captain
   { id: '19', name: 'Shivamani', teamId: '7', role: 'wicket-keeper', battingStyle: 'right-handed' },
-  { id: '20', name: 'Mohammed Shami', teamId: '7', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' },
-  { id: '21', name: 'Shikhar Dhawan', teamId: '7', role: 'batsman', battingStyle: 'left-handed' }
+  
+  // SM Champions - Regular players with unique IDs
+  { id: 'sharma_r_smc', name: 'R.Sharma', teamId: '7', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'pant_r_smc', name: 'R.Pant', teamId: '7', role: 'wicket-keeper', battingStyle: 'left-handed' },
+  { id: 'kohli_v_smc', name: 'V.Kohli', teamId: '7', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'yadav_s_smc', name: 'S.Yadav', teamId: '7', role: 'batsman', battingStyle: 'right-handed' },
+  { id: 'pandya_h_smc', name: 'H.Pandya', teamId: '7', role: 'all-rounder', battingStyle: 'right-handed', bowlingStyle: 'right-arm-medium' },
+  { id: 'jadeja_r_smc', name: 'R.Jadeja', teamId: '7', role: 'all-rounder', battingStyle: 'left-handed', bowlingStyle: 'left-arm-orthodox' },
+  { id: 'shami_m_smc', name: 'M.Shami', teamId: '7', role: 'bowler', battingStyle: 'right-handed', bowlingStyle: 'right-arm-fast' }
 ];
 
 export const getCurrentDate = (): string => {
@@ -207,7 +256,9 @@ export const matches: Match[] = [
     venue: 'Rajiv Gandhi International Stadium, Hyderabad',
     team1: teams[3], // Sunrisers Hyderabad
     team2: teams[5], // Rising Stars
-    status: 'live',
+    status: 'completed',
+    result: 'RS won by 7 wickets',
+    winner: teams[5], // Rising Stars
     matchType: 'group',
     overs: 5
   },
@@ -219,7 +270,9 @@ export const matches: Match[] = [
     venue: 'M.Chinnaswamy Stadium, Bangalore',
     team1: teams[0], // Royal Challengers Bengaluru
     team2: teams[1], // Chennai Super Kings
-    status: 'upcoming',
+    status: 'completed',
+    result: 'RCB won by 9 wickets',
+    winner: teams[0], // Royal Challengers Bengaluru
     matchType: 'group',
     overs: 20
   },
@@ -231,7 +284,9 @@ export const matches: Match[] = [
     venue: 'Rajiv Gandhi International Stadium, Hyderabad',
     team1: teams[4], // Deccan Chargers
     team2: teams[2], // Mumbai Indians
-    status: 'upcoming',
+    status: 'completed',
+    result: 'DC won by 5 runs',
+    winner: teams[4], // Deccan Chargers
     matchType: 'group',
     overs: 20
   },
@@ -243,7 +298,9 @@ export const matches: Match[] = [
     venue: 'Rajiv Gandhi International Stadium, Hyderabad',
     team1: teams[3], // Sunrisers Hyderabad
     team2: teams[6], // SM Champions
-    status: 'upcoming',
+    status: 'completed',
+    result: 'SRH won by 10 wickets',
+    winner: teams[3], // Sunrisers Hyderabad
     matchType: 'group',
     overs: 20
   },
@@ -255,7 +312,9 @@ export const matches: Match[] = [
     venue: 'Eden Gardens, Kolkata',
     team1: teams[5], // Rising Stars
     team2: teams[1], // Chennai Super Kings
-    status: 'upcoming',
+    status: 'completed',
+    result: 'RS won by 89 runs',
+    winner: teams[5], // Rising Stars
     matchType: 'group',
     overs: 20
   },

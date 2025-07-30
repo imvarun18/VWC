@@ -1,0 +1,315 @@
+{
+  "id": "9",
+  "matchId": "9",
+  "title": "Match 9: Rising Stars vs Chennai Super Kings",
+  "description": "Rising Stars delivered a dominant performance at their home ground, posting a massive 101/2 in 5.0 overs before restricting CSK to just 12/10 in 2.3 overs. S.Dube's explosive 57* and disciplined bowling helped RS secure a comprehensive 89-run victory.",
+  "highlights": [
+    "RS won by 89 runs",
+    "S.Dube scored an explosive 57* off 16 balls",
+    "V.Kohli contributed 22 off 7 balls",
+    "RS posted 101/2 in 5.0 overs",
+    "CSK collapsed to 12/10 in 2.3 overs",
+    "Y.Chahal and K.Yadav took 4 wickets each"
+  ],
+  "manOfTheMatch": {
+    "playerId": "dube_s_rs",
+    "playerName": "S.Dube",
+    "teamId": "8",
+    "reason": "Explosive unbeaten 57* off 16 balls to power RS to a commanding total"
+  },
+  "matchDetails": {
+    "date": "2025-07-30",
+    "venue": "Rising Stars Home Ground",
+    "format": "T5",
+    "status": "completed",
+    "result": "RS won by 89 runs",
+    "winnerId": "8",
+    "winnerName": "Rising Stars",
+    "margin": "89 runs"
+  },
+  "teams": {
+    "team1": {
+      "id": "8",
+      "name": "Rising Stars",
+      "shortName": "RS"
+    },
+    "team2": {
+      "id": "2",
+      "name": "Chennai Super Kings",
+      "shortName": "CSK"
+    }
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "8",
+      "teamName": "Rising Stars",
+      "totalRuns": 101,
+      "totalWickets": 2,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 4,
+      "runRate": 20.20,
+      "battingOrder": [
+        {
+          "playerId": "dube_s_rs",
+          "playerName": "S.Dube",
+          "runs": 57,
+          "balls": 16,
+          "fours": 6,
+          "sixes": 3,
+          "strikeRate": 356.25,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "kohli_v_rs",
+          "playerName": "V.Kohli",
+          "runs": 22,
+          "balls": 7,
+          "fours": 3,
+          "sixes": 1,
+          "strikeRate": 314.29,
+          "dismissal": "caught",
+          "bowlerName": "M.Shami"
+        },
+        {
+          "playerId": "kishan_i_rs",
+          "playerName": "I.Kishan",
+          "runs": 10,
+          "balls": 3,
+          "fours": 1,
+          "sixes": 1,
+          "strikeRate": 333.33,
+          "dismissal": "caught",
+          "bowlerName": "J.Bumrah"
+        },
+        {
+          "playerId": "sharma_r_rs",
+          "playerName": "R.Sharma",
+          "runs": 9,
+          "balls": 4,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 225.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "pandya_h_csk",
+          "playerName": "H.Pandya",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 17,
+          "wickets": 1,
+          "economy": 17.00,
+          "balls": 6
+        },
+        {
+          "playerId": "shami_m_csk",
+          "playerName": "M.Shami",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 23,
+          "wickets": 1,
+          "economy": 23.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bishnoi_r_csk",
+          "playerName": "R.Bishnoi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 28,
+          "wickets": 0,
+          "economy": 28.00,
+          "balls": 6
+        },
+        {
+          "playerId": "jadeja_r_csk",
+          "playerName": "R.Jadeja",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 18,
+          "wickets": 0,
+          "economy": 18.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bumrah_j_csk",
+          "playerName": "J.Bumrah",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 15,
+          "wickets": 0,
+          "economy": 15.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "S.Dube",
+          "batsman2": "V.Kohli",
+          "runs": 68,
+          "balls": 20
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 68,
+          "batsman": "V.Kohli",
+          "over": 3.5
+        },
+        {
+          "wicket": 2,
+          "runs": 85,
+          "batsman": "I.Kishan",
+          "over": 4.2
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "2",
+      "teamName": "Chennai Super Kings",
+      "totalRuns": 12,
+      "totalWickets": 10,
+      "totalOvers": 2.3,
+      "totalBalls": 14,
+      "extras": 0,
+      "runRate": 5.14,
+      "battingOrder": [
+        {
+          "playerId": "shami_m_csk",
+          "playerName": "M.Shami",
+          "runs": 4,
+          "balls": 1,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 400.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "bumrah_j_csk",
+          "playerName": "J.Bumrah",
+          "runs": 4,
+          "balls": 2,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 200.00,
+          "dismissal": "bowled",
+          "bowlerName": "Y.Chahal"
+        },
+        {
+          "playerId": "yadav_s_csk",
+          "playerName": "S.Yadav",
+          "runs": 4,
+          "balls": 3,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 133.33,
+          "dismissal": "caught",
+          "bowlerName": "K.Yadav"
+        },
+        {
+          "playerId": "sharma_r_csk",
+          "playerName": "R.Sharma",
+          "runs": 0,
+          "balls": 1,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0.00,
+          "dismissal": "bowled",
+          "bowlerName": "Y.Chahal"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "chahal_y_rs",
+          "playerName": "Y.Chahal",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 4,
+          "wickets": 4,
+          "economy": 4.00,
+          "balls": 6
+        },
+        {
+          "playerId": "yadav_k_rs",
+          "playerName": "K.Yadav",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 4,
+          "wickets": 4,
+          "economy": 4.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bishnoi_r_rs",
+          "playerName": "R.Bishnoi",
+          "overs": 0.3,
+          "maidens": 0,
+          "runs": 4,
+          "wickets": 2,
+          "economy": 8.00,
+          "balls": 2
+        },
+        {
+          "playerId": "kishan_i_rs",
+          "playerName": "I.Kishan",
+          "overs": 0,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 0,
+          "economy": 0.00,
+          "balls": 0
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "M.Shami",
+          "batsman2": "J.Bumrah",
+          "runs": 6,
+          "balls": 3
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 0,
+          "batsman": "R.Sharma",
+          "over": 0.1
+        },
+        {
+          "wicket": 2,
+          "runs": 4,
+          "batsman": "S.Yadav",
+          "over": 1.2
+        },
+        {
+          "wicket": 3,
+          "runs": 8,
+          "batsman": "J.Bumrah",
+          "over": 2.1
+        }
+      ]
+    }
+  },
+  "tossDetails": {
+    "winnerId": "2",
+    "winnerName": "Chennai Super Kings",
+    "decision": "chose to bowl first"
+  },
+  "officials": {
+    "umpires": ["Aleem Dar", "Paul Reiffel"],
+    "thirdUmpire": "Michael Gough",
+    "matchReferee": "Jeff Crowe"
+  },
+  "weather": {
+    "conditions": "Partly cloudy",
+    "temperature": "28°C",
+    "humidity": "65%"
+  }
+}

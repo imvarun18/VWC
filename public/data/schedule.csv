@@ -1,18 +1,18 @@
-Match,Date (2025),Day,Matchup,Winner
-1,July 20,Sunday,Deccan Chargers vs Sunrisers Hyderabad,Sunrisers Hyderabad
-2,July 21,Monday,Rising Stars vs Royal Challengers Bengaluru,Rising Stars
-3,July 22,Tuesday,Mumbai Indians vs Chennai Super Kings,Chennai Super Kings
-4,July 23,Wednesday,Deccan Chargers vs SM Champions,Deccan Chargers
-5,July 24,Thursday,Sunrisers Hyderabad vs Rising Stars,Rising Stars
-6,July 25,Friday,Royal Challengers Bengaluru vs Chennai Super Kings,Royal Challengers Bengaluru
-7,July 26,Saturday,Deccan Chargers vs Mumbai Indians,Deccan Chargers
-8,July 26,Saturday,Sunrisers Hyderabad vs SM Champions,Sunrisers Hyderabad
-9,July 27,Sunday,Rising Stars vs Chennai Super Kings,
-10,July 27,Sunday,Royal Challengers Bengaluru vs SM Champions,
-11,July 28,Monday,Rising Stars vs Mumbai Indians,
-12,July 29,Tuesday,Chennai Super Kings vs Deccan Chargers,
-13,July 30,Wednesday,SM Champions vs Mumbai Indians,
-14,July 31,Thursday,Sunrisers Hyderabad vs Chennai Super Kings,
+Match,Date (2025),Day,Matchup,Winner,Result
+1,July 20,Sunday,Deccan Chargers vs Sunrisers Hyderabad,Sunrisers Hyderabad,SRH won by 6 wickets
+2,July 21,Monday,Rising Stars vs Royal Challengers Bengaluru,Rising Stars,RS won by 51 runs
+3,July 22,Tuesday,Mumbai Indians vs Chennai Super Kings,Chennai Super Kings,CSK won by 34 runs
+4,July 23,Wednesday,Deccan Chargers vs SM Champions,Deccan Chargers,DC won by 8 wickets
+5,July 24,Thursday,Sunrisers Hyderabad vs Rising Stars,Rising Stars,RS won by 7 wickets
+6,July 25,Friday,Royal Challengers Bengaluru vs Chennai Super Kings,Royal Challengers Bengaluru,RCB won by 9 wickets
+7,July 26,Saturday,Deccan Chargers vs Mumbai Indians,Deccan Chargers,DC won by 5 runs
+8,July 26,Saturday,Sunrisers Hyderabad vs SM Champions,Sunrisers Hyderabad,SRH won by 10 wickets
+9,July 27,Sunday,Rising Stars vs Chennai Super Kings,Rising Stars,RS won by 89 runs
+10,July 27,Sunday,Royal Challengers Bengaluru vs SM Champions,,
+11,July 28,Monday,Rising Stars vs Mumbai Indians,,
+12,July 29,Tuesday,Chennai Super Kings vs Deccan Chargers,,
+13,July 30,Wednesday,SM Champions vs Mumbai Indians,,
+14,July 31,Thursday,Sunrisers Hyderabad vs Chennai Super Kings,,
 15,August 1,Friday,Rising Stars vs Deccan Chargers,
 16,August 2,Saturday,SM Champions vs Sunrisers Hyderabad,
 17,August 2,Saturday,Mumbai Indians vs Chennai Super Kings,

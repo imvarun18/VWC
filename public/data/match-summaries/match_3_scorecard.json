@@ -1,0 +1,309 @@
+{
+  "id": "3",
+  "matchId": "3",
+  "title": "Match 3: Chennai Super Kings vs Mumbai Indians",
+  "description": "CSK dominated MI in a one-sided encounter, scoring 55/1 in 5 overs after restricting MI to just 21/6. R.Pant's unbeaten 35 and the bowling unit's excellent performance led CSK to a comprehensive 34-run victory.",
+  "highlights": [
+    "CSK won by 34 runs",
+    "R.Pant's unbeaten 35 off 15 balls",
+    "MI restricted to 21/6 in 5.0 overs",
+    "CSK posted 55/1 in 5.0 overs",
+    "Dominant bowling performance by CSK"
+  ],
+  "manOfTheMatch": {
+    "playerId": "pant_r_csk",
+    "playerName": "R.Pant",
+    "teamId": "2",
+    "reason": "Match-winning innings: 35* off 15 balls to guide CSK to victory"
+  },
+  "matchDetails": {
+    "date": "2025-07-22",
+    "venue": "M.A. Chidambaram Stadium",
+    "format": "T5",
+    "status": "completed",
+    "result": "CSK won by 34 runs",
+    "winnerId": "2",
+    "winnerName": "Chennai Super Kings",
+    "margin": "34 runs"
+  },
+  "teams": {
+    "team1": {
+      "id": "3",
+      "name": "Mumbai Indians",
+      "shortName": "MI"
+    },
+    "team2": {
+      "id": "2",
+      "name": "Chennai Super Kings",
+      "shortName": "CSK"
+    }
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "3",
+      "teamName": "Mumbai Indians",
+      "totalRuns": 21,
+      "totalWickets": 6,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 3,
+      "runRate": 4.20,
+      "battingOrder": [
+        {
+          "playerId": "patel_a_mi",
+          "playerName": "A.Patel",
+          "runs": 10,
+          "balls": 3,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 333.33,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "varma_t_mi",
+          "playerName": "T.Varma",
+          "runs": 4,
+          "balls": 6,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 66.67,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "pandya_h_mi",
+          "playerName": "H.Pandya",
+          "runs": 4,
+          "balls": 12,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 33.33,
+          "dismissal": "caught",
+          "bowlerName": "H.Pandya"
+        },
+        {
+          "playerId": "bishnoi_r_mi",
+          "playerName": "R.Bishnoi",
+          "runs": 0,
+          "balls": 0,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "pandya_h_csk",
+          "playerName": "H.Pandya",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 1,
+          "wickets": 1,
+          "economy": 1.00,
+          "balls": 6
+        },
+        {
+          "playerId": "varma_t_csk",
+          "playerName": "T.Varma",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 2,
+          "economy": 0.00,
+          "balls": 6
+        },
+        {
+          "playerId": "yadav_s_csk",
+          "playerName": "S.Yadav",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 5,
+          "wickets": 2,
+          "economy": 5.00,
+          "balls": 6
+        },
+        {
+          "playerId": "jadeja_r_csk",
+          "playerName": "R.Jadeja",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 15,
+          "wickets": 1,
+          "economy": 15.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "A.Patel",
+          "batsman2": "T.Varma",
+          "runs": 14,
+          "balls": 9
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 4,
+          "batsman": "H.Pandya",
+          "over": 2.0
+        },
+        {
+          "wicket": 2,
+          "runs": 8,
+          "batsman": "R.Sharma",
+          "over": 3.0
+        },
+        {
+          "wicket": 3,
+          "runs": 12,
+          "batsman": "I.Kishan",
+          "over": 3.5
+        },
+        {
+          "wicket": 4,
+          "runs": 15,
+          "batsman": "J.Bumrah",
+          "over": 4.2
+        },
+        {
+          "wicket": 5,
+          "runs": 18,
+          "batsman": "M.Shami",
+          "over": 4.5
+        },
+        {
+          "wicket": 6,
+          "runs": 21,
+          "batsman": "R.Jadeja",
+          "over": 5.0
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "2",
+      "teamName": "Chennai Super Kings",
+      "totalRuns": 55,
+      "totalWickets": 1,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 3,
+      "runRate": 11.00,
+      "battingOrder": [
+        {
+          "playerId": "pant_r_csk",
+          "playerName": "R.Pant",
+          "runs": 35,
+          "balls": 15,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 233.33,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "varma_t_csk",
+          "playerName": "T.Varma",
+          "runs": 17,
+          "balls": 15,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 113.33,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "kohli_v_csk",
+          "playerName": "V.Kohli",
+          "runs": 0,
+          "balls": 0,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "yadav_s_csk",
+          "playerName": "S.Yadav",
+          "runs": 0,
+          "balls": 0,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "jadeja_r_mi",
+          "playerName": "R.Jadeja",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 3,
+          "wickets": 0,
+          "economy": 3.00,
+          "balls": 6
+        },
+        {
+          "playerId": "shami_m_mi",
+          "playerName": "M.Shami",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 1,
+          "wickets": 0,
+          "economy": 1.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bumrah_j_mi",
+          "playerName": "J.Bumrah",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 1,
+          "wickets": 1,
+          "economy": 1.00,
+          "balls": 6
+        },
+        {
+          "playerId": "pandya_h_mi",
+          "playerName": "H.Pandya",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 50,
+          "wickets": 0,
+          "economy": 50.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "R.Pant",
+          "batsman2": "T.Varma",
+          "runs": 52,
+          "balls": 30
+        }
+      ],
+      "fallOfWickets": []
+    }
+  },
+  "tossDetails": {
+    "winnerId": "2",
+    "winnerName": "Chennai Super Kings",
+    "decision": "chose to bat first"
+  },
+  "officials": {
+    "umpires": ["Marais Erasmus", "Joel Wilson"],
+    "thirdUmpire": "Kumar Dharmasena",
+    "matchReferee": "Andy Pycroft"
+  },
+  "weather": {
+    "conditions": "Hot and humid",
+    "temperature": "35°C",
+    "humidity": "78%"
+  }
+}

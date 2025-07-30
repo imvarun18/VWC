@@ -21,6 +21,59 @@ interface MatchSummaryProps {
 }
 
 const MatchSummary: React.FC<MatchSummaryProps> = ({ match, summary, onClose }) => {
+  // Determine batting order based on toss details, not team position
+  const getBattingOrder = () => {
+    // If toss winner chose to bat first, they bat first
+    // If toss winner chose to bowl first, the other team bats first
+    const tossWinnerId = 'winnerId' in summary.tossDetails 
+      ? summary.tossDetails.winnerId 
+      : summary.tossDetails.winner.id;
+    const decision = summary.tossDetails.decision as string;
+    const choseToBat = decision === "bat" || decision === "chose to bat first";
+    
+    let firstBattingTeamId: string;
+    let secondBattingTeamId: string;
+    
+    if (choseToBat) {
+      // Toss winner chose to bat, so they bat first
+      firstBattingTeamId = tossWinnerId;
+      secondBattingTeamId = match.team1.id === tossWinnerId ? match.team2.id : match.team1.id;
+    } else {
+      // Toss winner chose to bowl, so other team bats first
+      firstBattingTeamId = match.team1.id === tossWinnerId ? match.team2.id : match.team1.id;
+      secondBattingTeamId = tossWinnerId;
+    }
+    
+    return { firstBattingTeamId, secondBattingTeamId };
+  };
+
+  // Get innings data based on batting order
+  const getInningsData = () => {
+    const { firstBattingTeamId, secondBattingTeamId } = getBattingOrder();
+    
+    // Find which innings corresponds to first batting team
+    let firstInnings, secondInnings;
+    if (summary.scorecard.team1Innings.teamId === firstBattingTeamId) {
+      firstInnings = summary.scorecard.team1Innings;
+      secondInnings = summary.scorecard.team2Innings;
+    } else {
+      firstInnings = summary.scorecard.team2Innings;
+      secondInnings = summary.scorecard.team1Innings;
+    }
+    
+    // Get team objects
+    const firstBattingTeam = match.team1.id === firstBattingTeamId ? match.team1 : match.team2;
+    const secondBattingTeam = match.team1.id === secondBattingTeamId ? match.team1 : match.team2;
+    
+    return {
+      firstBattingTeam,
+      secondBattingTeam,
+      firstInnings,
+      secondInnings
+    };
+  };
+
+  const { firstBattingTeam, secondBattingTeam, firstInnings, secondInnings } = getInningsData();
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4 match-summary-modal">
@@ -126,25 +179,28 @@ const MatchSummary: React.FC<MatchSummaryProps> = ({ match, summary, onClose }) 
             </h3>
             
             <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-6">
-              {/* Team 1 Innings */}
+              {/* First Innings (Batting First) */}
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start space-x-3 mb-3 sm:mb-4">
-                  <TeamLogo team={match.team1} size="small" className="flex-shrink-0 mt-1" />
+                  <TeamLogo team={firstBattingTeam} size="small" className="flex-shrink-0 mt-1" />
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <h4 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">{match.team1.name}</h4>
-                      {summary.tossDetails.winner.id === match.team1.id && (
+                      <h4 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">{firstBattingTeam.name}</h4>
+                      <span className="text-xs px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full font-medium">
+                        1st Innings
+                      </span>
+                      {(('winnerId' in summary.tossDetails ? summary.tossDetails.winnerId : summary.tossDetails.winner.id) === firstBattingTeam.id) && (
                         <div className="flex items-center" title="Won Toss">
                           <Coins className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500" />
                         </div>
                       )}
                     </div>
                     <p className="text-xl sm:text-2xl font-bold text-primary-600 dark:text-primary-400">
-                      {summary.scorecard.team1Innings.totalRuns}/{summary.scorecard.team1Innings.totalWickets}
+                      {firstInnings?.totalRuns}/{firstInnings?.totalWickets}
                     </p>
                     <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-tight">
-                      ({summary.scorecard.team1Innings.totalOvers}.{summary.scorecard.team1Innings.totalBalls} overs, 
-                      RR: {summary.scorecard.team1Innings.runRate.toFixed(2)})
+                      ({firstInnings?.totalOvers}.{firstInnings?.totalBalls} overs, 
+                      RR: {firstInnings?.runRate.toFixed(2)})
                     </p>
                   </div>
                 </div>
@@ -153,7 +209,7 @@ const MatchSummary: React.FC<MatchSummaryProps> = ({ match, summary, onClose }) 
                 <div>
                   <h5 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">Top Scorers</h5>
                   <div className="space-y-1 sm:space-y-2">
-                    {summary.scorecard.team1Innings.topScorers.slice(0, 3).map((scorer, index) => (
+                    {firstInnings?.topScorers?.slice(0, 3).map((scorer, index) => (
                       <div key={index} className="flex justify-between items-center p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs sm:text-sm performance-stat">
                         <span className="font-medium text-gray-900 dark:text-white truncate flex-1 mr-2">
                           {scorer.player.name}
@@ -167,11 +223,11 @@ const MatchSummary: React.FC<MatchSummaryProps> = ({ match, summary, onClose }) 
                 </div>
 
                 {/* Bowling Performers */}
-                {summary.scorecard.team1Innings.topBowlers && summary.scorecard.team1Innings.topBowlers.length > 0 && (
+                {firstInnings?.topBowlers && firstInnings.topBowlers.length > 0 && (
                   <div>
                     <h5 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">Bowling Performers</h5>
                     <div className="space-y-1 sm:space-y-2">
-                      {summary.scorecard.team1Innings.topBowlers.slice(0, 3).map((bowler, index) => (
+                      {firstInnings.topBowlers.slice(0, 3).map((bowler, index) => (
                         <div key={index} className="flex justify-between items-center p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs sm:text-sm performance-stat">
                           <span className="font-medium text-gray-900 dark:text-white truncate flex-1 mr-2">
                             {bowler.player.name}
@@ -186,25 +242,28 @@ const MatchSummary: React.FC<MatchSummaryProps> = ({ match, summary, onClose }) 
                 )}
               </div>
 
-              {/* Team 2 Innings */}
+              {/* Second Innings (Chasing) */}
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start space-x-3 mb-3 sm:mb-4">
-                  <TeamLogo team={match.team2} size="small" className="flex-shrink-0 mt-1" />
+                  <TeamLogo team={secondBattingTeam} size="small" className="flex-shrink-0 mt-1" />
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <h4 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">{match.team2.name}</h4>
-                      {summary.tossDetails.winner.id === match.team2.id && (
+                      <h4 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">{secondBattingTeam.name}</h4>
+                      <span className="text-xs px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full font-medium">
+                        2nd Innings
+                      </span>
+                      {(('winnerId' in summary.tossDetails ? summary.tossDetails.winnerId : summary.tossDetails.winner.id) === secondBattingTeam.id) && (
                         <div className="flex items-center" title="Won Toss">
                           <Coins className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500" />
                         </div>
                       )}
                     </div>
                     <p className="text-xl sm:text-2xl font-bold text-primary-600 dark:text-primary-400">
-                      {summary.scorecard.team2Innings.totalRuns}/{summary.scorecard.team2Innings.totalWickets}
+                      {secondInnings?.totalRuns}/{secondInnings?.totalWickets}
                     </p>
                     <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-tight">
-                      ({summary.scorecard.team2Innings.totalOvers}.{summary.scorecard.team2Innings.totalBalls} overs, 
-                      RR: {summary.scorecard.team2Innings.runRate.toFixed(2)})
+                      ({secondInnings?.totalOvers}.{secondInnings?.totalBalls} overs, 
+                      RR: {secondInnings?.runRate.toFixed(2)})
                     </p>
                   </div>
                 </div>
@@ -213,7 +272,7 @@ const MatchSummary: React.FC<MatchSummaryProps> = ({ match, summary, onClose }) 
                 <div>
                   <h5 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">Top Scorers</h5>
                   <div className="space-y-1 sm:space-y-2">
-                    {summary.scorecard.team2Innings.topScorers.slice(0, 3).map((scorer, index) => (
+                    {secondInnings?.topScorers?.slice(0, 3).map((scorer, index) => (
                       <div key={index} className="flex justify-between items-center p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs sm:text-sm performance-stat">
                         <span className="font-medium text-gray-900 dark:text-white truncate flex-1 mr-2">
                           {scorer.player.name}
@@ -227,11 +286,11 @@ const MatchSummary: React.FC<MatchSummaryProps> = ({ match, summary, onClose }) 
                 </div>
 
                 {/* Bowling Performers */}
-                {summary.scorecard.team2Innings.topBowlers && summary.scorecard.team2Innings.topBowlers.length > 0 && (
+                {secondInnings?.topBowlers && secondInnings.topBowlers.length > 0 && (
                   <div>
                     <h5 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">Bowling Performers</h5>
                     <div className="space-y-1 sm:space-y-2">
-                      {summary.scorecard.team2Innings.topBowlers.slice(0, 3).map((bowler, index) => (
+                      {secondInnings.topBowlers.slice(0, 3).map((bowler, index) => (
                         <div key={index} className="flex justify-between items-center p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs sm:text-sm performance-stat">
                           <span className="font-medium text-gray-900 dark:text-white truncate flex-1 mr-2">
                             {bowler.player.name}

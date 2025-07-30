@@ -1,4 +1,5 @@
 import type { MatchSummary } from '../types/cricket';
+import { loadMatchSummaryFromJson } from './jsonMatchSummaryLoader';
 
 // Simple in-memory storage for match summaries
 class MatchSummaryStorage {
@@ -19,10 +20,17 @@ class MatchSummaryStorage {
   }
 
   // Get a match summary by match ID
-  getSummary(matchId: string): MatchSummary | null {
+  async getSummary(matchId: string): Promise<MatchSummary | null> {
     // First check memory
     if (this.summaries.has(matchId)) {
       return this.summaries.get(matchId)!;
+    }
+
+    // Try to load from JSON file
+    const jsonSummary = await loadMatchSummaryFromJson(matchId);
+    if (jsonSummary) {
+      this.summaries.set(matchId, jsonSummary); // Cache in memory
+      return jsonSummary;
     }
 
     // Then check localStorage
@@ -58,8 +66,20 @@ class MatchSummaryStorage {
   }
 
   // Check if a match has a summary
-  hasSummary(matchId: string): boolean {
-    return this.getSummary(matchId) !== null;
+  async hasSummary(matchId: string): Promise<boolean> {
+    const summary = await this.getSummary(matchId);
+    // Additional check: make sure the summary has meaningful data
+    if (summary && (
+      !summary.title || 
+      summary.title === '' || 
+      !summary.scorecard?.team1Innings?.totalRuns ||
+      summary.scorecard.team1Innings.totalRuns === 0
+    )) {
+      // Remove invalid/empty summary
+      this.deleteSummary(matchId);
+      return false;
+    }
+    return summary !== null;
   }
 
   // Delete a summary

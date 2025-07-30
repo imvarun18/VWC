@@ -1,0 +1,286 @@
+{
+  "id": "5",
+  "matchId": "5",
+  "title": "Match 5: Sunrisers Hyderabad vs Rising Stars",
+  "description": "Rising Stars secured a comfortable 7-wicket victory over SRH at Eden Gardens. After restricting SRH to 14/5 in 5 overs, RS chased down the target in just 1.2 overs with R.Sharma's unbeaten 11 leading the charge.",
+  "highlights": [
+    "RS won by 7 wickets",
+    "SRH managed only 14/5 in 5.0 overs",
+    "RS chased down 18 runs in 1.2 overs",
+    "R.Sharma's unbeaten 11 off 4 balls",
+    "Excellent bowling performance by L.Ngidi (3/7)"
+  ],
+  "manOfTheMatch": {
+    "playerId": "sharma_r_rs",
+    "playerName": "R.Sharma",
+    "teamId": "6",
+    "reason": "Match-winning knock: 11* off 4 balls to guide RS to victory"
+  },
+  "matchDetails": {
+    "date": "2025-07-24",
+    "venue": "Eden Gardens",
+    "format": "T5",
+    "status": "completed",
+    "result": "RS won by 7 wickets",
+    "winnerId": "6",
+    "winnerName": "Rising Stars",
+    "margin": "7 wickets"
+  },
+  "teams": {
+    "team1": {
+      "id": "4",
+      "name": "Sunrisers Hyderabad",
+      "shortName": "SRH"
+    },
+    "team2": {
+      "id": "6",
+      "name": "Rising Stars",
+      "shortName": "RS"
+    }
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "4",
+      "teamName": "Sunrisers Hyderabad",
+      "totalRuns": 14,
+      "totalWickets": 5,
+      "totalOvers": 5,
+      "totalBalls": 30,
+      "extras": 2,
+      "runRate": 2.80,
+      "battingOrder": [
+        {
+          "playerId": "markram_a_srh",
+          "playerName": "A.Markram",
+          "runs": 8,
+          "balls": 9,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 88.89,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "klaasen_h_srh",
+          "playerName": "H.Klaasen",
+          "runs": 2,
+          "balls": 2,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 100.00,
+          "dismissal": "caught",
+          "bowlerName": "L.Ngidi"
+        },
+        {
+          "playerId": "hendricks_r_srh",
+          "playerName": "R.Hendricks",
+          "runs": 1,
+          "balls": 2,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 50.00,
+          "dismissal": "bowled",
+          "bowlerName": "L.Ngidi"
+        },
+        {
+          "playerId": "miller_d_srh",
+          "playerName": "D.Miller",
+          "runs": 1,
+          "balls": 5,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 20.00,
+          "dismissal": "caught",
+          "bowlerName": "L.Ngidi"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "ngidi_l_rs",
+          "playerName": "L.Ngidi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 3,
+          "wickets": 7,
+          "economy": 3.00,
+          "balls": 6
+        },
+        {
+          "playerId": "rabada_k_rs",
+          "playerName": "K.Rabada",
+          "overs": 0.2,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 11,
+          "economy": 0.00,
+          "balls": 2
+        },
+        {
+          "playerId": "hendricks_r_rs",
+          "playerName": "R.Hendricks",
+          "overs": 0,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 0,
+          "economy": 0.00,
+          "balls": 0
+        },
+        {
+          "playerId": "de_kock_q_rs",
+          "playerName": "Q.de Kock",
+          "overs": 0,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 0,
+          "economy": 0.00,
+          "balls": 0
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "A.Markram",
+          "batsman2": "H.Klaasen",
+          "runs": 10,
+          "balls": 11
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 2,
+          "batsman": "H.Klaasen",
+          "over": 1.0
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "6",
+      "teamName": "Rising Stars",
+      "totalRuns": 18,
+      "totalWickets": 3,
+      "totalOvers": 1,
+      "totalBalls": 8,
+      "extras": 1,
+      "runRate": 13.50,
+      "battingOrder": [
+        {
+          "playerId": "sharma_r_rs",
+          "playerName": "R.Sharma",
+          "runs": 11,
+          "balls": 4,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 275.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "pant_r_rs",
+          "playerName": "R.Pant",
+          "runs": 4,
+          "balls": 1,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 400.00,
+          "dismissal": "not out",
+          "bowlerName": ""
+        },
+        {
+          "playerId": "kishan_i_rs",
+          "playerName": "I.Kishan",
+          "runs": 2,
+          "balls": 2,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 100.00,
+          "dismissal": "caught",
+          "bowlerName": "K.Yadav"
+        },
+        {
+          "playerId": "reddy_n_rs",
+          "playerName": "N.Reddy",
+          "runs": 0,
+          "balls": 0,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0,
+          "dismissal": "not out",
+          "bowlerName": ""
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "yadav_k_srh",
+          "playerName": "K.Yadav",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 1,
+          "economy": 2.00,
+          "balls": 6
+        },
+        {
+          "playerId": "bishnoi_r_srh",
+          "playerName": "R.Bishnoi",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 1,
+          "wickets": 1,
+          "economy": 1.00,
+          "balls": 6
+        },
+        {
+          "playerId": "pandya_h_srh",
+          "playerName": "H.Pandya",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 7,
+          "economy": 0.00,
+          "balls": 6
+        },
+        {
+          "playerId": "chahal_y_srh",
+          "playerName": "Y.Chahal",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 1,
+          "economy": 0.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "R.Sharma",
+          "batsman2": "I.Kishan",
+          "runs": 13,
+          "balls": 6
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 2,
+          "batsman": "I.Kishan",
+          "over": 1.0
+        }
+      ]
+    }
+  },
+  "tossDetails": {
+    "winnerId": "3",
+    "winnerName": "Mumbai Indians",
+    "decision": "chose to bowl first"
+  },
+  "officials": {
+    "umpires": ["Kumar Dharmasena", "Marais Erasmus"],
+    "thirdUmpire": "Richard Kettleborough",
+    "matchReferee": "Andy Pycroft"
+  },
+  "weather": {
+    "conditions": "Overcast",
+    "temperature": "26°C",
+    "humidity": "75%"
+  }
+}
