@@ -174,16 +174,19 @@ export class TournamentScheduleReader {
     const today = new Date();
     const todayStr = today.toISOString().split('T')[0];
     
+    // Only mark as completed if there's a winner
     if (winner && winner.trim() !== '') {
       return 'completed';
     }
     
+    // Check if match is today
     if (dateStr === todayStr) {
       return 'live';
     }
     
-    const matchDate = new Date(dateStr);
-    return matchDate < today ? 'completed' : 'upcoming';
+    // Don't auto-complete matches just because they're past their date
+    // They remain 'upcoming' until they have a result
+    return 'upcoming';
   }
 
   private getTimeForMatch(matchNumber: string, dateStr: string): string {
