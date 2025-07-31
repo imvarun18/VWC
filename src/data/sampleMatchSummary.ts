@@ -2,7 +2,7 @@ import { getSummary } from '../utils/matchSummaryStorage';
 
 // Auto-load all match summaries from JSON files when the module loads
 const loadAllMatchSummaries = async () => {
-  const matchIds = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const matchIds = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   
   for (const matchId of matchIds) {
     try {

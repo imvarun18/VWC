@@ -1,0 +1,203 @@
+{
+  "id": "match_10_summary",
+  "matchId": "10",
+  "title": "Royal Challengers Bengaluru vs SM Champions - Match 10 Summary",
+  "description": "A dominant performance by RCB saw them bowl out SMC for just 9 runs in 3.4 overs before chasing down the target without losing a wicket. R.BISHNOI's outstanding spell of 5 wickets for 0 runs in 1 over was the highlight of this one-sided encounter.",
+  "highlights": [
+    "SMC all out for 9 runs in 3.4 overs",
+    "R.BISHNOI takes 5 wickets for 0 runs in 1 over - maiden over",
+    "A.SINGH contributes with 3 wickets for 2 runs",
+    "RCB chases down target without losing a wicket",
+    "R.SHARMA's quickfire 11* off 3 balls seals victory"
+  ],
+  "manOfTheMatch": {
+    "playerId": "rbishnoi_rcb",
+    "playerName": "R.BISHNOI",
+    "teamId": "1",
+    "reason": "5 wickets for 0 runs in 1 over - outstanding bowling performance"
+  },
+  "tossDetails": {
+    "winnerId": "7",
+    "decision": "bat"
+  },
+  "scorecard": {
+    "team1Innings": {
+      "teamId": "7",
+      "totalRuns": 9,
+      "totalWickets": 10,
+      "totalOvers": 3,
+      "totalBalls": 4,
+      "extras": 0,
+      "runRate": 2.45,
+      "battingOrder": [
+        {
+          "playerId": "rsharma_smc",
+          "playerName": "R.SHARMA",
+          "runs": 5,
+          "balls": 7,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 71.43,
+          "howOut": "bowled"
+        },
+        {
+          "playerId": "vkohli_smc",
+          "playerName": "V.KOHLI",
+          "runs": 3,
+          "balls": 4,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 75.0,
+          "howOut": "caught"
+        },
+        {
+          "playerId": "rbishnoi_smc",
+          "playerName": "R.BISHNOI",
+          "runs": 1,
+          "balls": 1,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 100.0,
+          "howOut": "not out"
+        },
+        {
+          "playerId": "hpandya_smc",
+          "playerName": "H.PANDYA",
+          "runs": 0,
+          "balls": 1,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0.0,
+          "howOut": "lbw"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "rbishnoi_rcb",
+          "playerName": "R.BISHNOI",
+          "overs": 1.0,
+          "maidens": 1,
+          "runs": 0,
+          "wickets": 5,
+          "economy": 0.0
+        },
+        {
+          "playerId": "asingh_rcb",
+          "playerName": "A.SINGH",
+          "overs": 0.4,
+          "maidens": 0,
+          "runs": 2,
+          "wickets": 3,
+          "economy": 3.0
+        },
+        {
+          "playerId": "kyadav_rcb",
+          "playerName": "K.YADAV",
+          "overs": 1.0,
+          "maidens": 0,
+          "runs": 4,
+          "wickets": 2,
+          "economy": 4.0
+        },
+        {
+          "playerId": "bkumar_rcb",
+          "playerName": "B.KUMAR",
+          "overs": 1.0,
+          "maidens": 0,
+          "runs": 3,
+          "wickets": 0,
+          "economy": 3.0
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "1",
+      "totalRuns": 12,
+      "totalWickets": 0,
+      "totalOvers": 0,
+      "totalBalls": 4,
+      "extras": 0,
+      "runRate": 18.0,
+      "battingOrder": [
+        {
+          "playerId": "rsharma_rcb",
+          "playerName": "R.SHARMA",
+          "runs": 11,
+          "balls": 3,
+          "fours": 2,
+          "sixes": 0,
+          "strikeRate": 366.67,
+          "howOut": "not out"
+        },
+        {
+          "playerId": "ssamson_rcb",
+          "playerName": "S.SAMSON",
+          "runs": 1,
+          "balls": 1,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 100.0,
+          "howOut": "not out"
+        },
+        {
+          "playerId": "vkohli_rcb",
+          "playerName": "V.KOHLI",
+          "runs": 0,
+          "balls": 0,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0.0,
+          "howOut": "not out"
+        },
+        {
+          "playerId": "syadav_rcb",
+          "playerName": "S.YADAV",
+          "runs": 0,
+          "balls": 0,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 0.0,
+          "howOut": "not out"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "hpandya_smc",
+          "playerName": "H.PANDYA",
+          "overs": 0.4,
+          "maidens": 0,
+          "runs": 12,
+          "wickets": 0,
+          "economy": 18.0
+        },
+        {
+          "playerId": "vkohli_smc",
+          "playerName": "V.KOHLI",
+          "overs": 0.0,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 0,
+          "economy": 0.0
+        },
+        {
+          "playerId": "rsharma_smc",
+          "playerName": "R.SHARMA",
+          "overs": 0.0,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 0,
+          "economy": 0.0
+        },
+        {
+          "playerId": "ssamson_smc",
+          "playerName": "S.SAMSON",
+          "overs": 0.0,
+          "maidens": 0,
+          "runs": 0,
+          "wickets": 0,
+          "economy": 0.0
+        }
+      ]
+    }
+  }
+}

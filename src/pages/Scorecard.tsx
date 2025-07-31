@@ -157,7 +157,15 @@ const Scorecard: React.FC = () => {
   
   const completedMatches = matches
     .filter((match: Match) => match.status === 'completed')
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort by date descending (most recent first)
+    .sort((a, b) => {
+      // First sort by date descending (most recent first)
+      const dateComparison = new Date(b.date).getTime() - new Date(a.date).getTime();
+      if (dateComparison !== 0) {
+        return dateComparison;
+      }
+      // If dates are the same, sort by match ID descending (higher match number first)
+      return parseInt(b.id) - parseInt(a.id);
+    })
     .slice(0, showAllSummaries ? undefined : 3); // Show all if showAllSummaries is true, otherwise only 3
 
   const handleMatchClick = async (match: Match) => {
