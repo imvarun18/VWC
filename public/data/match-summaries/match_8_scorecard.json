@@ -2,7 +2,7 @@
   "id": "8",
   "matchId": "8",
   "title": "Match 8: SM Champions vs Sunrisers Hyderabad",
-  "description": "SRH delivered a dominant performance, chasing down SMC's total of 44 with 10 wickets in hand and 10 balls to spare. G.Maxwell's explosive 24* and T.Head's steady 21* provided an unbeaten opening partnership to secure a comprehensive victory.",
+  "description": "SRH delivered a dominant performance, chasing down SMC's total of 44 with 10 wickets in hand and 9 balls to spare. G.Maxwell's explosive 24* and T.Head's steady 21* provided an unbeaten opening partnership to secure a comprehensive victory.",
   "highlights": [
     "SRH won by 10 wickets",
     "G.Maxwell scored explosive 24* off 8 balls",
@@ -164,10 +164,10 @@
       "teamName": "Sunrisers Hyderabad",
       "totalRuns": 45,
       "totalWickets": 0,
-      "totalOvers": 3,
-      "totalBalls": 20,
+      "totalOvers": 3.3,
+      "totalBalls": 21,
       "extras": 0,
-      "runRate": 13.64,
+      "runRate": 12.86,
       "battingOrder": [
         {
           "playerId": "maxwell_g_srh",
@@ -229,15 +229,15 @@
           "batsman1": "G.Maxwell",
           "batsman2": "T.Head",
           "runs": 45,
-          "balls": 20
+          "balls": 21
         }
       ],
       "fallOfWickets": []
     }
   },
   "tossDetails": {
-    "winnerId": "2",
-    "winnerName": "Chennai Super Kings",
+    "winnerId": "4",
+    "winnerName": "Sunrisers Hyderabad",
     "decision": "chose to bowl first"
   },
   "officials": {

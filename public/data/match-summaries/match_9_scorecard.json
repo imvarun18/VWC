@@ -176,9 +176,9 @@
       "totalRuns": 12,
       "totalWickets": 10,
       "totalOvers": 2.3,
-      "totalBalls": 14,
+      "totalBalls": 15,
       "extras": 0,
-      "runRate": 5.14,
+      "runRate": 4.80,
       "battingOrder": [
         {
           "playerId": "shami_m_csk",
@@ -298,9 +298,9 @@
     }
   },
   "tossDetails": {
-    "winnerId": "2",
-    "winnerName": "Chennai Super Kings",
-    "decision": "chose to bowl first"
+    "winnerId": "8",
+    "winnerName": "Rising Stars", 
+    "decision": "chose to bat first"
   },
   "officials": {
     "umpires": ["Aleem Dar", "Paul Reiffel"],

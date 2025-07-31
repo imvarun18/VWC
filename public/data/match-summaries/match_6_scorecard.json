@@ -159,9 +159,9 @@
       "totalRuns": 52,
       "totalWickets": 1,
       "totalOvers": 4.3,
-      "totalBalls": 26,
+      "totalBalls": 27,
       "extras": 1,
-      "runRate": 12.00,
+      "runRate": 11.56,
       "battingOrder": [
         {
           "playerId": "gill_s_rcb",
@@ -269,8 +269,8 @@
     }
   },
   "tossDetails": {
-    "winnerId": "6",
-    "winnerName": "Super Marine Club",
+    "winnerId": "1",
+    "winnerName": "Royal Challengers Bengaluru",
     "decision": "chose to bowl first"
   },
   "officials": {

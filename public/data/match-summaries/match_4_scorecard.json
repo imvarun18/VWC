@@ -1,14 +1,14 @@
 {
   "id": "4",
   "matchId": "4",
-  "title": "Match 4: Deccan Chargers vs SM Champions",
-  "description": "DC delivered a commanding performance at Rajiv Gandhi International Stadium, successfully defending their total of 62 runs. K.Williamson's composed 28* and disciplined bowling helped DC secure a 19-run victory over SMC.",
+  "title": "Match 4: SM Champions vs Deccan Chargers",
+  "description": "DC secured a convincing 8-wicket victory over SMC at Rajiv Gandhi International Stadium. After SMC posted 32/6 in 5.0 overs batting first, DC successfully chased down the target in just 3.4 overs, losing only 2 wickets.",
   "highlights": [
-    "DC won by 19 runs",
-    "K.Williamson scored an unbeaten 28 off 16 balls",
-    "DC posted 62/5 in 5.0 overs",
-    "SMC restricted to 43/8 in 5.0 overs",
-    "R.Khan took 3 wickets for DC"
+    "DC won by 8 wickets",
+    "SMC posted 32/6 in 5.0 overs",
+    "DC chased down target in 3.4 overs (33/2)",
+    "Dominant bowling performance by DC",
+    "Clinical chase by DC batsmen"
   ],
   "manOfTheMatch": {
     "playerId": "williamson_k_dc",
@@ -21,76 +21,169 @@
     "venue": "Rajiv Gandhi International Stadium",
     "format": "T5",
     "status": "completed",
-    "result": "DC won by 19 runs",
+    "result": "DC won by 8 wickets",
     "winnerId": "5",
     "winnerName": "Deccan Chargers",
-    "margin": "19 runs"
+    "margin": "8 wickets"
   },
   "teams": {
     "team1": {
-      "id": "5",
-      "name": "Deccan Chargers",
-      "shortName": "DC"
-    },
-    "team2": {
       "id": "7",
       "name": "SM Champions",
       "shortName": "SMC"
+    },
+    "team2": {
+      "id": "5",
+      "name": "Deccan Chargers",
+      "shortName": "DC"
     }
   },
   "scorecard": {
     "team1Innings": {
-      "teamId": "5",
-      "teamName": "Deccan Chargers",
-      "totalRuns": 62,
-      "totalWickets": 5,
+      "teamId": "7",
+      "teamName": "SM Champions",
+      "totalRuns": 32,
+      "totalWickets": 6,
       "totalOvers": 5,
       "totalBalls": 30,
       "extras": 2,
-      "runRate": 12.40,
+      "runRate": 6.40,
       "battingOrder": [
         {
-          "playerId": "williamson_k_dc",
-          "playerName": "K.Williamson",
-          "runs": 28,
-          "balls": 16,
-          "fours": 4,
+          "playerId": "dhawan_s_smc",
+          "playerName": "S.Dhawan",
+          "runs": 12,
+          "balls": 10,
+          "fours": 2,
           "sixes": 0,
-          "strikeRate": 175.00,
+          "strikeRate": 120.00,
+          "dismissal": "caught",
+          "bowlerName": "R.Khan"
+        },
+        {
+          "playerId": "sharma_r_smc",
+          "playerName": "R.Sharma",
+          "runs": 8,
+          "balls": 8,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 100.00,
+          "dismissal": "lbw",
+          "bowlerName": "A.Patel"
+        },
+        {
+          "playerId": "kohli_v_smc",
+          "playerName": "V.Kohli",
+          "runs": 6,
+          "balls": 6,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 100.00,
+          "dismissal": "bowled",
+          "bowlerName": "J.Bumrah"
+        },
+        {
+          "playerId": "pant_r_smc",
+          "playerName": "R.Pant",
+          "runs": 4,
+          "balls": 4,
+          "fours": 0,
+          "sixes": 0,
+          "strikeRate": 100.00,
+          "dismissal": "caught",
+          "bowlerName": "R.Khan"
+        }
+      ],
+      "bowlingFigures": [
+        {
+          "playerId": "khan_r_dc",
+          "playerName": "R.Khan",
+          "overs": 2,
+          "maidens": 0,
+          "runs": 12,
+          "wickets": 2,
+          "economy": 6.00,
+          "balls": 12
+        },
+        {
+          "playerId": "patel_a_dc",
+          "playerName": "A.Patel",
+          "overs": 2,
+          "maidens": 0,
+          "runs": 10,
+          "wickets": 2,
+          "economy": 5.00,
+          "balls": 12
+        },
+        {
+          "playerId": "bumrah_j_dc",
+          "playerName": "J.Bumrah",
+          "overs": 1,
+          "maidens": 0,
+          "runs": 8,
+          "wickets": 2,
+          "economy": 8.00,
+          "balls": 6
+        }
+      ],
+      "partnerships": [
+        {
+          "batsman1": "S.Dhawan",
+          "batsman2": "R.Sharma",
+          "runs": 18,
+          "balls": 15
+        }
+      ],
+      "fallOfWickets": [
+        {
+          "wicket": 1,
+          "runs": 18,
+          "batsman": "R.Sharma",
+          "over": 2.4
+        }
+      ]
+    },
+    "team2Innings": {
+      "teamId": "5",
+      "teamName": "Deccan Chargers",
+      "totalRuns": 33,
+      "totalWickets": 2,
+      "totalOvers": 3.4,
+      "totalBalls": 22,
+      "extras": 1,
+      "runRate": 9.00,
+      "battingOrder": [
+        {
+          "playerId": "reddy_n_dc",
+          "playerName": "N.Reddy",
+          "runs": 18,
+          "balls": 12,
+          "fours": 2,
+          "sixes": 1,
+          "strikeRate": 150.00,
           "dismissal": "not out",
           "bowlerName": ""
         },
         {
-          "playerId": "reddy_n_dc",
-          "playerName": "N.Reddy",
-          "runs": 15,
+          "playerId": "williamson_k_dc",
+          "playerName": "K.Williamson",
+          "runs": 10,
           "balls": 8,
-          "fours": 2,
-          "sixes": 1,
-          "strikeRate": 187.50,
+          "fours": 1,
+          "sixes": 0,
+          "strikeRate": 125.00,
           "dismissal": "caught",
           "bowlerName": "M.Shami"
         },
         {
           "playerId": "pant_r_dc",
           "playerName": "R.Pant",
-          "runs": 12,
-          "balls": 4,
-          "fours": 2,
-          "sixes": 0,
-          "strikeRate": 300.00,
-          "dismissal": "bowled",
-          "bowlerName": "R.Jadeja"
-        },
-        {
-          "playerId": "jaiswal_y_dc",
-          "playerName": "Y.Jaiswal",
-          "runs": 5,
+          "runs": 4,
           "balls": 2,
           "fours": 1,
           "sixes": 0,
-          "strikeRate": 250.00,
-          "dismissal": "run out",
+          "strikeRate": 200.00,
+          "dismissal": "not out",
           "bowlerName": ""
         }
       ],
@@ -100,158 +193,54 @@
           "playerName": "M.Shami",
           "overs": 2,
           "maidens": 0,
-          "runs": 24,
-          "wickets": 2,
-          "economy": 12.00,
+          "runs": 18,
+          "wickets": 1,
+          "economy": 9.00,
           "balls": 12
         },
         {
           "playerId": "jadeja_r_smc",
           "playerName": "R.Jadeja",
-          "overs": 2,
+          "overs": 1,
           "maidens": 0,
-          "runs": 20,
-          "wickets": 2,
-          "economy": 10.00,
-          "balls": 12
+          "runs": 8,
+          "wickets": 1,
+          "economy": 8.00,
+          "balls": 6
         },
         {
           "playerId": "pandya_h_smc",
           "playerName": "H.Pandya",
-          "overs": 1,
+          "overs": 0,
           "maidens": 0,
-          "runs": 18,
-          "wickets": 1,
-          "economy": 18.00,
-          "balls": 6
+          "runs": 7,
+          "wickets": 0,
+          "economy": 10.50,
+          "balls": 4
         }
       ],
       "partnerships": [
         {
-          "batsman1": "K.Williamson",
-          "batsman2": "N.Reddy",
-          "runs": 35,
-          "balls": 20
+          "batsman1": "N.Reddy",
+          "batsman2": "K.Williamson",
+          "runs": 25,
+          "balls": 18
         }
       ],
       "fallOfWickets": [
         {
           "wicket": 1,
-          "runs": 35,
-          "batsman": "N.Reddy",
-          "over": 3.4
-        }
-      ]
-    },
-    "team2Innings": {
-      "teamId": "7",
-      "teamName": "SM Champions",
-      "totalRuns": 43,
-      "totalWickets": 8,
-      "totalOvers": 5,
-      "totalBalls": 30,
-      "extras": 1,
-      "runRate": 8.60,
-      "battingOrder": [
-        {
-          "playerId": "dhawan_s_smc",
-          "playerName": "S.Dhawan",
-          "runs": 16,
-          "balls": 12,
-          "fours": 2,
-          "sixes": 0,
-          "strikeRate": 133.33,
-          "dismissal": "caught",
-          "bowlerName": "R.Khan"
-        },
-        {
-          "playerId": "sharma_r_smc",
-          "playerName": "R.Sharma",
-          "runs": 11,
-          "balls": 8,
-          "fours": 1,
-          "sixes": 0,
-          "strikeRate": 137.50,
-          "dismissal": "lbw",
-          "bowlerName": "A.Patel"
-        },
-        {
-          "playerId": "pant_r_smc",
-          "playerName": "R.Pant",
-          "runs": 8,
-          "balls": 5,
-          "fours": 1,
-          "sixes": 0,
-          "strikeRate": 160.00,
-          "dismissal": "bowled",
-          "bowlerName": "R.Khan"
-        },
-        {
-          "playerId": "kohli_v_smc",
-          "playerName": "V.Kohli",
-          "runs": 6,
-          "balls": 3,
-          "fours": 1,
-          "sixes": 0,
-          "strikeRate": 200.00,
-          "dismissal": "caught",
-          "bowlerName": "J.Bumrah"
-        }
-      ],
-      "bowlingFigures": [
-        {
-          "playerId": "khan_r_dc",
-          "playerName": "R.Khan",
-          "overs": 2,
-          "maidens": 0,
-          "runs": 16,
-          "wickets": 3,
-          "economy": 8.00,
-          "balls": 12
-        },
-        {
-          "playerId": "patel_a_dc",
-          "playerName": "A.Patel",
-          "overs": 2,
-          "maidens": 0,
-          "runs": 15,
-          "wickets": 2,
-          "economy": 7.50,
-          "balls": 12
-        },
-        {
-          "playerId": "bumrah_j_dc",
-          "playerName": "J.Bumrah",
-          "overs": 1,
-          "maidens": 0,
-          "runs": 12,
-          "wickets": 3,
-          "economy": 12.00,
-          "balls": 6
-        }
-      ],
-      "partnerships": [
-        {
-          "batsman1": "S.Dhawan",
-          "batsman2": "R.Sharma",
-          "runs": 22,
-          "balls": 15
-        }
-      ],
-      "fallOfWickets": [
-        {
-          "wicket": 1,
-          "runs": 22,
-          "batsman": "S.Dhawan",
-          "over": 2.3
+          "runs": 25,
+          "batsman": "K.Williamson",
+          "over": 3.0
         }
       ]
     }
   },
   "tossDetails": {
-    "winnerId": "3",
-    "winnerName": "Mumbai Indians",
-    "decision": "chose to bowl first"
+    "winnerId": "7",
+    "winnerName": "SM Champions",
+    "decision": "chose to bat first"
   },
   "officials": {
     "umpires": ["Richard Kettleborough", "Joel Wilson"],
