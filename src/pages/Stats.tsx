@@ -9,37 +9,45 @@ const Stats: React.FC = () => {
   const getOrangeCapStats = () => {
     // Team performance based on actual match scores
     const teamScores = [
-      // Match 1: DC vs SRH
+      // Match 1: DC vs SRH (SRH won)
       { team: 'Deccan Chargers', runs: 30, overs: 5.0, matches: 1 },
       { team: 'Sunrisers Hyderabad', runs: 34, overs: 3.4, matches: 1 },
       
-      // Match 2: RS vs RCB  
+      // Match 2: RS vs RCB (RS won)
       { team: 'Rising Stars', runs: 71, overs: 5.0, matches: 1 },
       { team: 'Royal Challengers Bengaluru', runs: 20, overs: 5.0, matches: 1 },
       
-      // Match 3: MI vs CSK
-      { team: 'Mumbai Indians', runs: 21, overs: 5.0, matches: 1 },
+      // Match 3: CSK vs MI (CSK won)
       { team: 'Chennai Super Kings', runs: 55, overs: 5.0, matches: 1 },
+      { team: 'Mumbai Indians', runs: 21, overs: 5.0, matches: 1 },
       
-      // Match 4: DC vs SMC (DC's second match)
+      // Match 4: SMC vs DC (DC won)
       { team: 'SM Champions', runs: 32, overs: 5.0, matches: 1 },
       { team: 'Deccan Chargers', runs: 33, overs: 3.4, matches: 1 }, // DC's second innings
       
-      // Match 5: SRH vs RS
+      // Match 5: SRH vs RS (RS won)
       { team: 'Sunrisers Hyderabad', runs: 14, overs: 5.0, matches: 1 }, // SRH's second match
       { team: 'Rising Stars', runs: 18, overs: 1.2, matches: 1 }, // RS's second match
       
-      // Match 6: RCB vs CSK
+      // Match 6: CSK vs RCB (RCB won)
       { team: 'Chennai Super Kings', runs: 50, overs: 5.0, matches: 1 }, // CSK's second match
       { team: 'Royal Challengers Bengaluru', runs: 52, overs: 4.3, matches: 1 }, // RCB's second match
       
-      // Match 7: DC vs MI
-      { team: 'Deccan Chargers', runs: 22, overs: 5.0, matches: 1 }, // DC scored 22/4 in 5.0 overs (DC's third match)
-      { team: 'Mumbai Indians', runs: 17, overs: 5.0, matches: 1 }, // MI scored 17/6 in 5.0 overs (MI's second match)
+      // Match 7: DC vs MI (DC won)
+      { team: 'Deccan Chargers', runs: 22, overs: 5.0, matches: 1 }, // DC's third match
+      { team: 'Mumbai Indians', runs: 17, overs: 5.0, matches: 1 }, // MI's second match
       
-      // Match 8: SMC vs SRH
-      { team: 'SM Champions', runs: 44, overs: 5.0, matches: 1 }, // SMC scored 44/3 in 5.0 overs (SMC's second match)
-      { team: 'Sunrisers Hyderabad', runs: 45, overs: 3.3, matches: 1 }, // SRH scored 45/0 in 3.3 overs (SRH's third match)
+      // Match 8: SMC vs SRH (SRH won)
+      { team: 'SM Champions', runs: 44, overs: 5.0, matches: 1 }, // SMC's second match
+      { team: 'Sunrisers Hyderabad', runs: 45, overs: 3.3, matches: 1 }, // SRH's third match
+      
+      // Match 9: RS vs CSK (RS won)
+      { team: 'Rising Stars', runs: 101, overs: 5.0, matches: 1 }, // RS's third match
+      { team: 'Chennai Super Kings', runs: 12, overs: 5.0, matches: 1 }, // CSK's third match
+      
+      // Match 10: SMC vs RCB (RCB won)
+      { team: 'SM Champions', runs: 9, overs: 3.4, matches: 1 }, // SMC's third match
+      { team: 'Royal Challengers Bengaluru', runs: 12, overs: 0.4, matches: 1 }, // RCB's third match
     ];
 
     // Aggregate runs by team
@@ -78,37 +86,45 @@ const Stats: React.FC = () => {
   const getPurpleCapStats = () => {
     // Team bowling performance based on wickets taken in each match
     const teamWickets = [
-      // Match 1: DC vs SRH
+      // Match 1: DC vs SRH (SRH won)
       { team: 'Sunrisers Hyderabad', wickets: 6, runs: 30, overs: 5.0, matches: 1 }, // SRH took 6 DC wickets
       { team: 'Deccan Chargers', wickets: 4, runs: 34, overs: 3.4, matches: 1 }, // DC took 4 SRH wickets
       
-      // Match 2: RS vs RCB
+      // Match 2: RS vs RCB (RS won)
       { team: 'Rising Stars', wickets: 9, runs: 20, overs: 5.0, matches: 1 }, // RS took 9 RCB wickets
       { team: 'Royal Challengers Bengaluru', wickets: 8, runs: 71, overs: 5.0, matches: 1 }, // RCB took 8 RS wickets
       
-      // Match 3: MI vs CSK
+      // Match 3: CSK vs MI (CSK won)
       { team: 'Chennai Super Kings', wickets: 6, runs: 21, overs: 5.0, matches: 1 }, // CSK took 6 MI wickets
       { team: 'Mumbai Indians', wickets: 1, runs: 55, overs: 5.0, matches: 1 }, // MI took 1 CSK wicket
       
-      // Match 4: DC vs SMC
+      // Match 4: SMC vs DC (DC won)
       { team: 'Deccan Chargers', wickets: 6, runs: 32, overs: 5.0, matches: 1 }, // DC took 6 SMC wickets (DC's second match)
       { team: 'SM Champions', wickets: 2, runs: 33, overs: 3.4, matches: 1 }, // SMC took 2 DC wickets
       
-      // Match 5: SRH vs RS
+      // Match 5: SRH vs RS (RS won)
       { team: 'Rising Stars', wickets: 5, runs: 14, overs: 5.0, matches: 1 }, // RS took 5 SRH wickets (RS's second match)
       { team: 'Sunrisers Hyderabad', wickets: 3, runs: 18, overs: 1.2, matches: 1 }, // SRH took 3 RS wickets (SRH's second match)
       
-      // Match 6: RCB vs CSK
+      // Match 6: CSK vs RCB (RCB won)
       { team: 'Royal Challengers Bengaluru', wickets: 9, runs: 50, overs: 5.0, matches: 1 }, // RCB took 9 CSK wickets (RCB's second match)
       { team: 'Chennai Super Kings', wickets: 1, runs: 52, overs: 4.3, matches: 1 }, // CSK took 1 RCB wicket (CSK's second match)
       
-      // Match 7: DC vs MI
+      // Match 7: DC vs MI (DC won)
       { team: 'Deccan Chargers', wickets: 6, runs: 17, overs: 5.0, matches: 1 }, // DC took 6 MI wickets (DC's third match)
       { team: 'Mumbai Indians', wickets: 4, runs: 22, overs: 5.0, matches: 1 }, // MI took 4 DC wickets (MI's second match)
       
-      // Match 8: SMC vs SRH
-      { team: 'SM Champions', wickets: 0, runs: 45, overs: 3.3, matches: 1 }, // SMC took 0 SRH wickets (SMC's second match)
+      // Match 8: SMC vs SRH (SRH won)
       { team: 'Sunrisers Hyderabad', wickets: 3, runs: 44, overs: 5.0, matches: 1 }, // SRH took 3 SMC wickets (SRH's third match)
+      { team: 'SM Champions', wickets: 0, runs: 45, overs: 3.3, matches: 1 }, // SMC took 0 SRH wickets (SMC's second match)
+      
+      // Match 9: RS vs CSK (RS won)
+      { team: 'Rising Stars', wickets: 10, runs: 12, overs: 5.0, matches: 1 }, // RS took 10 CSK wickets (RS's third match)
+      { team: 'Chennai Super Kings', wickets: 2, runs: 101, overs: 5.0, matches: 1 }, // CSK took 2 RS wickets (CSK's third match)
+      
+      // Match 10: SMC vs RCB (RCB won)
+      { team: 'Royal Challengers Bengaluru', wickets: 10, runs: 9, overs: 3.4, matches: 1 }, // RCB took 10 SMC wickets (RCB's third match)
+      { team: 'SM Champions', wickets: 0, runs: 12, overs: 0.4, matches: 1 }, // SMC took 0 RCB wickets (SMC's third match)
     ];
 
     // Aggregate wickets by team

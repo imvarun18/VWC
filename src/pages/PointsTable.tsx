@@ -31,7 +31,12 @@ const PointsTable: React.FC = () => {
   
   // Function to get detailed NRR calculation for a team
   const getNRRDetails = (teamId: string) => {
-    const completedMatches = matches.filter(match => match.status === 'completed');
+    // Find the team from points table to get the correct NRR
+    const pointsTableEntry = pointsTable.find(entry => entry.team.id === teamId);
+    if (!pointsTableEntry) {
+      return { runsScored: 0, ballsFaced: 0, oversFaced: 0, runRate: 0, runsConceded: 0, ballsBowled: 0, oversBowled: 0, concededRate: 0, nrr: 0 };
+    }
+
     let runsScored = 0, ballsFaced = 0, runsConceded = 0, ballsBowled = 0;
     
     // Helper function to convert overs.balls to total balls
@@ -57,15 +62,15 @@ const PointsTable: React.FC = () => {
           { team: 'Royal Challengers Bengaluru', runs: 20, wickets: 9, overs: 5.0 }
         ]
       },
-      { // Match 3: MI vs CSK (CSK won)
-        teams: ['Mumbai Indians', 'Chennai Super Kings'],
+      { // Match 3: CSK vs MI (CSK won)
+        teams: ['Chennai Super Kings', 'Mumbai Indians'],
         scores: [
-          { team: 'Mumbai Indians', runs: 21, wickets: 6, overs: 5.0 },
-          { team: 'Chennai Super Kings', runs: 55, wickets: 1, overs: 5.0 }
+          { team: 'Chennai Super Kings', runs: 55, wickets: 1, overs: 5.0 },
+          { team: 'Mumbai Indians', runs: 21, wickets: 6, overs: 5.0 }
         ]
       },
-      { // Match 4: DC vs SMC (DC won)
-        teams: ['Deccan Chargers', 'SM Champions'],
+      { // Match 4: SMC vs DC (DC won)
+        teams: ['SM Champions', 'Deccan Chargers'],
         scores: [
           { team: 'SM Champions', runs: 32, wickets: 6, overs: 5.0 },
           { team: 'Deccan Chargers', runs: 33, wickets: 2, overs: 3.4 }
@@ -77,6 +82,41 @@ const PointsTable: React.FC = () => {
           { team: 'Sunrisers Hyderabad', runs: 14, wickets: 5, overs: 5.0 },
           { team: 'Rising Stars', runs: 18, wickets: 3, overs: 1.2 }
         ]
+      },
+      { // Match 6: CSK vs RCB (RCB won)
+        teams: ['Chennai Super Kings', 'Royal Challengers Bengaluru'],
+        scores: [
+          { team: 'Chennai Super Kings', runs: 50, wickets: 9, overs: 5.0 },
+          { team: 'Royal Challengers Bengaluru', runs: 52, wickets: 1, overs: 4.3 }
+        ]
+      },
+      { // Match 7: DC vs MI (DC won)
+        teams: ['Deccan Chargers', 'Mumbai Indians'],
+        scores: [
+          { team: 'Deccan Chargers', runs: 22, wickets: 4, overs: 5.0 },
+          { team: 'Mumbai Indians', runs: 17, wickets: 6, overs: 5.0 }
+        ]
+      },
+      { // Match 8: SMC vs SRH (SRH won)
+        teams: ['SM Champions', 'Sunrisers Hyderabad'],
+        scores: [
+          { team: 'SM Champions', runs: 44, wickets: 3, overs: 5.0 },
+          { team: 'Sunrisers Hyderabad', runs: 45, wickets: 0, overs: 3.3 }
+        ]
+      },
+      { // Match 9: RS vs CSK (RS won)
+        teams: ['Rising Stars', 'Chennai Super Kings'],
+        scores: [
+          { team: 'Rising Stars', runs: 101, wickets: 2, overs: 5.0 },
+          { team: 'Chennai Super Kings', runs: 12, wickets: 10, overs: 5.0 }
+        ]
+      },
+      { // Match 10: SMC vs RCB (RCB won)
+        teams: ['SM Champions', 'Royal Challengers Bengaluru'],
+        scores: [
+          { team: 'SM Champions', runs: 9, wickets: 10, overs: 3.4 },
+          { team: 'Royal Challengers Bengaluru', runs: 12, wickets: 0, overs: 0.4 }
+        ]
       }
     ];
     
@@ -84,28 +124,24 @@ const PointsTable: React.FC = () => {
     const currentTeam = teams.find(team => team.id === teamId);
     if (!currentTeam) return { runsScored: 0, ballsFaced: 0, oversFaced: 0, runRate: 0, runsConceded: 0, ballsBowled: 0, oversBowled: 0, concededRate: 0, nrr: 0 };
     
-    // Process each completed match
-    completedMatches.forEach((match, matchIndex) => {
-      if (matchIndex < matchResults.length) {
-        const matchData = matchResults[matchIndex];
-        
-        // Check if current team played in this match
-        const teamPlayedInMatch = match.team1?.name === currentTeam.name || match.team2?.name === currentTeam.name;
-        
-        if (teamPlayedInMatch) {
-          // Find team's batting and bowling performance
-          matchData.scores.forEach(score => {
-            if (score.team === currentTeam.name) {
-              // This team's batting performance
-              runsScored += score.runs;
-              ballsFaced += oversToTotalBalls(score.overs);
-            } else {
-              // Opposition's batting (this team's bowling)
-              runsConceded += score.runs;
-              ballsBowled += oversToTotalBalls(score.overs);
-            }
-          });
-        }
+    // Process each match to get the actual runs and balls data
+    matchResults.forEach(matchData => {
+      // Check if current team played in this match
+      const teamPlayedInMatch = matchData.teams.includes(currentTeam.name);
+      
+      if (teamPlayedInMatch) {
+        // Find team's batting and bowling performance
+        matchData.scores.forEach(score => {
+          if (score.team === currentTeam.name) {
+            // This team's batting performance
+            runsScored += score.runs;
+            ballsFaced += oversToTotalBalls(score.overs);
+          } else {
+            // Opposition's batting (this team's bowling)
+            runsConceded += score.runs;
+            ballsBowled += oversToTotalBalls(score.overs);
+          }
+        });
       }
     });
     
@@ -125,7 +161,7 @@ const PointsTable: React.FC = () => {
       ballsBowled,
       oversBowled,
       concededRate,
-      nrr: runRate - concededRate
+      nrr: pointsTableEntry.nrr // Use the official NRR from points table
     };
   };
   
